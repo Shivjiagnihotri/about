@@ -1,7 +1,0 @@
-/*.iml
-.idea
-node_modules
-webapp/bower_components/
-.tmp
-/public
-resume.json
