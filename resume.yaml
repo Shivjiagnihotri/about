@@ -1,165 +1,97 @@
 basics:
-  name: Alexander Matyushentsev
-  label: Principal Software Engineer
+  name: Shivji Agnihotri
+  label: AI ML Engineer
   picture: https://s.gravatar.com/avatar/55d5745f8028fd3fd9515901aeb35aba?s=80
-  email: amatyushentsev@gmail.com
+  email: shivjiagnihotri@outlook.com
   website: https://alexmt.github.io
-  summary: |
-     Argo Co-Creator, Argo CD Lead, and maintainer. Energetic and passionate software engineer with over a decade of software development experience.
-     I'm an enthusiast of continuous integration, agile environments, and a huge open-source believer. Core contributor and maintainer of [http://argoproj.io/](https://argoproj.io) projects.
+  summary: https://shivjiagnihotri-k5c2x2g.gamma.site/
+     Energetic and passionate Machine Learning and AI engineer with around 6 months of development experience.
+     I'm an enthusiast of continuous integration, agile environments, and a huge open-source believer.
   location:
-    countryCode: US
-    region: California
+    countryCode: IN
+    region: Bengaluru
   profiles:
-    - network: Twitter
-      username: a_matyushentsev
-      url: https://twitter.com/a_matyushentsev
+    - network: Instagram
+      username: shivji.agnihotri
+      url: https://www.instagram.com/shivji.agnihotri/
     - network: GitHub
-      username: alexmt
-      url: https://github.com/alexmt
+      username: Shivjiagnihotri
+      url: https://github.com/Shivjiagnihotri
     - network: LinkedIn
-      username: amatyushentsev
-      url: https://www.linkedin.com/in/amatyushentsev/
+      username: shivjiagnihotri
+      url: https://www.linkedin.com/in/shivjiagnihotri/
 work:
-  - company: Akuity
-    position: Co-founder and Chief Architect at Akuity
-    website: https://akuity.io
-    startDate: '2022-03-01'
-    summary: Pushing Argo to the next level.
-  - company: Intuit
-    position: Principal Software Engineer
-    website: https://www.intuit.com/
-    startDate: '2018-01-01'
-    endDate: '2022-03-01'
-    summary: Help building Intuit SaaS Platform using containers and Kubernetes on AWS.
+  - company: Dotkonnekt
+    position: ML AI Engineer
+    website: https://dotkonnekt.com/
+    startDate: '2023-10-14'
+    summary: Bringing Content, Commerce and Community together.
+ 
     highlights:
-      - Core engineer on Argo CD and Argo Rollout projects ([http://argoproj.io/](http://argoproj.io/)).
-      - Responsible for running Argo CD as a service for hundreds of developers at Intuit powering 1k+ deployments every day.
-      - Helped to evangelize GitOps at Intuit and drive its adoption. Onboarded very first team at Intuit to Argo CD.
-      - Contributed to Argo CD adoption outside of Intuit.
-  - company: Applatix (acquired by Intuit)
-    position: Member of Technical Staff
-    website: https://www.applatix.com/
-    startDate: '2016-08-01'
-    endDate: '2018-01-01'
-    summary: Argo - an Open Source Workflow Engine for Kubernetes ([http://argoproj.io/](http://argoproj.io/))
-    highlights:
-      - Prototyped 'lightweight' workflow engine implementation which leaded to the current design of Argo workflow engine.
-      - Lead Argo v1/v2 UI development.
-      - Lead Applatix self-service Portal API/UI development.
-  - company: First Rain (acquired by Ignite Technologies)
-    position: Senior Software Engineer
-    website: https://www.applatix.com/
-    startDate: '2015-10-01'
-    endDate: '2016-08-01'
-    summary: Just-in-time analytics and sales and marketing intelligence
-    highlights:
-      - Actively participated in FirstRain Orion API development.
+      - Training and Evaluating models
+      - Fine tuning and pre-training large langauge models for specific use cases.
+      - Training and deploying models
+      - Creating APIs of models using Flask
+      - Gathering Insights through web scrapping and crawling
+      - Dataset creation and cleaning, feature engineering to gather Insights.
+      - Deploying models and creating pipelines on Microsoft Azure or AWS
+      - Automating the pipelines
+      - Using AWZ Sagemaker for training, testing and loading models.
+      - Working with large language models such as Falcon7B, Llama 2, Flan-t5, BERT, RoBERTa
+      - Helped to evangelize GitOps and drive its adoption.
+      - Actively participated in Fast API development.
       - Contributed into company development guidelines
-      - Introduced Checkstyle and Findbugs usage for Java code static analysis
-  - company: Ooyala (aquired by Dalet)
-    position: Senior Software Engineer
-    website: https://www.dalet.com/ooyala-flex-media-platform
-    startDate: '2014-10-01'
-    endDate: '2015-10-01'
-    summary: Manage, curate, orchestrate, deliver and monetize your content
-    highlights:
-      - Analyzed business requirements and participated in implementation of next-gen content management system for Ooyala
-      - Worked on workflow management implementation using Groovy and Java
-      - Participated in REST API implementation using Ruby and Sinatra
-  - company: EPAM Systems
-    position: Senior Software Engineer
-    website: https://www.epam.com/
-    startDate: '2011-09-01'
-    endDate: '2014-10-01'
-    summary: Helped Google building DoubleClick Data Platform
-    highlights:
-      - Contributed into DoubleClick Data Platform (DDP) API development. Worked on new API features implementation, starting from requirements analysis to production deployment.
-      - Participated in implementation of DDP UI for third party data providers. 
-      - Improved DDP build, continuous integration and release process.
-      - Implemented QPS throttling service for legacy DoubleClick UI which helped migration to DFP.
-
-  - company: Paladyne Systems (aquired by Broadridge)
-    position: Senior Software Engineer
-    website: http://paladyne.com/
-    startDate: '2010-10-01'
-    endDate: '2011-02-01'
-    summary: Enhance and simplify portfolio management
-    highlights:
-      - leaded Paladyne Report Manager development.
-      - researched and performed first steps of migration from Silverlight to JS/HTML5.
-
-  - company: AVICode
-    position: Senior Software Engineer
-    website: http://paladyne.com/
-    startDate: '2007-08-01'
-    endDate: '2011-02-01'
-    summary: SaaS-based ELM software solution for legal spend and matter management and claims defense
-    highlights:
-      - Actively participated in development of CT TyMetrix 360°.
-      - Designed, planned and led development of important CT TyMetrix 360° feature (AFA).
-      - Contributed into internal Ajax framework development.
-      - Worked on migrating application to ASP.NET MVC
-      - Helped developing unit testing standards and coding guidelines for the company.
+      - Analyzed business requirements and participated in implementation of next-gen content management system
+      - Worked on workflow management implementation using python
+      - Participated in REST API implementation using Fast API
+      - Helped building Google Keyword planner data platform
+      - Worked on new API features implementation, starting from requirements analysis to production deployment.
+      - Improved and build systems while participating in continuous integration and release process.
+      - researched and performed first steps of migration from AI content to researched based AI copilot generated content.
+      
 awards: []
 volunteer: []
 references: []
 education: 
   - institution: Orenburg State University
-    area: Information Technology
-    studyType: Master
-    startDate: '2002-09-01'
-    endDate: '2007-08-01'
+    area: Computer Science 
+    studyType: Bachelor of Engineering
+    startDate: '2019-07-01'
+    endDate: '2023-08-01'
 publications: 
-  - name: Argoproj Blogs
-    publisher: Medium (https://medium.com/@amatyushentsev)
-    website: https://medium.com/@amatyushentsev
-    releaseDate: 2017 ~ Now
-  - name: GitOps - Taking Stock, Looking Ahead
-    publisher: Software Circus (https://bit.ly/alextalks-gitopspanel2020-us)
-    website: https://bit.ly/alextalks-gitopspanel2020-us
-    releaseDate: '2019'
-  - name: GitOps and Kubernetes
-    publisher: Manning (http://bit.ly/gitops-and-k8s)
-    website: https://www.manning.com/books/gitops-and-kubernetes
-    releaseDate: '2019'
-  - name: How Intuit Does Canary and Blue Green Deployments with a K8s Controller
-    publisher: Kubecon 2019, Europe (http://bit.ly/alextalks-kubecon2019-eu)
-    website: http://bit.ly/alextalks-kubecon2019-eu
-    releaseDate: '2019'
-  - name: Everything You Need To Become a GitOps Ninja
-    publisher: Kubecon 2019, North America (http://bit.ly/alextalks-kubecon2019-us)
-    website: http://bit.ly/alextalks-kubecon2019-us
-    releaseDate: '2019'
+  - name: Blog site
+    website: Blogspot (https://shivjiagnihotri.blogspot.com/)
+  - name: Majha Rojgar
+    website: Blogspot (https://www.majharojgar.in/)
 skills:
   - name: Backend
-    level: Master
+    level: Intermediate
     keywords: 
-      - Golang
-      - Java
-      - .Net
+      - Python
+      - FastAPI
+      - Flask API
   - name: Frontend
-    level: Master
+    level: Intermediate
     keywords: 
       - HTML
       - CSS
       - Javascript
-      - Typescript
+      - Streamlit
   - name: Database
-    level: Master
+    level: Intermediate
     keywords: 
       - MySQL
-      - MSSQL
+      - PostgreSQL
   - name: DevOps
     level: Master
     keywords: 
-      - Kubernetes
-      - AWS
       - Containers
+      - AWS
+      - Kubernetes
 languages: 
   - language: English
-  - language: Russian
+  - language: Hindi
 interests: 
-  - name: Climbing
-  - name: Opensource
-  - name: Running
+  - name: Audio Books
+  - name: Traveling
+  - name: Podcast
