@@ -1,0 +1,25 @@
+name: Deploy
+
+on: [push]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup NodeJS
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: build
+      run: |
+        npm ci
+        npm run build
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./public
