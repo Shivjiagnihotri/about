@@ -87,7 +87,7 @@ skills:
     keywords: 
       - Containers
       - AWS
-      - Kubernetes
+      - Docker
 languages: 
   - language: English
   - language: Hindi
