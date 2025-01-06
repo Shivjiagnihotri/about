@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Essential for responsive design -->
     <title>Shivji Agnihotri - AI/ML Engineer & Data Scientist</title>
     <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikipedia-logo-en-big.png">
 
@@ -12,7 +13,7 @@
             --text-color: #1f2937;
             --bg-light: #f3f4f6;
         }
-        
+
         body {
             font-family: system-ui, -apple-system, sans-serif;
             line-height: 1.6;
@@ -100,6 +101,51 @@
         .cta-button:hover {
             background: var(--secondary-color);
         }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .tech-stack {
+                justify-content: center;
+            }
+
+            .tech-item {
+                padding: 0.25rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.6rem;
+            }
+        }
         
         .skills-slider {
             width: 100%;
@@ -128,8 +174,8 @@
             height: 50px; /* Increased size of each icon */
             padding: 10px; /* Increased gap between icons */
         }
-
-
+        
+        
     </style>
 </head>
 <body>
@@ -141,6 +187,12 @@
         <a href="#contact" class="cta-button">Let's Connect</a>
     </div>
 </div>
+
+    <!-- The rest of your HTML content follows here, same as previously included. -->
+
+</body>
+</html>
+
 
 
     <div class="container">
@@ -258,7 +310,6 @@
                 </a>
             </div>
         </section>
-
 
     </div>
 </body>
