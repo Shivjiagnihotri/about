@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Essential for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Essential for responsive design -->
     <title>Shivji Agnihotri - AI/ML Engineer & Data Scientist</title>
     <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikipedia-logo-en-big.png">
 
@@ -11,6 +13,7 @@
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
             --text-color: #1f2937;
+            --text-color: #000000;
             --bg-light: #f3f4f6;
         }
 
@@ -50,9 +53,11 @@
             padding: 4rem 0;
         }
 
-        .section:nth-child(even) {
-            background-color: var(--bg-light);
-        }
+        /*.section:nth-child(even) {*/
+
+        /*    background-color: var(--bg-light);*/
+
+        /*}*/
 
         .grid {
             display: grid;
@@ -63,6 +68,7 @@
 
         .card {
             background: white;
+            background: #212121;
             border-radius: 8px;
             padding: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -78,6 +84,7 @@
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 2rem;
+            color: #000000;
         }
 
         .tech-item {
@@ -103,27 +110,23 @@
         }
 
         /* Media queries for responsiveness */
+
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
             }
-
             .hero h1 {
                 font-size: 2rem;
             }
-
             .hero p {
                 font-size: 1rem;
             }
-
             .grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
-
             .tech-stack {
                 justify-content: center;
             }
-
             .tech-item {
                 padding: 0.25rem 0.5rem;
             }
@@ -133,184 +136,269 @@
             .hero {
                 padding: 2rem 1rem;
             }
-
             .hero h1 {
                 font-size: 1.5rem;
             }
-
             .hero p {
                 font-size: 0.9rem;
             }
-
             .cta-button {
                 padding: 0.8rem 1.6rem;
             }
         }
-        
+
         .skills-slider {
             width: 100%;
             overflow: hidden;
             position: relative;
-            height: 60px;  /* Adjusted for larger icons */
+            height: 60px;
+            /* Adjusted for larger icons */
         }
-        
+
         .skills-container {
             display: flex;
-            white-space: nowrap; /* Ensure icons stay in a single line */
+            white-space: nowrap;
+            /* Ensure icons stay in a single line */
             animation: slide 15s linear infinite;
         }
-        
+
         @keyframes slide {
             from {
                 transform: translateX(100%);
             }
             to {
-                transform: translateX(-100%);
+                transform: translateX(-350%);
             }
         }
-        
+
         img {
-            width: 50px;  /* Increased size of each icon */
-            height: 50px; /* Increased size of each icon */
-            padding: 10px; /* Increased gap between icons */
+            width: 50px;
+            /* Increased size of each icon */
+            height: 50px;
+            /* Increased size of each icon */
+            padding: 10px;
+            /* Increased gap between icons */
         }
-        
-        
+
+        /* From Uiverse.io by kennyotsu */
+
+        .card {
+            /* color used to softly clip top and bottom of the .words container */
+            --bg-color: #212121;
+            background-color: var(--bg-color);
+            padding: 1rem 2rem;
+            border-radius: 1.25rem;
+        }
+
+        .loader {
+            color: rgb(124, 124, 124);
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            height: 31px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            border-radius: 80px;
+        }
+
+        .words {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .words::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient( var(--bg-color) 10%, transparent 30%, transparent 70%, var(--bg-color) 90%);
+            z-index: 20;
+        }
+
+        .word {
+            display: block;
+            height: 900%;
+            padding-left: 6px;
+            color: #ffffff;
+            animation: spin_4991 8s infinite;
+        }
+
+        @keyframes spin_4991 {
+            10% {
+                -webkit-transform: translateY(-102%);
+                transform: translateY(-102%);
+            }
+            25% {
+                -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+            }
+            35% {
+                -webkit-transform: translateY(-202%);
+                transform: translateY(-202%);
+            }
+            50% {
+                -webkit-transform: translateY(-200%);
+                transform: translateY(-200%);
+            }
+            60% {
+                -webkit-transform: translateY(-302%);
+                transform: translateY(-302%);
+            }
+            75% {
+                -webkit-transform: translateY(-300%);
+                transform: translateY(-300%);
+            }
+            85% {
+                -webkit-transform: translateY(-402%);
+                transform: translateY(-402%);
+            }
+            100% {
+                -webkit-transform: translateY(-400%);
+                transform: translateY(-400%);
+            }
+        }
     </style>
 </head>
+
 <body>
-   <div class="hero">
-    <div class="container">
-        <img src="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512" alt="Shivji Agnihotri" style="width: 150px; height: 150px; border-radius: 50%;">
-        <h1>Shivji Agnihotri</h1>
-        <p>Transforming Data into Intelligence | AI/ML Engineer & Data Scientist</p>
-        <a href="#contact" class="cta-button">Let's Connect</a>
-    </div>
-</div>
+    <div class="hero">
+        <div class="container">
+            <img src="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512" alt="Shivji Agnihotri" style="width: 150px; height: 150px; border-radius: 50%;">
+            <h1>Shivji Agnihotri</h1>
+            <p>Transforming Data into Intelligence | AI/ML Engineer & Data Scientist</p>
 
-    <!-- The rest of your HTML content follows here, same as previously included. -->
-
-</body>
-</html>
-
-
-
-    <div class="container">
-        <section class="section">
-            <h2>Mission Statement</h2>
-            <p>Dedicated to leveraging cutting-edge AI/ML technologies to solve complex business challenges and drive innovation. With expertise in backend development, data science, and machine learning, I'm passionate about creating scalable solutions that make a tangible impact.</p>
-            
-            <div class="tech-stack">
-                <div class="tech-item">Python</div>
-                <div class="tech-item">TensorFlow</div>
-                <div class="tech-item">PyTorch</div>
-                <div class="tech-item">AWS</div>
-                <div class="tech-item">Docker</div>
-                <div class="tech-item">FastAPI</div>
-            </div>
-        </section>
-        
-        <div class="skills-slider">
-        <div class="skills-container">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" title="Grafana" alt="Grafana" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" title="GitHub" alt="GitHub" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bitbucket/bitbucket-original.svg" title="Bitbucket" alt="Bitbucket" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" title="Python" alt="Python" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original-wordmark.svg" title="Jupyter" alt="Jupyter" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original-wordmark.svg" title="Pandas" alt="Pandas" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" title="TensorFlow" alt="TensorFlow" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" title="PyTorch" alt="PyTorch" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" title="VS Code" alt="VS Code" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg" title="Postman" alt="Postman" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" title="Neo4j" alt="Neo4j" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" title="AWS" alt="AWS" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original-wordmark.svg" title="Git" alt="Git" width="40" height="40"/>
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" title="NodeJS" alt="NodeJS" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original-wordmark.svg" title="FastAPI" alt="FastAPI" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" title="PostgreSQL" alt="PostgreSQL" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" title="Docker" alt="Docker" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-original.svg" title="Next.js" alt="Next.js" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain-wordmark.svg" title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" title="Scikit-learn" alt="Scikit-learn" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg" title="Streamlit" alt="Streamlit" width="40" height="40"/>&nbsp;
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" title="Flask" alt="Flask" width="40" height="40"/>&nbsp;
-
-            </div>
+            <a href="#contact" div class="cta-button">
+                <div class="loader">
+                    <div class="words">
+                        <span class="word">Let's talk</span>
+                        <span class="word">Let's speak</span>
+                        <span class="word">Let's chat</span>
+                        <span class="word">Let's connect</span>
+                        <span class="word">Let's talk</span>
+                    </div>
+                </div>
+            </a>
         </div>
 
-        <section class="section">
-            <h2>Core Expertise</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>AI & Machine Learning</h3>
-                    <ul>
-                        <li>Large Language Models (LLM): Gemini, BERT, Llama, RoBERTa, Mixtral</li>
-                        <li>Deep Learning & Neural Networks</li>
-                        <li>Natural Language Processing</li>
-                        <li>Computer Vision Applications</li>
-                    </ul>
+
+        <div class="container">
+            <section class="section">
+                <h2>Mission Statement</h2>
+                <p>Dedicated to leveraging cutting-edge AI/ML technologies to solve complex business challenges and drive innovation. With expertise in backend development, data science, and machine learning, I'm passionate about creating scalable solutions
+                    that make a tangible impact.</p>
+
+                <div class="tech-stack">
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">TensorFlow</div>
+                    <div class="tech-item">PyTorch</div>
+                    <div class="tech-item">AWS</div>
+                    <div class="tech-item">Docker</div>
+                    <div class="tech-item">FastAPI</div>
                 </div>
-                <div class="card">
-                    <h3>Data Engineering</h3>
-                    <ul>
-                        <li>Data Preprocessing & Feature Engineering</li>
-                        <li>ETL Pipeline Development</li>
-                        <li>Database Design & Optimization</li>
-                        <li>Big Data Processing</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Cloud & Infrastructure</h3>
-                    <ul>
-                        <li>AWS Services (EC2, S3, DynamoDB)</li>
-                        <li>Azure Pipeline & AI Services</li>
-                        <li>Docker Containerization</li>
-                        <li>CI/CD Implementation</li>
-                    </ul>
+            </section>
+
+            <div class="skills-slider">
+                <div class="skills-container">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" title="Grafana" alt="Grafana" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" title="GitHub" alt="GitHub" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bitbucket/bitbucket-original.svg" title="Bitbucket" alt="Bitbucket" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" title="Python" alt="Python" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original-wordmark.svg" title="Jupyter" alt="Jupyter" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original-wordmark.svg" title="Pandas" alt="Pandas" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" title="TensorFlow" alt="TensorFlow" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" title="PyTorch" alt="PyTorch" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" title="VS Code" alt="VS Code" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg" title="Postman" alt="Postman" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" title="Neo4j" alt="Neo4j" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" title="AWS" alt="AWS" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original-wordmark.svg" title="Git" alt="Git" width="40" height="40" />
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" title="NodeJS" alt="NodeJS" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original-wordmark.svg" title="FastAPI" alt="FastAPI" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" title="PostgreSQL" alt="PostgreSQL" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" title="Docker" alt="Docker" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-original.svg" title="Next.js" alt="Next.js" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain-wordmark.svg" title="CSS3" alt="CSS" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" title="Scikit-learn" alt="Scikit-learn" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg" title="Streamlit" alt="Streamlit" width="40" height="40" />&nbsp;
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" title="Flask" alt="Flask" width="40" height="40" />&nbsp;
+
                 </div>
             </div>
-        </section>
 
-        <section class="section">
-            <h2>Professional Strengths</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Technical Proficiency</h3>
-                    <p>Advanced expertise in Python, Node.js, and SQL, with extensive experience in modern ML frameworks and cloud platforms. Proven ability to architect and implement complex AI solutions.</p>
+            <section class="section">
+                <h2>Core Expertise</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>AI & Machine Learning</h3>
+                        <ul>
+                            <li>Large Language Models (LLM): Gemini, BERT, Llama, RoBERTa, Mixtral</li>
+                            <li>Deep Learning & Neural Networks</li>
+                            <li>Natural Language Processing</li>
+                            <li>Computer Vision Applications</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Data Engineering</h3>
+                        <ul>
+                            <li>Data Preprocessing & Feature Engineering</li>
+                            <li>ETL Pipeline Development</li>
+                            <li>Database Design & Optimization</li>
+                            <li>Big Data Processing</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Cloud & Infrastructure</h3>
+                        <ul>
+                            <li>AWS Services (EC2, S3, DynamoDB)</li>
+                            <li>Azure Pipeline & AI Services</li>
+                            <li>Docker Containerization</li>
+                            <li>CI/CD Implementation</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Problem Solving</h3>
-                    <p>Strong analytical mindset with a track record of solving complex technical challenges. Expertise in optimizing ML models and improving system performance.</p>
-                </div>
-                <div class="card">
-                    <h3>Leadership & Collaboration</h3>
-                    <p>Effective team player with excellent communication skills. Experience in leading technical projects and mentoring junior developers.</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="contact" class="section">
-            <h2>Let's Create Something Amazing</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-            <div class="tech-stack">
-                <a href="mailto:shivjiagnihotri@outlook.com" class="tech-item">
+            <section class="section">
+                <h2>Professional Strengths</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Technical Proficiency</h3>
+                        <p>Advanced expertise in Python, Node.js, and SQL, with extensive experience in modern ML frameworks and cloud platforms. Proven ability to architect and implement complex AI solutions.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Problem Solving</h3>
+                        <p>Strong analytical mindset with a track record of solving complex technical challenges. Expertise in optimizing ML models and improving system performance.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Leadership & Collaboration</h3>
+                        <p>Effective team player with excellent communication skills. Experience in leading technical projects and mentoring junior developers.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Let's Create Something Amazing</h2>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                <div class="tech-stack" style="display: flex; justify-content: center; align-items: center;">
+                    <a href="mailto:shivjiagnihotri@outlook.com" class="tech-item">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg" alt="Email" style="height: 26px; vertical-align: middle;">
-                    Email
                 </a>
-                <a href="https://linkedin.com/in/shivjiagnihotri" class="tech-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="height: 24px; vertical-align: middle; width: 80px">
-                    LinkedIn
+                    <a href="https://linkedin.com/in/shivjiagnihotri" class="tech-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="height: 24px; vertical-align: middle; width: 90px">
                 </a>
-                <a href="https://github.com/shivjiagnihotri" class="tech-item">
+                    <a href="https://github.com/shivjiagnihotri" class="tech-item">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" style="height: 26px; vertical-align: middle;">
-                    GitHub
                 </a>
-            </div>
-        </section>
+                </div>
+            </section>
 
+        </div>
     </div>
 </body>
+
 </html>
