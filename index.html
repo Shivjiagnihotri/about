@@ -13,7 +13,7 @@
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
             --text-color: #1f2937;
-            --text-color: #000000;
+            --text-color: #2a2a3b;
             --bg-light: #f3f4f6;
         }
 
@@ -71,8 +71,6 @@
         }
 
         .card {
-            /*background: white;*/
-            background: #212121;
             border-radius: 8px;
             padding: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -88,8 +86,8 @@
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 2rem;
-            color: #000000;
-            /*margin: auto;*/
+            color: #ffffff;
+            margin: auto;
         }
 
         .tech-item {
@@ -101,15 +99,14 @@
 
         .cta-button {
             display: inline-block;
-            background: var(--primary-color);
-            background-color: #1E3A8A;
-            /* Bright Blue */
-            color: white;
+            /*background: var(--primary-color);*/
+            background-color: #000000;
+            color: black;
             padding: 1rem 2rem;
-            border-radius: 4px;
+            border-radius: 100px;
             text-decoration: none;
             margin-top: 2rem;
-            transition: background 0.3s ease;
+            transition: background 0.9s ease;
         }
 
         .cta-button:hover {
@@ -169,6 +166,13 @@
             animation: slide 15s linear infinite;
         }
 
+        .skills-container img {
+            border: 6px white;
+            border-radius: 60px;
+            background-color: white;
+            padding: 5px;
+        }
+
         @keyframes slide {
             from {
                 transform: translateX(100%);
@@ -191,7 +195,7 @@
 
         .card {
             /* color used to softly clip top and bottom of the .words container */
-            --bg-color: #333333;
+            --bg-color: #2a2a3b;
             background-color: var(--bg-color);
             padding: 1rem 2rem;
             border-radius: 1.25rem;
@@ -266,29 +270,97 @@
                 transform: translateY(-400%);
             }
         }
+
+        .lottie_hero_section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2563eb;
+        }
+
+        .lottie_animation_player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100% !important;
+            height: 100% !important;
+            transform: scale(1.5);
+            transform-origin: center center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .lottie_content_wrapper {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            color: #ffffff;
+        }
+
+        .lottie_content_wrapper img {
+            margin-bottom: 20px;
+        }
+
+        .lottie_content_wrapper h1 {
+            margin: 15px 0;
+        }
+
+        .lottie_content_wrapper p {
+            margin: 15px 0;
+        }
+
+        /* Media queries for responsive design */
+
+        @media screen and (max-width: 768px) {
+            .lottie_animation_player {
+                transform: scale(6);
+                /* Increase from 2 to 2.5 for better coverage */
+            }
+        }
     </style>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
 <body>
-    <div class="hero">
-        <div class="container">
+
+
+    <div class="lottie_hero_section">
+        <!-- Lottie Background Animation -->
+        <dotlottie-player class="lottie_animation_player" src="https://lottie.host/5dc52378-0945-4f86-b0cd-2781ab8f38df/23IgtC7qRi.lottie" background="transparent" speed="3" loop autoplay>
+        </dotlottie-player>
+
+        <!-- Content -->
+        <div class="lottie_content_wrapper">
             <img src="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512" alt="Shivji Agnihotri" style="width: 150px; height: 150px; border-radius: 50%;">
             <h1>Shivji Agnihotri</h1>
             <p>Transforming Data into Intelligence | AI/ML Engineer & Data Scientist</p>
-
-            <a href="#contact" div class="cta-button">
+            <a href="#contact" class="cta-button">
                 <div class="loader">
                     <div class="words">
                         <span class="word">Let's talk</span>
+                        <span class="word">Let's connect</span>
                         <span class="word">Let's speak</span>
                         <span class="word">Let's chat</span>
-                        <span class="word">Let's connect</span>
                         <span class="word">Let's talk</span>
                     </div>
                 </div>
             </a>
         </div>
+    </div>
 
+
+    <div class="hero">
 
         <div class="container">
             <section class="section">
@@ -391,6 +463,8 @@
             <section id="contact" class="section">
                 <h2>Let's Create Something Amazing</h2>
                 <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                <br>
+                <br>
                 <div class="tech-stack" style="display: flex; justify-content: center; align-items: center;">
                     <a href="mailto:shivjiagnihotri@outlook.com" class="tech-item">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/%40_symbol.svg" alt="Email" style="height: 22px; width:22px; vertical-align: middle;">
