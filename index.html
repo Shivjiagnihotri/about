@@ -176,7 +176,9 @@
             display: flex;
             white-space: nowrap;
             /* Ensure icons stay in a single line */
-            animation: slide 15s linear infinite;
+            animation: slide 20s linear infinite;
+            gap: 4px;
+            /* Add space between icons */
         }
 
         .skills-container img {
@@ -192,7 +194,7 @@
             }
 
             to {
-                transform: translateX(-350%);
+                transform: translateX(-450%);
             }
         }
 
@@ -505,10 +507,10 @@
         }
 
 
-
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
+                /* Consistent padding on all sides */
             }
 
             .hero h1 {
@@ -520,8 +522,11 @@
             }
 
             .grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                /* Adjusted width */
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+                /* Consistent gap between cards */
+                padding: 0;
+                /* Remove extra padding */
             }
 
             .tech-stack {
@@ -531,21 +536,15 @@
             .tech-item {
                 padding: 0.25rem 0.5rem;
             }
-        }
 
-        @media (max-width: 768px) {
             .card {
+                margin: 0;
+                /* Remove extra margin */
                 padding: 1.5rem;
-                /* Adjust padding to ensure equal spacing */
-                margin: 0 0.5rem;
-                /* Ensure equal margin on both sides */
-            }
-
-            .grid {
-                gap: 1rem;
-                /* Adjust the gap between cards */
+                /* Consistent padding inside cards */
             }
         }
+
 
         html {
             scroll-behavior: smooth;
