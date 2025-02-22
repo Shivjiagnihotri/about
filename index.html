@@ -533,6 +533,24 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .card {
+                padding: 1.5rem;
+                /* Adjust padding to ensure equal spacing */
+                margin: 0 0.5rem;
+                /* Ensure equal margin on both sides */
+            }
+
+            .grid {
+                gap: 1rem;
+                /* Adjust the gap between cards */
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Subtle animated background */
 
         body::before {
@@ -724,6 +742,15 @@
         </div>
         <br> Copyright © 2025 All Rights Reserved
     </div>
+
+    <script>
+        document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
 
