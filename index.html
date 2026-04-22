@@ -1,794 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Essential for responsive design -->
-    <title>Shivji - AI/ML Engineer & Data Scientist</title>
-
-    <!-- Meta Description -->
-    <meta name="description" content="Shivji Agnihotri is an AI/ML Engineer and Data Scientist specializing in cutting-edge AI technologies, data engineering, and cloud solutions. Let's build something amazing!">
-
-    <!-- Canonical URL (Prevent duplicate content issues) -->
-    <link rel="canonical" href="https://shivjiagnihotri.tech/">
-
-    <!-- Open Graph Tags (For Social Media Sharing) -->
-    <meta property="og:title" content="Shivji Agnihotri - AI/ML Engineer & Data Scientist">
-    <meta property="og:description" content="Transforming Data into Intelligence | AI/ML Engineer & Data Scientist">
-    <meta property="og:image" content="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512">
-    <meta property="og:url" content="https://shivjiagnihotri.tech/">
-
-    <!-- Twitter Card Tags (For Twitter Sharing) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Shivji Agnihotri - AI/ML Engineer & Data Scientist">
-    <meta name="twitter:description" content="Transforming Data into Intelligence | AI/ML Engineer & Data Scientist">
-    <meta name="twitter:image" content="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?s=32">
-    <!--</head>-->
-
-
-    <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?s=32">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-color: #1f2937;
-            --text-color: #2a2a3b;
-            --bg-light: #f3f4f6;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section .card ul {
-            text-align: left;
-        }
-
-        /*.section:nth-child(even) {*/
-
-        /*    background-color: var(--bg-light);*/
-
-        /*}*/
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-            color: #ffffff;
-            margin: auto;
-        }
-
-        .tech-item {
-            background: var(--bg-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            /*background: var(--primary-color);*/
-            background-color: #000000;
-            color: black;
-            padding: 1rem 2rem;
-            border-radius: 100px;
-            text-decoration: none;
-            margin-top: 2rem;
-            transition: background 0.9s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--secondary-color);
-        }
-
-        /* Media queries for responsiveness */
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-
-            .tech-stack {
-                justify-content: center;
-            }
-
-            .tech-item {
-                padding: 0.25rem 0.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.6rem;
-            }
-        }
-
-        .skills-slider {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            height: 60px;
-            /* Adjusted for larger icons */
-        }
-
-        .skills-container {
-            display: flex;
-            white-space: nowrap;
-            /* Ensure icons stay in a single line */
-            animation: slide 20s linear infinite;
-            gap: 4px;
-            /* Add space between icons */
-        }
-
-        .skills-container img {
-            border: 6px white;
-            border-radius: 60px;
-            background-color: white;
-            padding: 5px;
-        }
-
-        @keyframes slide {
-            from {
-                transform: translateX(100%);
-            }
-
-            to {
-                transform: translateX(-450%);
-            }
-        }
-
-        img {
-            width: 50px;
-            /* Increased size of each icon */
-            height: 50px;
-            /* Increased size of each icon */
-            padding: 10px;
-            /* Increased gap between icons */
-        }
-
-        /* From Uiverse.io by kennyotsu */
-
-        .card {
-            /* color used to softly clip top and bottom of the .words container */
-            --bg-color: #2a2a3b;
-            background-color: var(--bg-color);
-            padding: 1rem 2rem;
-            border-radius: 1.25rem;
-        }
-
-        .loader {
-            color: rgb(124, 124, 124);
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            font-size: 20px;
-            -webkit-box-sizing: content-box;
-            box-sizing: content-box;
-            height: 31px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            border-radius: 80px;
-        }
-
-        .words {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .words::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(var(--bg-color) 10%, transparent 30%, transparent 70%, var(--bg-color) 90%);
-            z-index: 20;
-        }
-
-        .word {
-            display: block;
-            height: 900%;
-            padding-left: 6px;
-            color: #ffffff;
-            animation: spin_4991 8s infinite;
-        }
-
-        @keyframes spin_4991 {
-            10% {
-                -webkit-transform: translateY(-102%);
-                transform: translateY(-102%);
-            }
-
-            25% {
-                -webkit-transform: translateY(-100%);
-                transform: translateY(-100%);
-            }
-
-            35% {
-                -webkit-transform: translateY(-202%);
-                transform: translateY(-202%);
-            }
-
-            50% {
-                -webkit-transform: translateY(-200%);
-                transform: translateY(-200%);
-            }
-
-            60% {
-                -webkit-transform: translateY(-302%);
-                transform: translateY(-302%);
-            }
-
-            75% {
-                -webkit-transform: translateY(-300%);
-                transform: translateY(-300%);
-            }
-
-            85% {
-                -webkit-transform: translateY(-402%);
-                transform: translateY(-402%);
-            }
-
-            100% {
-                -webkit-transform: translateY(-400%);
-                transform: translateY(-400%);
-            }
-        }
-
-        .lottie_hero_section {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #2563eb;
-        }
-
-        .lottie_animation_player {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100% !important;
-            height: 100% !important;
-            transform: scale(1.5);
-            transform-origin: center center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .lottie_content_wrapper {
-            position: relative;
-            text-align: center;
-            z-index: 1;
-            padding: 20px;
-            width: 100%;
-            max-width: 600px;
-            color: #ffffff;
-        }
-
-        .lottie_content_wrapper img {
-            margin-bottom: 20px;
-        }
-
-        .lottie_content_wrapper h1 {
-            margin: 15px 0;
-        }
-
-        .lottie_content_wrapper p {
-            margin: 15px 0;
-        }
-
-        /* Media queries for responsive design */
-
-        @media screen and (max-width: 768px) {
-            .lottie_animation_player {
-                transform: scale(6);
-                /* Increase from 2 to 2.5 for better coverage */
-            }
-        }
-
-        :root {
-            --primary-gradient: linear-gradient(135deg, #4facfe 0%, #ffffff 100%);
-            --secondary-gradient: linear-gradient(to right, #4facfe 0%, #ffffff 100%);
-            /*--dark-bg: #0f1020;*/
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-color: #ffffff;
-            --accent-color: #00f2fe;
-        }
-
-        /** {*/
-
-        /*    margin: 0;*/
-
-        /*    padding: 0;*/
-
-        /*    box-sizing: border-box;*/
-
-        /*}*/
-
-        /*body {*/
-
-        /*    font-family: 'Inter', sans-serif;*/
-
-        /*    background-color: var(--dark-bg);*/
-
-        /*    color: var(--text-color);*/
-
-        /*    line-height: 1.6;*/
-
-        /*    overflow-x: hidden;*/
-
-        /*}*/
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-            perspective: 1000px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--secondary-gradient);
-            border-radius: 3px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            perspective: 1000px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform-style: preserve-3d;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            transform: rotate(-45deg);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card:hover {
-            transform: translateZ(20px) rotateX(5deg) rotateY(5deg) scale(1.05);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            background: var(--secondary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .card h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50%;
-            height: 4px;
-            background: var(--accent-color);
-        }
-
-        .card ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .card ul li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 300;
-        }
-
-        .card ul li::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .professional-strengths .card p {
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 300;
-        }
-
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-                /* Consistent padding on all sides */
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-                /* Consistent gap between cards */
-                padding: 0;
-                /* Remove extra padding */
-            }
-
-            .tech-stack {
-                justify-content: center;
-            }
-
-            .tech-item {
-                padding: 0.25rem 0.5rem;
-            }
-
-            .card {
-                margin: 0;
-                /* Remove extra margin */
-                padding: 1.5rem;
-                /* Consistent padding inside cards */
-            }
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Subtle animated background */
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 80%, rgba(37, 117, 252, 0.2) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(106, 17, 203, 0.2) 0%, transparent 50%);
-            z-index: -1;
-            animation: backgroundMovement 20s ease infinite;
-        }
-
-        @keyframes backgroundMovement {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-        }
-    </style>
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Shivji Agnihotri",
-            "jobTitle": "AI/ML Engineer & Data Scientist",
-            "url": "https://shivjiagnihotri.tech/",
-            "sameAs": [
-                "https://linkedin.com/in/shivjiagnihotri",
-                "https://github.com/shivjiagnihotri"
-            ],
-            "description": "Transforming Data into Intelligence | AI/ML Engineer & Data Scientist",
-            "image": "https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512"
-        }
-    </script>
-
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivji Agnihotri — AI Engineer</title>
+<meta name="description" content="Shivji Agnihotri — AI Engineer at Merck Group. Building intelligent systems with LLMs, AI Agents, and scalable data pipelines.">
+<link rel="canonical" href="https://shivjiagnihotri.tech/">
+<meta property="og:title" content="Shivji Agnihotri — AI Engineer">
+<meta property="og:description" content="Building intelligent systems that think, learn, and deliver real business value.">
+<meta property="og:image" content="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512">
+<meta property="og:url" content="https://shivjiagnihotri.tech/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://www.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?s=32">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#060612;
+  --surface:#0d0d1f;
+  --surface2:#12122a;
+  --border:rgba(255,255,255,0.07);
+  --text:#e8e8f0;
+  --muted:#8888aa;
+  --accent:#6c63ff;
+  --accent2:#00d4ff;
+  --accent3:#ff6b9d;
+  --green:#00ffaa;
+  --gold:#ffd700;
+  --grad1:linear-gradient(135deg,#6c63ff,#00d4ff);
+  --grad2:linear-gradient(135deg,#ff6b9d,#6c63ff);
+  --grad3:linear-gradient(135deg,#00ffaa,#00d4ff);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* ── CURSOR GLOW ── */
+.cursor-glow{pointer-events:none;position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(108,99,255,0.12) 0%,transparent 70%);transform:translate(-50%,-50%);z-index:9999;transition:left 0.1s,top 0.1s}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(6,6,18,0.7);border-bottom:1px solid var(--border);transition:all 0.3s}
+.nav-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.3s;letter-spacing:0.02em}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--grad1);color:#fff !important;padding:0.5rem 1.2rem;border-radius:100px;font-size:0.85rem !important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(6,6,18,0.98);flex-direction:column;padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.hamburger{display:flex}}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:6rem 2rem 4rem}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg dotlottie-player{position:absolute;inset:0;width:100%;height:100%;transform:scale(1.6);transform-origin:center}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,6,18,0.4) 0%,rgba(6,6,18,0.6) 60%,rgba(6,6,18,1) 100%)}
+.hero-content{position:relative;z-index:1;text-align:center;max-width:820px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(108,99,255,0.15);border:1px solid rgba(108,99,255,0.3);color:#a09fff;padding:0.4rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.5)}}
+.hero-avatar{width:120px;height:120px;border-radius:50%;border:3px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,var(--grad1) border-box;margin:0 auto 1.5rem;display:block;object-fit:cover}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:0.5rem}
+.hero h1 span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-role{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--muted);font-weight:400;margin-bottom:1.5rem}
+.hero-role strong{color:var(--text);font-weight:600}
+.hero-summary{font-size:1.05rem;color:var(--muted);max-width:620px;margin:0 auto 2.5rem;line-height:1.8}
+.hero-stats{display:flex;gap:2rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:800;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stat-label{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:0.2rem}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--grad1);color:#fff;padding:0.85rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:transform 0.3s,box-shadow 0.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(108,99,255,0.4)}
+.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;padding:0.85rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.95rem;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s}
+.btn-secondary:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.4)}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-hint::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--muted),transparent)}
+
+/* ── TICKER ── */
+.ticker-section{padding:1.5rem 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.ticker-track{display:flex;gap:0;animation:ticker 30s linear infinite;width:max-content}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{display:flex;align-items:center;gap:0.6rem;padding:0 2rem;white-space:nowrap;color:var(--muted);font-size:0.82rem;font-weight:500}
+.ticker-item img{width:28px;height:28px;border-radius:6px;background:#fff;padding:3px;object-fit:contain}
+.ticker-sep{color:var(--accent);opacity:0.4;font-size:1.2rem}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+section{padding:6rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-label{display:inline-flex;align-items:center;gap:0.5rem;color:var(--accent);font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem}
+.section-label::before{content:'';width:20px;height:2px;background:var(--grad1);border-radius:2px}
+.section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem}
+.section-title span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--muted);font-size:1.05rem;max-width:560px;line-height:1.7;margin-bottom:3rem}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-visual{position:relative}
+.about-img-wrap{position:relative;border-radius:24px;overflow:hidden}
+.about-img-wrap img{width:100%;border-radius:24px;display:block}
+.about-img-wrap::after{content:'';position:absolute;inset:0;background:var(--grad1);opacity:0.15;border-radius:24px}
+.about-card-float{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1rem 1.4rem;backdrop-filter:blur(10px)}
+.about-card-float .num{font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:800;background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.about-card-float .lbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+.about-card-float2{position:absolute;top:-1.5rem;left:-1.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1rem 1.4rem;backdrop-filter:blur(10px)}
+.about-text p{color:var(--muted);line-height:1.85;margin-bottom:1rem;font-size:1rem}
+.about-text p strong{color:var(--text);font-weight:600}
+.skills-pills{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem}
+.pill{background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.25);color:#a09fff;padding:0.35rem 0.9rem;border-radius:100px;font-size:0.8rem;font-weight:500;transition:all 0.3s;cursor:default}
+.pill:hover{background:rgba(108,99,255,0.25);transform:translateY(-2px)}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}.about-visual{display:none}}
+
+/* ── EXPERIENCE ── */
+.exp-section{background:var(--surface)}
+.exp-timeline{position:relative;padding-left:2rem}
+.exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent)}
+.exp-item{position:relative;padding-bottom:3rem}
+.exp-item:last-child{padding-bottom:0}
+.exp-dot{position:absolute;left:-2.45rem;top:0.3rem;width:14px;height:14px;border-radius:50%;background:var(--grad1);border:2px solid var(--bg);box-shadow:0 0 12px rgba(108,99,255,0.5)}
+.exp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0.5rem;flex-wrap:wrap}
+.exp-title{font-family:'Bricolage Grotesque',sans-serif;font-size:1.25rem;font-weight:700;color:#fff}
+.exp-period{font-size:0.8rem;color:var(--accent);background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);padding:0.25rem 0.75rem;border-radius:100px;white-space:nowrap;font-weight:500}
+.exp-company{font-size:0.95rem;color:var(--accent2);font-weight:500;margin-bottom:1rem}
+.exp-current{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(0,255,170,0.1);border:1px solid rgba(0,255,170,0.25);color:var(--green);padding:0.2rem 0.7rem;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-left:0.5rem}
+.exp-current::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.exp-achievements{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
+.exp-achievements li{position:relative;padding-left:1.5rem;color:var(--muted);font-size:0.95rem;line-height:1.7}
+.exp-achievements li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:700}
+.exp-achievements li strong{color:var(--text);font-weight:600}
+.impact-badge{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.2);color:var(--gold);padding:0.15rem 0.6rem;border-radius:100px;font-size:0.75rem;font-weight:600;margin-left:0.4rem;vertical-align:middle}
+
+/* ── PROJECTS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:all 0.4s cubic-bezier(0.165,0.84,0.44,1);position:relative;overflow:hidden;cursor:default}
+.project-card::before{content:'';position:absolute;inset:0;background:var(--grad1);opacity:0;transition:opacity 0.4s;z-index:0}
+.project-card:hover{transform:translateY(-6px);border-color:rgba(108,99,255,0.4);box-shadow:0 20px 60px rgba(108,99,255,0.15)}
+.project-card:hover::before{opacity:0.04}
+.project-card>*{position:relative;z-index:1}
+.project-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem}
+.project-icon.g1{background:rgba(108,99,255,0.15)}
+.project-icon.g2{background:rgba(0,212,255,0.12)}
+.project-icon.g3{background:rgba(255,107,157,0.12)}
+.project-icon.g4{background:rgba(0,255,170,0.1)}
+.project-icon.g5{background:rgba(255,215,0,0.1)}
+.project-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.75rem;line-height:1.3}
+.project-card p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:1.2rem}
+.project-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tag{background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--muted);padding:0.2rem 0.65rem;border-radius:100px;font-size:0.72rem;font-weight:500}
+
+/* ── SKILLS ── */
+.skills-section{background:var(--surface)}
+.skills-categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.skill-cat{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:1.8rem;transition:border-color 0.3s}
+.skill-cat:hover{border-color:rgba(108,99,255,0.3)}
+.skill-cat-title{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem}
+.skill-cat-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.skill-cat-title h4{font-weight:700;font-size:1rem;color:#fff}
+.skill-list{display:flex;flex-direction:column;gap:0.75rem}
+.skill-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.25rem}
+.skill-name{font-size:0.85rem;color:var(--muted);font-weight:500}
+.skill-bar{height:5px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;flex:1;margin:0 1rem}
+.skill-fill{height:100%;border-radius:100px;background:var(--grad1);transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(0.165,0.84,0.44,1)}
+.skill-fill.animated{transform:scaleX(1)}
+.skill-pct{font-size:0.75rem;color:var(--accent);font-weight:600;min-width:2.5rem;text-align:right}
+
+/* ── CERTIFICATIONS ── */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:all 0.3s}
+.cert-card:hover{border-color:rgba(108,99,255,0.4);transform:translateY(-3px)}
+.cert-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.cert-body h4{font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:0.25rem;line-height:1.4}
+.cert-body span{font-size:0.78rem;color:var(--muted)}
+
+/* ── PUBLICATION ── */
+.pub-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;transition:all 0.3s}
+.pub-card:hover{border-color:rgba(108,99,255,0.4)}
+.pub-label{font-size:0.75rem;color:var(--accent);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem}
+.pub-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;line-height:1.4;margin-bottom:0.75rem}
+.pub-card p{color:var(--muted);font-size:0.9rem;line-height:1.7}
+.pub-card a{display:inline-flex;align-items:center;gap:0.4rem;background:var(--grad1);color:#fff;padding:0.7rem 1.5rem;border-radius:100px;text-decoration:none;font-size:0.85rem;font-weight:600;transition:transform 0.3s,box-shadow 0.3s;white-space:nowrap;margin-top:0.5rem}
+.pub-card a:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,99,255,0.35)}
+@media(max-width:700px){.pub-card{grid-template-columns:1fr}.pub-card a{width:fit-content}}
+
+/* ── EDUCATION ── */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:all 0.3s}
+.edu-card:hover{border-color:rgba(108,99,255,0.4);transform:translateY(-4px)}
+.edu-year{font-size:0.78rem;color:var(--accent);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem}
+.edu-degree{font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
+.edu-school{color:var(--muted);font-size:0.9rem}
+
+/* ── CONTACT ── */
+.contact-section{background:var(--surface)}
+.contact-inner{max-width:720px;margin:0 auto;text-align:center}
+.contact-inner .section-label,.contact-inner .section-title,.contact-inner .section-sub{text-align:center;display:flex;flex-direction:column;align-items:center}
+.contact-inner .section-label{flex-direction:row;justify-content:center}
+.contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.contact-link{display:flex;align-items:center;gap:0.6rem;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.8rem 1.5rem;border-radius:100px;text-decoration:none;font-size:0.9rem;font-weight:500;transition:all 0.3s}
+.contact-link:hover{border-color:rgba(108,99,255,0.5);background:rgba(108,99,255,0.08);color:#fff;transform:translateY(-2px)}
+.contact-link svg{width:18px;height:18px;flex-shrink:0}
+.available-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,255,170,0.08);border:1px solid rgba(0,255,170,0.2);color:var(--green);padding:0.5rem 1.2rem;border-radius:100px;font-size:0.82rem;font-weight:500;margin-bottom:1.5rem}
+.available-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+
+/* ── FOOTER ── */
+footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;border-top:1px solid var(--border)}
+
+/* ── REVEAL ANIMATION ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}.reveal-d3{transition-delay:0.3s}.reveal-d4{transition-delay:0.4s}
+</style>
 </head>
-
 <body>
 
+<div class="cursor-glow" id="cursorGlow"></div>
 
-    <div class="lottie_hero_section">
-        <!-- Lottie Background Animation -->
-        <dotlottie-player class="lottie_animation_player" src="https://lottie.host/5dc52378-0945-4f86-b0cd-2781ab8f38df/23IgtC7qRi.lottie" background="transparent" speed="3" loop autoplay>
-        </dotlottie-player>
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">SA</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-        <!-- Content -->
-        <div class="lottie_content_wrapper">
-            <img src="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512" alt="Shivji Agnihotri" style="width: 150px; height: 150px; border-radius: 50%;">
-            <h1>Shivji Agnihotri</h1>
-            <p>Transforming Data into Intelligence | AI/ML Engineer & Data Scientist</p>
-            <a href="#contact" class="cta-button">
-                <div class="loader">
-                    <div class="words">
-                        <span class="word">Let's talk</span>
-                        <span class="word">Let's connect</span>
-                        <span class="word">Let's speak</span>
-                        <span class="word">Let's chat</span>
-                        <span class="word">Let's talk</span>
-                    </div>
-                </div>
-            </a>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <dotlottie-player src="https://lottie.host/5dc52378-0945-4f86-b0cd-2781ab8f38df/23IgtC7qRi.lottie" background="transparent" speed="2" loop autoplay></dotlottie-player>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">● Available for opportunities</div>
+    <img class="hero-avatar" src="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512" alt="Shivji Agnihotri">
+    <h1>Shivji <span>Agnihotri</span></h1>
+    <p class="hero-role">AI Engineer at <strong>Merck Group</strong> · Building Intelligent Systems</p>
+    <p class="hero-summary">I turn raw data and ideas into AI systems that actually work — systems that learn, reason, and deliver real results. From building multi-agent AI assistants to designing pipelines that save millions in costs.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">30M+</div><div class="stat-label">Data Records Handled</div></div>
+      <div class="stat"><div class="stat-num">1.7M€</div><div class="stat-label">Cost Savings Delivered</div></div>
+      <div class="stat"><div class="stat-num">99%</div><div class="stat-label">Cost Reduction Achieved</div></div>
     </div>
-
-
-    <div class="hero">
-
-        <div class="container">
-            <section class="section">
-                <h2>Mission Statement</h2>
-                <p>Dedicated to leveraging cutting-edge AI/ML technologies to solve complex business challenges and drive innovation. With expertise in backend development, data science, and machine learning, I'm passionate about creating scalable solutions
-                    that make a tangible impact.</p>
-
-                <!--<div class="tech-stack">-->
-                <!--    <div class="tech-item">Python</div>-->
-                <!--    <div class="tech-item">TensorFlow</div>-->
-                <!--    <div class="tech-item">PyTorch</div>-->
-                <!--    <div class="tech-item">AWS</div>-->
-                <!--    <div class="tech-item">Docker</div>-->
-                <!--    <div class="tech-item">FastAPI</div>-->
-                <!--</div>-->
-            </section>
-
-            <div class="skills-slider">
-                <div class="skills-container">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" title="Grafana" alt="Grafana" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" title="GitHub" alt="GitHub" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bitbucket/bitbucket-original.svg" title="Bitbucket" alt="Bitbucket" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" title="Python" alt="Python" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original-wordmark.svg" title="Jupyter" alt="Jupyter" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original-wordmark.svg" title="Pandas" alt="Pandas" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" title="TensorFlow" alt="TensorFlow" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" title="PyTorch" alt="PyTorch" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" title="VS Code" alt="VS Code" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg" title="Postman" alt="Postman" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" title="Neo4j" alt="Neo4j" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" title="AWS" alt="AWS" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original-wordmark.svg" title="Git" alt="Git" width="40" height="40" />
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" title="NodeJS" alt="NodeJS" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original-wordmark.svg" title="FastAPI" alt="FastAPI" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" title="PostgreSQL" alt="PostgreSQL" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" title="Docker" alt="Docker" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-original.svg" title="Next.js" alt="Next.js" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain-wordmark.svg" title="CSS3" alt="CSS" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" title="Scikit-learn" alt="Scikit-learn" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg" title="Streamlit" alt="Streamlit" width="40" height="40" />&nbsp;
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" title="Flask" alt="Flask" width="40" height="40" />&nbsp;
-
-                </div>
-            </div>
-
-
-            <div class="container">
-                <section class="section">
-                    <div class="section-title">
-                        <h2>Core Expertise</h2>
-                    </div>
-                    <div class="grid">
-                        <div class="card">
-                            <h3>AI & Machine Learning</h3>
-                            <ul>
-                                <li>Large Language Models (LLM)</li>
-                                <li>Advanced Neural Network Design</li>
-                                <li>Cutting-Edge NLP Techniques</li>
-                                <li>Deep Learning & Neural Networks</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3>Data Engineering</h3>
-                            <ul>
-                                <li>Data Preprocessing</li>
-                                <li>ETL Pipeline Development</li>
-                                <li>Database Design & Optimization</li>
-                                <li>Big Data Processing</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3>Cloud & Infrastructure</h3>
-                            <ul>
-                                <li>AWS Services</li>
-                                <li>Azure Pipeline & AI Services</li>
-                                <li>Docker Containerization
-                                </li>
-                                <li>CI/CD Implementation</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section professional-strengths">
-                    <div class="section-title">
-                        <h2>Professional Strengths</h2>
-                    </div>
-                    <div class="grid">
-                        <div class="card">
-                            <h3>Technical Proficiency</h3>
-                            <p>Advanced expertise in Python, Node.js, and SQL, with extensive experience in modern ML frameworks and cloud platforms. Proven ability to architect and implement complex AI solutions.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Problem Solving</h3>
-                            <p>Strong analytical mindset with a track record of solving complex technical challenges. Expertise in optimizing ML models and improving system performance.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Leadership & Collaboration</h3>
-                            <p>Effective team player with excellent communication skills. Experience in leading technical projects and mentoring junior developers.</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-
-            <section id="contact" class="section">
-                <h2>Let's Create Something Amazing</h2>
-                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                <br>
-                <br>
-                <div class="tech-stack" style="display: flex; justify-content: center; align-items: center;">
-                    <a href="mailto:shivjiagnihotri@outlook.com" class="tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/%40_symbol.svg" alt="Email" style="height: 22px; width:22px; vertical-align: middle;">
-                    </a>
-                    <a href="https://linkedin.com/in/shivjiagnihotri" class="tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/LinkedIn_font_awesome.svg" alt="LinkedIn" style="height: 22px; width:22px; vertical-align: middle; ">
-                    </a>
-                    <a href="https://github.com/shivjiagnihotri" class="tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" style="height: 22px; width:22px; vertical-align: middle;">
-                    </a>
-                </div>
-            </section>
-
-        </div>
-        <br> Copyright © 2025 All Rights Reserved
+    <div class="hero-btns">
+      <a href="#experience" class="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
     </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
 
-    <script>
-        document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    </script>
+<!-- TICKER -->
+<div class="ticker-section">
+  <div class="ticker-track" id="ticker">
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">Python</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">TensorFlow</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">Docker</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="FastAPI">FastAPI</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS">AWS</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">PostgreSQL</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">Node.js</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" alt="Neo4j">Neo4j</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana">Grafana</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">Git</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn">Scikit-learn</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch">PyTorch</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">Python</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">TensorFlow</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">Docker</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="FastAPI">FastAPI</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS">AWS</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">PostgreSQL</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">Node.js</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" alt="Neo4j">Neo4j</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana">Grafana</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn">Scikit-learn</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch">PyTorch</div>
+  </div>
+</div>
 
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-wrap">
+          <img src="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512" alt="Shivji Agnihotri">
+        </div>
+        <div class="about-card-float">
+          <div class="num">1.7M€</div>
+          <div class="lbl">Saved in costs</div>
+        </div>
+        <div class="about-card-float2">
+          <div class="num">99%</div>
+          <div class="lbl">Cost reduction on OCR</div>
+        </div>
+      </div>
+      <div class="about-text reveal reveal-d1">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">I Build AI That <span>Delivers Results</span></h2>
+        <p>I'm an AI Engineer with over 2 years of hands-on experience designing and shipping intelligent systems — from conversational agents to large-scale data pipelines. Currently at <strong>Merck Group</strong>, where my work directly saves millions in operational costs.</p>
+        <p>My focus is on making AI <strong>practical and impactful</strong>: systems that answer real business questions, automate tedious manual work, and give teams superpowers they didn't have before. I've led projects from concept to production across supply chain, brand intelligence, document processing, and more.</p>
+        <p>I hold a <strong>B.E. in Computer Science</strong>, certifications from Microsoft, Coursera, and LinkedIn Learning, and a published research paper on computer vision for visually impaired users.</p>
+        <div class="skills-pills">
+          <span class="pill">AI Agents</span>
+          <span class="pill">LLMs</span>
+          <span class="pill">RAG Systems</span>
+          <span class="pill">NLP</span>
+          <span class="pill">Data Pipelines</span>
+          <span class="pill">Vector Search</span>
+          <span class="pill">Python</span>
+          <span class="pill">Node.js</span>
+          <span class="pill">Cloud (AWS/GCP/Azure)</span>
+          <span class="pill">Computer Vision</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-section">
+  <div class="container">
+    <div class="section-label reveal">Experience</div>
+    <h2 class="section-title reveal reveal-d1">Where I've <span>Made Impact</span></h2>
+    <p class="section-sub reveal reveal-d2">Real projects, real outcomes. Here's what I've built and the numbers behind it.</p>
+
+    <div class="exp-timeline">
+
+      <!-- Merck -->
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">AI / ML Engineer <span class="exp-current">● Current</span></div>
+            <div class="exp-company">Merck Group</div>
+          </div>
+          <div class="exp-period">Apr 2025 — Present</div>
+        </div>
+        <ul class="exp-achievements">
+          <li>Built a <strong>multi-agent AI assistant for supply chain</strong> on the Palantir AIP platform, processing over 30 million data records and delivering real-time insights. Saved the business approximately <span class="impact-badge">🏆 1.7M€</span> in time and opportunity cost by eliminating manual data work.</li>
+          <li>Designed a <strong>document processing pipeline</strong> using self-hosted open-source vision models (DeepSeek OCR + Docling), achieving a <span class="impact-badge">💡 99% cost reduction</span> compared to proprietary alternatives and over 74% savings versus third-party OCR APIs costing $4k.</li>
+          <li>Built a <strong>conversational data agent</strong> using Claude Sonnet that turns plain English questions into database queries — letting non-technical business users access large datasets without writing a single line of code.</li>
+          <li>Developed a <strong>RAG pipeline on tabular metadata</strong>, connecting a vector database (Qdrant) with an AI chatbot to automate information retrieval and answer generation from structured data.</li>
+          <li>Created a <strong>brand sentiment intelligence tool</strong> that monitors Reddit and the web, surfacing how customers feel about the brand over time — with AI-generated summaries, scores, and trend timelines.</li>
+        </ul>
+      </div>
+
+      <!-- Sangria -->
+      <div class="exp-item reveal reveal-d1">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">AI / ML Engineer</div>
+            <div class="exp-company">Sangria by Dotkonnekt — Bengaluru, India</div>
+          </div>
+          <div class="exp-period">Oct 2023 — Apr 2025</div>
+        </div>
+        <ul class="exp-achievements">
+          <li>Built and deployed <strong>production AI agents</strong> using Crew AI, LangChain, and LangFlow — integrated with transformer models and benchmarked for reliability at scale.</li>
+          <li>Delivered an <strong>automated backend testing system</strong> using Node.js that reduced the need for manual QA testing by <span class="impact-badge">⚡ 60%</span>.</li>
+          <li>Streamlined deployments by wiring up <strong>CI/CD pipelines with Jenkins and Docker</strong>, cutting deployment time by <span class="impact-badge">🚀 30%</span> while keeping systems running without interruption.</li>
+          <li>Trained and deployed machine learning models end-to-end — from data collection and cleaning to deployment in scalable, secure infrastructure.</li>
+          <li>Worked closely with cross-functional teams using agile practices, translating business needs into technical solutions that shipped on time.</li>
+        </ul>
+      </div>
+
+      <!-- Intern -->
+      <div class="exp-item reveal reveal-d2">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">AI / ML Intern</div>
+            <div class="exp-company">Dotkonnekt — Bengaluru, India</div>
+          </div>
+          <div class="exp-period">Jul 2023 — Oct 2023</div>
+        </div>
+        <ul class="exp-achievements">
+          <li>Built a <strong>question-answering chatbot and summarization tool</strong> using Rasa, spaCy, and Hugging Face — real NLP shipped into production, not just prototypes.</li>
+          <li>Set up a <strong>real-time monitoring and logging system</strong> using Grafana, giving the team full visibility into system health and error tracking.</li>
+          <li>Created an <strong>end-to-end automated testing script with Playwright</strong> to continuously verify critical business flows and catch API errors before customers did.</li>
+          <li>Contributed to a <strong>live data analysis platform</strong> using Streamlit, enabling teams to run web scraping and large-scale dataset analysis through a simple interface.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label reveal">Projects</div>
+    <h2 class="section-title reveal reveal-d1">Things I've <span>Built</span></h2>
+    <p class="section-sub reveal reveal-d2">A selection of projects that pushed the boundaries of what AI can do in the real world.</p>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-icon g1">🤖</div>
+        <h3>AI-Powered Product Recommendation Engine</h3>
+        <p>Led the design of an AI recommendation system that uses semantic understanding and graph databases to match products to people — boosting product visibility by 70%. Deployed via CI/CD with Docker in a fully automated pipeline.</p>
+        <div class="project-tags">
+          <span class="tag">Semantic Search</span><span class="tag">Graph DB</span><span class="tag">TensorFlow</span><span class="tag">REST APIs</span><span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-d1">
+        <div class="project-icon g2">💬</div>
+        <h3>RAG System for Content Generation</h3>
+        <p>Built a retrieval-augmented generation system that reads documents (PDFs, Word files, plain text) and generates accurate product descriptions using GPT-4. Makes unstructured data actionable and reduces manual writing effort significantly.</p>
+        <div class="project-tags">
+          <span class="tag">RAG</span><span class="tag">GPT-4</span><span class="tag">PyPDF2</span><span class="tag">Semantic Search</span><span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-d2">
+        <div class="project-icon g3">🔍</div>
+        <h3>Weaviate Vector Search Platform</h3>
+        <p>Implemented a high-speed semantic search system using the Weaviate vector database — making it 70% faster to find relevant information. Combined AI vector search with traditional keyword search to improve accuracy by over 40%.</p>
+        <div class="project-tags">
+          <span class="tag">Weaviate</span><span class="tag">Vector DB</span><span class="tag">Hybrid Search</span><span class="tag">AWS</span><span class="tag">Embeddings</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon g4">👁️</div>
+        <h3>Navigation Assistant for Visually Impaired Users</h3>
+        <p>Built a real-time object detection and navigation system using computer vision and reinforcement learning to help visually impaired users move safely through complex environments. Published as a research paper.</p>
+        <div class="project-tags">
+          <span class="tag">YOLOv7</span><span class="tag">OpenCV</span><span class="tag">TensorFlow</span><span class="tag">COCO Dataset</span><span class="tag">Reinforcement Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-d1">
+        <div class="project-icon g5">⚡</div>
+        <h3>Real-Time Analytics Data Pipeline</h3>
+        <p>Built a scalable pipeline that ingests, processes, and makes sense of large volumes of live data — improving throughput by 40%. Integrated with machine learning models to surface actionable business insights continuously.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">MongoDB</span><span class="tag">LangFlow</span><span class="tag">LangFuse</span><span class="tag">AWS</span><span class="tag">Azure</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-label reveal">Skills</div>
+    <h2 class="section-title reveal reveal-d1">My <span>Toolkit</span></h2>
+    <p class="section-sub reveal reveal-d2">The languages, frameworks, and platforms I use to build intelligent systems.</p>
+
+    <div class="skills-categories">
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-title">
+          <div class="skill-cat-icon" style="background:rgba(108,99,255,0.15)">🧠</div>
+          <h4>AI & Machine Learning</h4>
+        </div>
+        <div class="skill-list">
+          <div><div class="skill-row"><span class="skill-name">LangChain / LangFlow</span><div class="skill-bar"><div class="skill-fill" style="--w:0.93"></div></div><span class="skill-pct">93%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Hugging Face Transformers</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">RAG & Vector Search</span><div class="skill-bar"><div class="skill-fill" style="--w:0.92"></div></div><span class="skill-pct">92%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Crew AI / AI Agents</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div><span class="skill-pct">88%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Scikit-learn / TensorFlow</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
+        </div>
+      </div>
+
+      <div class="skill-cat reveal reveal-d1">
+        <div class="skill-cat-title">
+          <div class="skill-cat-icon" style="background:rgba(0,212,255,0.1)">💻</div>
+          <h4>Languages & Frameworks</h4>
+        </div>
+        <div class="skill-list">
+          <div><div class="skill-row"><span class="skill-name">Python 3</span><div class="skill-bar"><div class="skill-fill" style="--w:0.95"></div></div><span class="skill-pct">95%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Node.js / Express</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">FastAPI / Flask</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div><span class="skill-pct">88%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div><span class="skill-pct">80%</span></div></div>
+        </div>
+      </div>
+
+      <div class="skill-cat reveal reveal-d2">
+        <div class="skill-cat-title">
+          <div class="skill-cat-icon" style="background:rgba(0,255,170,0.1)">☁️</div>
+          <h4>Cloud & Infrastructure</h4>
+        </div>
+        <div class="skill-list">
+          <div><div class="skill-row"><span class="skill-name">AWS (Lambda, S3, DynamoDB)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">CI/CD (Jenkins, GitHub Actions)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.82"></div></div><span class="skill-pct">82%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">GCP / Azure</span><div class="skill-bar"><div class="skill-fill" style="--w:0.78"></div></div><span class="skill-pct">78%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Grafana / Monitoring</span><div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div><span class="skill-pct">80%</span></div></div>
+        </div>
+      </div>
+
+      <div class="skill-cat reveal reveal-d3">
+        <div class="skill-cat-title">
+          <div class="skill-cat-icon" style="background:rgba(255,215,0,0.1)">🗄️</div>
+          <h4>Databases</h4>
+        </div>
+        <div class="skill-list">
+          <div><div class="skill-row"><span class="skill-name">PostgreSQL / MySQL</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div><span class="skill-pct">88%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">MongoDB Atlas</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Weaviate / Qdrant (Vector)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Neo4j (Graph DB)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.78"></div></div><span class="skill-pct">78%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">Redis / DynamoDB</span><div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div><span class="skill-pct">80%</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-label reveal">Certifications</div>
+    <h2 class="section-title reveal reveal-d1">Credentials & <span>Learning</span></h2>
+    <p class="section-sub reveal reveal-d2">Continuous learning from the world's top platforms.</p>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon" style="background:rgba(0,120,212,0.15)">🪟</div>
+        <div class="cert-body"><h4>Microsoft Certified: Azure AI Fundamentals</h4><span>Microsoft · Sep 2022</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d1">
+        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
+        <div class="cert-body"><h4>Generative AI with Large Language Models</h4><span>Coursera · Sep 2023</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d2">
+        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">💼</div>
+        <div class="cert-body"><h4>Career Essentials in Generative AI</h4><span>Microsoft & LinkedIn · Jul 2023</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🔗</div>
+        <div class="cert-body"><h4>Hands-On Generative AI with Multi-Agent LangChain</h4><span>LinkedIn Learning · Nov 2024</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d1">
+        <div class="cert-icon" style="background:rgba(108,99,255,0.15)">✨</div>
+        <div class="cert-body"><h4>Prompt Engineering: How to Talk to the AIs</h4><span>LinkedIn Learning · May 2023</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATION -->
+<section id="publication" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-label reveal">Research</div>
+    <h2 class="section-title reveal reveal-d1">Published <span>Work</span></h2>
+    <p class="section-sub reveal reveal-d2">Peer-reviewed research contributing to accessible AI technology.</p>
+    <div class="pub-card reveal">
+      <div>
+        <div class="pub-label">IJRASET · May 2023</div>
+        <h3>VISION AI: A Deep Learning-Based Object Recognition System for Visually Impaired People using TensorFlow and OpenCV</h3>
+        <p>Trained YOLOv7 on the COCO dataset (330k images, 80 object categories) to build a real-time object detection system that helps visually impaired users understand and navigate their environment safely. The research evaluates the model on accuracy, speed, and memory footprint — demonstrating that cutting-edge AI can be made accessible and practical for people who need it most.</p>
+      </div>
+      <a href="https://doi.org/10.22214/ijraset.2023.52197" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        Read Paper
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label reveal">Education</div>
+    <h2 class="section-title reveal reveal-d1">Academic <span>Foundation</span></h2>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-year">Jul 2019 — Aug 2023</div>
+        <div class="edu-degree">B.E. in Computer Science</div>
+        <div class="edu-school">SSPACE Wardha · RTM Nagpur University, Maharashtra</div>
+      </div>
+      <div class="edu-card reveal reveal-d1">
+        <div class="edu-year">Apr 2018 — Jun 2019</div>
+        <div class="edu-degree">Higher Secondary Certificate · CBSE</div>
+        <div class="edu-school">Kendriya Vidyalaya WCL New Majri, Maharashtra</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="available-badge">Open to new opportunities</div>
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's Build Something <span>Remarkable</span></h2>
+      <p class="section-sub">Whether you have a project in mind, want to discuss AI solutions, or just want to say hello — I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:shivjiagnihotri@outlook.com" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          shivjiagnihotri@outlook.com
+        </a>
+        <a href="https://linkedin.com/in/shivjiagnihotri" target="_blank" rel="noopener" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/shivjiagnihotri" target="_blank" rel="noopener" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://shivjiagnihotri.tech/" target="_blank" rel="noopener" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          shivjiagnihotri.tech
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Shivji Agnihotri · Bengaluru, India · Built with care</p>
+</footer>
+
+<script>
+// Cursor glow
+const glow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+});
+
+// Hamburger
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// Close nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Skill bar animation
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.skill-fill').forEach(bar => {
+        bar.style.transform = 'scaleX(' + (bar.style.getPropertyValue('--w') || 0) + ')';
+        bar.classList.add('animated');
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.skill-cat').forEach(el => skillObserver.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){ e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Nav scroll shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.background =
+    window.scrollY > 50 ? 'rgba(6,6,18,0.95)' : 'rgba(6,6,18,0.7)';
+});
+</script>
 </body>
-
 </html>
