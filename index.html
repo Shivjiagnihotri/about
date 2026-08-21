@@ -90,7 +90,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:fl
 section{padding:6rem 2rem}
 .container{max-width:1200px;margin:0 auto}
 .section-label{display:inline-flex;align-items:center;gap:0.5rem;color:var(--accent);font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem}
-.section-label::before{content:'';width:20px;height:2px;background:var(--grad1);border-radius:2px}
 .section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem}
 .section-title span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-sub{color:var(--muted);font-size:1.05rem;max-width:560px;line-height:1.7;margin-bottom:3rem}
@@ -160,7 +159,7 @@ section{padding:6rem 2rem}
 .skill-list{display:flex;flex-direction:column;gap:0.75rem}
 .skill-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.25rem}
 .skill-name{font-size:0.85rem;color:var(--muted);font-weight:500}
-.skill-bar{height:5px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;flex:1;margin:0 1rem}
+.skill-bar{height:5px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;flex:1 0 60px;margin:0 1rem}
 .skill-fill{height:100%;border-radius:100px;background:var(--grad1);transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(0.165,0.84,0.44,1)}
 .skill-fill.animated{transform:scaleX(1)}
 .skill-pct{font-size:0.75rem;color:var(--accent);font-weight:600;min-width:2.5rem;text-align:right}
