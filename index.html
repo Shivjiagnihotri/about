@@ -3,331 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shivji Agnihotri — AI Engineer</title>
-<meta name="description" content="Shivji Agnihotri — AI Engineer at Merck Group. Building intelligent systems with LLMs, AI Agents, and scalable data pipelines.">
+<title>Shivji Agnihotri - AI Engineer</title>
+<meta name="description" content="Shivji Agnihotri, AI Engineer at Merck Group. Building intelligent systems with LLMs, AI Agents, and scalable data pipelines.">
+<meta name="theme-color" content="#060612">
 <link rel="canonical" href="https://shivjiagnihotri.tech/">
-<meta property="og:title" content="Shivji Agnihotri — AI Engineer">
+<meta property="og:title" content="Shivji Agnihotri - AI Engineer">
 <meta property="og:description" content="Building intelligent systems that think, learn, and deliver real business value.">
 <meta property="og:image" content="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512">
 <meta property="og:url" content="https://shivjiagnihotri.tech/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://www.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?s=32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#060612;
-  --surface:#0d0d1f;
-  --surface2:#12122a;
-  --border:rgba(255,255,255,0.07);
-  --text:#e8e8f0;
-  --muted:#8888aa;
-  --accent:#6c63ff;
-  --accent2:#00d4ff;
-  --accent3:#ff6b9d;
-  --green:#00ffaa;
-  --gold:#ffd700;
-  --grad1:linear-gradient(135deg,#6c63ff,#00d4ff);
-  --grad2:linear-gradient(135deg,#ff6b9d,#6c63ff);
-  --grad3:linear-gradient(135deg,#00ffaa,#00d4ff);
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
-
-/* ── CURSOR GLOW ── */
-.cursor-glow{pointer-events:none;position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(108,99,255,0.12) 0%,transparent 70%);transform:translate(-50%,-50%);z-index:9999;transition:left 0.1s,top 0.1s}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(6,6,18,0.7);border-bottom:1px solid var(--border);transition:all 0.3s}
-.nav-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.3s;letter-spacing:0.02em}
-.nav-links a:hover{color:#fff}
-.nav-cta{background:var(--grad1);color:#fff !important;padding:0.5rem 1.2rem;border-radius:100px;font-size:0.85rem !important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(6,6,18,0.98);flex-direction:column;padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.hamburger{display:flex}}
-
-/* ── HERO ── */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:6rem 2rem 4rem}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg dotlottie-player{position:absolute;inset:0;width:100%;height:100%;transform:scale(1.6);transform-origin:center}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,6,18,0.4) 0%,rgba(6,6,18,0.6) 60%,rgba(6,6,18,1) 100%)}
-.hero-content{position:relative;z-index:1;text-align:center;max-width:820px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(108,99,255,0.15);border:1px solid rgba(108,99,255,0.3);color:#a09fff;padding:0.4rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.5rem}
-.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.5)}}
-.hero-avatar{width:120px;height:120px;border-radius:50%;border:3px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,var(--grad1) border-box;margin:0 auto 1.5rem;display:block;object-fit:cover}
-.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:0.5rem}
-.hero h1 span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-role{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--muted);font-weight:400;margin-bottom:1.5rem}
-.hero-role strong{color:var(--text);font-weight:600}
-.hero-summary{font-size:1.05rem;color:var(--muted);max-width:620px;margin:0 auto 2.5rem;line-height:1.8}
-.hero-stats{display:flex;gap:2rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-num{font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:800;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.stat-label{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:0.2rem}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--grad1);color:#fff;padding:0.85rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:transform 0.3s,box-shadow 0.3s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(108,99,255,0.4)}
-.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;padding:0.85rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.95rem;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s}
-.btn-secondary:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.4)}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-.scroll-hint::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--muted),transparent)}
-
-/* ── TICKER ── */
-.ticker-section{padding:1.5rem 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
-.ticker-track{display:flex;gap:0;animation:ticker 30s linear infinite;width:max-content}
-.ticker-track:hover{animation-play-state:paused}
-.ticker-item{display:flex;align-items:center;gap:0.6rem;padding:0 2rem;white-space:nowrap;color:var(--muted);font-size:0.82rem;font-weight:500}
-.ticker-item img{width:28px;height:28px;border-radius:6px;background:#fff;padding:3px;object-fit:contain}
-.ticker-sep{color:var(--accent);opacity:0.4;font-size:1.2rem}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ── SECTIONS ── */
-section{padding:6rem 2rem}
-.container{max-width:1200px;margin:0 auto}
-.section-label{display:inline-flex;align-items:center;gap:0.5rem;color:var(--accent);font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem}
-.section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem}
-.section-title span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.section-sub{color:var(--muted);font-size:1.05rem;max-width:560px;line-height:1.7;margin-bottom:3rem}
-
-/* ── ABOUT ── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.about-visual{position:relative}
-.about-img-wrap{position:relative;border-radius:24px;overflow:hidden}
-.about-img-wrap img{width:100%;border-radius:24px;display:block}
-.about-img-wrap::after{content:'';position:absolute;inset:0;background:var(--grad1);opacity:0.15;border-radius:24px}
-.about-card-float{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1rem 1.4rem;backdrop-filter:blur(10px)}
-.about-card-float .num{font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:800;background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.about-card-float .lbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
-.about-card-float2{position:absolute;top:-1.5rem;left:-1.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:1rem 1.4rem;backdrop-filter:blur(10px)}
-.about-text p{color:var(--muted);line-height:1.85;margin-bottom:1rem;font-size:1rem}
-.about-text p strong{color:var(--text);font-weight:600}
-.skills-pills{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem}
-.pill{background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.25);color:#a09fff;padding:0.35rem 0.9rem;border-radius:100px;font-size:0.8rem;font-weight:500;transition:all 0.3s;cursor:default}
-.pill:hover{background:rgba(108,99,255,0.25);transform:translateY(-2px)}
-@media(max-width:900px){.about-grid{grid-template-columns:1fr}.about-visual{display:none}}
-
-/* ── EXPERIENCE ── */
-.exp-section{background:var(--surface)}
-.exp-timeline{position:relative;padding-left:2rem}
-.exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent)}
-.exp-item{position:relative;padding-bottom:3rem}
-.exp-item:last-child{padding-bottom:0}
-.exp-dot{position:absolute;left:-2.45rem;top:0.3rem;width:14px;height:14px;border-radius:50%;background:var(--grad1);border:2px solid var(--bg);box-shadow:0 0 12px rgba(108,99,255,0.5)}
-.exp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0.5rem;flex-wrap:wrap}
-.exp-title{font-family:'Bricolage Grotesque',sans-serif;font-size:1.25rem;font-weight:700;color:#fff}
-.exp-period{font-size:0.8rem;color:var(--accent);background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);padding:0.25rem 0.75rem;border-radius:100px;white-space:nowrap;font-weight:500}
-.exp-company{font-size:0.95rem;color:var(--accent2);font-weight:500;margin-bottom:1rem}
-.exp-current{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(0,255,170,0.1);border:1px solid rgba(0,255,170,0.25);color:var(--green);padding:0.2rem 0.7rem;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-left:0.5rem}
-.exp-current::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-.exp-achievements{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
-.exp-achievements li{position:relative;padding-left:1.5rem;color:var(--muted);font-size:0.95rem;line-height:1.7}
-.exp-achievements li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:700}
-.exp-achievements li strong{color:var(--text);font-weight:600}
-.impact-badge{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.2);color:var(--gold);padding:0.15rem 0.6rem;border-radius:100px;font-size:0.75rem;font-weight:600;margin-left:0.4rem;vertical-align:middle}
-
-/* ── PROJECTS ── */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:all 0.4s cubic-bezier(0.165,0.84,0.44,1);position:relative;overflow:hidden;cursor:default}
-.project-card::before{content:'';position:absolute;inset:0;background:var(--grad1);opacity:0;transition:opacity 0.4s;z-index:0}
-.project-card:hover{transform:translateY(-6px);border-color:rgba(108,99,255,0.4);box-shadow:0 20px 60px rgba(108,99,255,0.15)}
-.project-card:hover::before{opacity:0.04}
-.project-card>*{position:relative;z-index:1}
-.project-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem}
-.project-icon.g1{background:rgba(108,99,255,0.15)}
-.project-icon.g2{background:rgba(0,212,255,0.12)}
-.project-icon.g3{background:rgba(255,107,157,0.12)}
-.project-icon.g4{background:rgba(0,255,170,0.1)}
-.project-icon.g5{background:rgba(255,215,0,0.1)}
-.project-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.75rem;line-height:1.3}
-.project-card p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:1.2rem}
-.project-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
-.tag{background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--muted);padding:0.2rem 0.65rem;border-radius:100px;font-size:0.72rem;font-weight:500}
-
-/* ── SKILLS ── */
-.skills-section{background:var(--surface)}
-.skills-categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.skill-cat{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:1.8rem;transition:border-color 0.3s}
-.skill-cat:hover{border-color:rgba(108,99,255,0.3)}
-.skill-cat-title{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem}
-.skill-cat-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
-.skill-cat-title h4{font-weight:700;font-size:1rem;color:#fff}
-.skill-list{display:flex;flex-direction:column;gap:0.75rem}
-.skill-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.25rem}
-.skill-name{font-size:0.85rem;color:var(--muted);font-weight:500}
-.skill-bar{height:5px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;flex:1 0 60px;margin:0 1rem}
-.skill-fill{height:100%;border-radius:100px;background:var(--grad1);transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(0.165,0.84,0.44,1)}
-.skill-fill.animated{transform:scaleX(1)}
-.skill-pct{font-size:0.75rem;color:var(--accent);font-weight:600;min-width:2.5rem;text-align:right}
-
-/* ── CERTIFICATIONS ── */
-.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
-.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:all 0.3s}
-.cert-card:hover{border-color:rgba(108,99,255,0.4);transform:translateY(-3px)}
-.cert-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
-.cert-body h4{font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:0.25rem;line-height:1.4}
-.cert-body span{font-size:0.78rem;color:var(--muted)}
-
-/* ── PUBLICATION ── */
-.pub-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;transition:all 0.3s}
-.pub-card:hover{border-color:rgba(108,99,255,0.4)}
-.pub-label{font-size:0.75rem;color:var(--accent);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem}
-.pub-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;line-height:1.4;margin-bottom:0.75rem}
-.pub-card p{color:var(--muted);font-size:0.9rem;line-height:1.7}
-.pub-card a{display:inline-flex;align-items:center;gap:0.4rem;background:var(--grad1);color:#fff;padding:0.7rem 1.5rem;border-radius:100px;text-decoration:none;font-size:0.85rem;font-weight:600;transition:transform 0.3s,box-shadow 0.3s;white-space:nowrap;margin-top:0.5rem}
-.pub-card a:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,99,255,0.35)}
-@media(max-width:700px){.pub-card{grid-template-columns:1fr}.pub-card a{width:fit-content}}
-
-/* ── EDUCATION ── */
-.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:all 0.3s}
-.edu-card:hover{border-color:rgba(108,99,255,0.4);transform:translateY(-4px)}
-.edu-year{font-size:0.78rem;color:var(--accent);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem}
-.edu-degree{font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
-.edu-school{color:var(--muted);font-size:0.9rem}
-
-/* ── CONTACT ── */
-.contact-section{background:var(--surface)}
-.contact-inner{max-width:720px;margin:0 auto;text-align:center}
-.contact-inner .section-label,.contact-inner .section-title,.contact-inner .section-sub{text-align:center;display:flex;flex-direction:column;align-items:center}
-.contact-inner .section-label{flex-direction:row;justify-content:center}
-.contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
-.contact-link{display:flex;align-items:center;gap:0.6rem;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.8rem 1.5rem;border-radius:100px;text-decoration:none;font-size:0.9rem;font-weight:500;transition:all 0.3s}
-.contact-link:hover{border-color:rgba(108,99,255,0.5);background:rgba(108,99,255,0.08);color:#fff;transform:translateY(-2px)}
-.contact-link svg{width:18px;height:18px;flex-shrink:0}
-.available-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,255,170,0.08);border:1px solid rgba(0,255,170,0.2);color:var(--green);padding:0.5rem 1.2rem;border-radius:100px;font-size:0.82rem;font-weight:500;margin-bottom:1.5rem}
-.available-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-
-/* ── FOOTER ── */
-footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;border-top:1px solid var(--border)}
-
-/* ── REVEAL ANIMATION ── */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}.reveal-d3{transition-delay:0.3s}.reveal-d4{transition-delay:0.4s}
-</style>
+<script>document.documentElement.classList.add('js')</script>
+<noscript><style>.loader{display:none!important}</style></noscript>
 </head>
 <body>
 
-<div class="cursor-glow" id="cursorGlow"></div>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-ring"></div>
+  <div class="loader-label">INITIALIZING NEURAL SPACE</div>
+</div>
 
-<!-- NAV -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<a class="skip-link" href="#about">Skip to content</a>
+
 <nav id="navbar">
-  <div class="nav-logo">SA</div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    <li><a href="#playground">Play</a></li>
+    <li><a href="#contact" class="nav-cta">Talk to Me</a></li>
   </ul>
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
-  </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg">
+  <div class="hero-bg" id="heroBg">
     <dotlottie-player src="https://lottie.host/5dc52378-0945-4f86-b0cd-2781ab8f38df/23IgtC7qRi.lottie" background="transparent" speed="2" loop autoplay></dotlottie-player>
   </div>
   <div class="hero-content">
-    <div class="hero-badge">● Available for opportunities</div>
-    <img class="hero-avatar" src="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512" alt="Shivji Agnihotri">
+    <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/110963535?v=4" alt="Shivji Agnihotri" width="120" height="120">
     <h1>Shivji <span>Agnihotri</span></h1>
     <p class="hero-role">AI Engineer at <strong>Merck Group</strong> · Building Intelligent Systems</p>
     <p class="hero-summary">I turn raw data and ideas into AI systems that actually work — systems that learn, reason, and deliver real results. From building multi-agent AI assistants to designing pipelines that save millions in costs.</p>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
       <div class="stat"><div class="stat-num">30M+</div><div class="stat-label">Data Records Handled</div></div>
       <div class="stat"><div class="stat-num">1.7M€</div><div class="stat-label">Cost Savings Delivered</div></div>
-      <div class="stat"><div class="stat-num">99%</div><div class="stat-label">Cost Reduction Achieved</div></div>
+      <div class="stat"><div class="stat-num">99%</div><div class="stat-label">OCR Cost Reduction</div></div>
     </div>
     <div class="hero-btns">
       <a href="#experience" class="btn-primary">See My Work</a>
       <a href="#contact" class="btn-secondary">Get In Touch</a>
     </div>
+    <div class="scroll-hint">Scroll</div>
+    <button id="tickerSpeedBtn" class="speed-btn" type="button">Speed: 1x</button>
   </div>
-  <div class="scroll-hint">Scroll</div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker-section">
+<div class="ticker-section" aria-hidden="true">
   <div class="ticker-track" id="ticker">
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">Python</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="" loading="lazy">Python</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">TensorFlow</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy">TensorFlow</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">Docker</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="" loading="lazy">Docker</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="FastAPI">FastAPI</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="" loading="lazy">FastAPI</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS">AWS</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="" loading="lazy">AWS</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">PostgreSQL</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="" loading="lazy">PostgreSQL</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">Node.js</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="" loading="lazy">Node.js</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" alt="Neo4j">Neo4j</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" alt="" loading="lazy">Neo4j</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana">Grafana</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="" loading="lazy">Grafana</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">Git</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="" loading="lazy">Git</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn">Scikit-learn</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="" loading="lazy">Scikit-learn</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch">PyTorch</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="" loading="lazy">PyTorch</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <!-- duplicate for seamless loop -->
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">Python</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="" loading="lazy">GitHub</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">TensorFlow</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="" loading="lazy">TypeScript</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">Docker</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="" loading="lazy">Next.js</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="FastAPI">FastAPI</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="" loading="lazy">Firebase</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS">AWS</div>
+    <div class="ticker-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/n8n.svg" alt="" loading="lazy">n8n</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">PostgreSQL</div>
+    <div class="ticker-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/langflow.svg" alt="" loading="lazy">Langflow</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">Node.js</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="" loading="lazy">Python</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" alt="Neo4j">Neo4j</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy">TensorFlow</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana">Grafana</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="" loading="lazy">Docker</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn">Scikit-learn</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="" loading="lazy">FastAPI</div>
     <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="PyTorch">PyTorch</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="" loading="lazy">AWS</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="" loading="lazy">PostgreSQL</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="" loading="lazy">Node.js</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" alt="" loading="lazy">Neo4j</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="" loading="lazy">Grafana</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="" loading="lazy">Git</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="" loading="lazy">Scikit-learn</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="" loading="lazy">PyTorch</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="" loading="lazy">GitHub</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="" loading="lazy">TypeScript</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="" loading="lazy">Next.js</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="" loading="lazy">Firebase</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/n8n.svg" alt="" loading="lazy">n8n</div>
+    <div class="ticker-item ticker-sep">✦</div>
+    <div class="ticker-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/langflow.svg" alt="" loading="lazy">Langflow</div>
+    <div class="ticker-item ticker-sep">✦</div>
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-visual reveal">
-        <div class="about-img-wrap">
-          <img src="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512" alt="Shivji Agnihotri">
-        </div>
-        <div class="about-card-float">
-          <div class="num">1.7M€</div>
-          <div class="lbl">Saved in costs</div>
-        </div>
-        <div class="about-card-float2">
-          <div class="num">99%</div>
-          <div class="lbl">Cost reduction on OCR</div>
-        </div>
-      </div>
-      <div class="about-text reveal reveal-d1">
+      <div class="about-text reveal">
         <div class="section-label">About Me</div>
         <h2 class="section-title">I Build AI That <span>Delivers Results</span></h2>
-        <p>I'm an AI Engineer with over 2 years of hands-on experience designing and shipping intelligent systems — from conversational agents to large-scale data pipelines. Currently at <strong>Merck Group</strong>, where my work directly saves millions in operational costs.</p>
+        <p>I'm an AI Engineer with over 3 years of hands-on experience designing and shipping intelligent systems — from conversational agents to large-scale data pipelines. Currently at <strong>Merck Group</strong>, where my work directly saves millions in operational costs.</p>
         <p>My focus is on making AI <strong>practical and impactful</strong>: systems that answer real business questions, automate tedious manual work, and give teams superpowers they didn't have before. I've led projects from concept to production across supply chain, brand intelligence, document processing, and more.</p>
         <p>I hold a <strong>B.E. in Computer Science</strong>, certifications from Microsoft, Coursera, and LinkedIn Learning, and a published research paper on computer vision for visually impaired users.</p>
         <div class="skills-pills">
@@ -342,12 +168,32 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
           <span class="pill">Cloud (AWS/GCP/Azure)</span>
           <span class="pill">Computer Vision</span>
         </div>
+        <div class="agent-tools">
+          <div class="agent-tools-label">Also shipping with AI coding agents</div>
+          <div class="agent-chips">
+            <a class="agent-chip" href="https://claude.com/claude-code" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/claude.svg" alt="" loading="lazy">Claude Code</a>
+            <a class="agent-chip" href="https://openai.com/codex/" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg" alt="" loading="lazy">Codex</a>
+            <a class="agent-chip" href="https://replit.com/ai" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/replit.svg" alt="" loading="lazy">Replit Agent</a>
+            <a class="agent-chip" href="https://opencode.ai" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/opencode.svg" alt="" loading="lazy">OpenCode</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<section id="neural" class="scene-section" aria-label="Interactive 3D neural graph">
+  <div class="scene-stage">
+    <canvas id="webgl" aria-hidden="true"></canvas>
+  </div>
+  <div class="scene-overlay reveal">
+    <div class="section-label">// neural_space</div>
+    <h2 class="section-title">Where Data Becomes <span>Intelligence</span></h2>
+    <p class="scene-sub">A living graph — nodes, signals, and decisions in motion. The same architecture behind the systems I ship to production.</p>
+    <p class="scene-hint">Move your cursor · the graph responds</p>
+  </div>
+</section>
+
 <section id="experience" class="exp-section">
   <div class="container">
     <div class="section-label reveal">Experience</div>
@@ -356,59 +202,57 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
 
     <div class="exp-timeline">
 
-      <!-- Merck -->
       <div class="exp-item reveal">
         <div class="exp-dot"></div>
         <div class="exp-header">
           <div>
-            <div class="exp-title">AI / ML Engineer <span class="exp-current">● Current</span></div>
+            <div class="exp-title">AI / ML Engineer <span class="exp-current">Current</span></div>
             <div class="exp-company">Merck Group</div>
           </div>
-          <div class="exp-period">Apr 2025 — Present</div>
+          <div class="exp-period">Apr 2025 - Present</div>
         </div>
         <ul class="exp-achievements">
           <li>Built a <strong>multi-agent AI assistant for supply chain</strong> on the Palantir AIP platform, processing over 30 million data records and delivering real-time insights. Saved the business approximately <span class="impact-badge">🏆 1.7M€</span> in time and opportunity cost by eliminating manual data work.</li>
-          <li>Designed a <strong>document processing pipeline</strong> using self-hosted open-source vision models (DeepSeek OCR + Docling), achieving a <span class="impact-badge">💡 99% cost reduction</span> compared to proprietary alternatives and over 74% savings versus third-party OCR APIs costing $4k.</li>
+          <li>Designed a <strong>document processing pipeline</strong> on MLflow and vLLM, self-hosting open-source vision models (DeepSeek OCR V2 + Docling), achieving a <span class="impact-badge">💡 ~99% cost reduction</span> versus Palantir AIP Intelligence and 74%+ cost avoidance versus the Mistral OCR API ($4k).</li>
           <li>Built a <strong>conversational data agent</strong> using Claude Sonnet that turns plain English questions into database queries — letting non-technical business users access large datasets without writing a single line of code.</li>
           <li>Developed a <strong>RAG pipeline on tabular metadata</strong>, connecting a vector database (Qdrant) with an AI chatbot to automate information retrieval and answer generation from structured data.</li>
           <li>Created a <strong>brand sentiment intelligence tool</strong> that monitors Reddit and the web, surfacing how customers feel about the brand over time — with AI-generated summaries, scores, and trend timelines.</li>
         </ul>
       </div>
 
-      <!-- Sangria -->
       <div class="exp-item reveal reveal-d1">
         <div class="exp-dot"></div>
         <div class="exp-header">
           <div>
             <div class="exp-title">AI / ML Engineer</div>
-            <div class="exp-company">Sangria by Dotkonnekt — Bengaluru, India</div>
+            <div class="exp-company">Sangria by Dotkonnekt - Bengaluru, India</div>
           </div>
-          <div class="exp-period">Oct 2023 — Apr 2025</div>
+          <div class="exp-period">Oct 2023 - Apr 2025</div>
         </div>
         <ul class="exp-achievements">
-          <li>Built and deployed <strong>production AI agents</strong> using Crew AI, LangChain, and LangFlow — integrated with transformer models and benchmarked for reliability at scale.</li>
-          <li>Delivered an <strong>automated backend testing system</strong> using Node.js that reduced the need for manual QA testing by <span class="impact-badge">⚡ 60%</span>.</li>
-          <li>Streamlined deployments by wiring up <strong>CI/CD pipelines with Jenkins and Docker</strong>, cutting deployment time by <span class="impact-badge">🚀 30%</span> while keeping systems running without interruption.</li>
+          <li>Built and deployed <strong>production AI agents</strong> using Crew AI, LangChain, and LangFlow — integrated with transformer models and benchmarked for reliability.</li>
+          <li>Delivered an <strong>automated backend testing system</strong> using Node.js that reduced manual QA testing by <span class="impact-badge">⚡ 60%</span>.</li>
           <li>Trained and deployed machine learning models end-to-end — from data collection and cleaning to deployment in scalable, secure infrastructure.</li>
           <li>Worked closely with cross-functional teams using agile practices, translating business needs into technical solutions that shipped on time.</li>
+          <li>Integrated <strong>CI/CD workflows</strong> using Jenkins and Docker, cutting deployment time by <span class="impact-badge">🚀 30%</span> while maintaining system uptime.</li>
         </ul>
       </div>
 
-      <!-- Intern -->
       <div class="exp-item reveal reveal-d2">
         <div class="exp-dot"></div>
         <div class="exp-header">
           <div>
             <div class="exp-title">AI / ML Intern</div>
-            <div class="exp-company">Dotkonnekt — Bengaluru, India</div>
+            <div class="exp-company">Dotkonnekt - Bengaluru, India</div>
           </div>
-          <div class="exp-period">Jul 2023 — Oct 2023</div>
+          <div class="exp-period">Jul 2023 - Oct 2023</div>
         </div>
         <ul class="exp-achievements">
           <li>Built a <strong>question-answering chatbot and summarization tool</strong> using Rasa, spaCy, and Hugging Face — real NLP shipped into production, not just prototypes.</li>
-          <li>Set up a <strong>real-time monitoring and logging system</strong> using Grafana, giving the team full visibility into system health and error tracking.</li>
-          <li>Created an <strong>end-to-end automated testing script with Playwright</strong> to continuously verify critical business flows and catch API errors before customers did.</li>
+          <li>Documented and contributed to <strong>ML model research and endpoints</strong> using FastAPI, optimizing for low-latency predictions in real-time AI applications.</li>
+          <li>Improvised code level <strong>resilient Python logger</strong> with Grafana for real-time monitoring, error tracking, and performance metrics — improving issue resolution and operational visibility.</li>
           <li>Contributed to a <strong>live data analysis platform</strong> using Streamlit, enabling teams to run web scraping and large-scale dataset analysis through a simple interface.</li>
+          <li>Created an <strong>end-to-end automated testing script with Playwright</strong> to continuously verify critical business flows and catch API errors before customers did.</li>
         </ul>
       </div>
 
@@ -416,7 +260,6 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="container">
     <div class="section-label reveal">Projects</div>
@@ -425,7 +268,7 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
 
     <div class="projects-grid">
 
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-tilt>
         <div class="project-icon g1">🤖</div>
         <h3>AI-Powered Product Recommendation Engine</h3>
         <p>Led the design of an AI recommendation system that uses semantic understanding and graph databases to match products to people — boosting product visibility by 70%. Deployed via CI/CD with Docker in a fully automated pipeline.</p>
@@ -434,7 +277,7 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
         </div>
       </div>
 
-      <div class="project-card reveal reveal-d1">
+      <div class="project-card reveal reveal-d1" data-tilt>
         <div class="project-icon g2">💬</div>
         <h3>RAG System for Content Generation</h3>
         <p>Built a retrieval-augmented generation system that reads documents (PDFs, Word files, plain text) and generates accurate product descriptions using GPT-4. Makes unstructured data actionable and reduces manual writing effort significantly.</p>
@@ -443,7 +286,7 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
         </div>
       </div>
 
-      <div class="project-card reveal reveal-d2">
+      <div class="project-card reveal reveal-d2" data-tilt>
         <div class="project-icon g3">🔍</div>
         <h3>Weaviate Vector Search Platform</h3>
         <p>Implemented a high-speed semantic search system using the Weaviate vector database — making it 70% faster to find relevant information. Combined AI vector search with traditional keyword search to improve accuracy by over 40%.</p>
@@ -452,7 +295,7 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-tilt>
         <div class="project-icon g4">👁️</div>
         <h3>Navigation Assistant for Visually Impaired Users</h3>
         <p>Built a real-time object detection and navigation system using computer vision and reinforcement learning to help visually impaired users move safely through complex environments. Published as a research paper.</p>
@@ -461,7 +304,7 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
         </div>
       </div>
 
-      <div class="project-card reveal reveal-d1">
+      <div class="project-card reveal reveal-d1" data-tilt>
         <div class="project-icon g5">⚡</div>
         <h3>Real-Time Analytics Data Pipeline</h3>
         <p>Built a scalable pipeline that ingests, processes, and makes sense of large volumes of live data — improving throughput by 40%. Integrated with machine learning models to surface actionable business insights continuously.</p>
@@ -470,11 +313,20 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
         </div>
       </div>
 
+      <div class="project-card reveal reveal-d2" data-tilt>
+        <div class="project-icon g6">🎂</div>
+        <h3>wishyoubirthday.com</h3>
+        <p>A personal project that turns "happy birthday" into something that actually means it. Relationships are modeled as a graph in Neo4j, a living web of who-loves-who, because that is genuinely the right shape for that kind of tenderness. OpenAI helps write each wish, and Firebase verifies that the phone number typing it in really belongs to the person sending it.</p>
+        <div class="project-tags">
+          <span class="tag tag-live">Live Project</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Neo4j</span><span class="tag">OpenAI</span><span class="tag">Firebase</span>
+        </div>
+        <a href="https://wishyoubirthday.com" target="_blank" rel="noopener" class="project-link">Visit wishyoubirthday.com</a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="skills-section">
   <div class="container">
     <div class="section-label reveal">Skills</div>
@@ -486,12 +338,12 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
       <div class="skill-cat reveal">
         <div class="skill-cat-title">
           <div class="skill-cat-icon" style="background:rgba(108,99,255,0.15)">🧠</div>
-          <h4>AI & Machine Learning</h4>
+          <h4>AI &amp; Machine Learning</h4>
         </div>
         <div class="skill-list">
           <div><div class="skill-row"><span class="skill-name">LangChain / LangFlow</span><div class="skill-bar"><div class="skill-fill" style="--w:0.93"></div></div><span class="skill-pct">93%</span></div></div>
           <div><div class="skill-row"><span class="skill-name">Hugging Face Transformers</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">RAG & Vector Search</span><div class="skill-bar"><div class="skill-fill" style="--w:0.92"></div></div><span class="skill-pct">92%</span></div></div>
+          <div><div class="skill-row"><span class="skill-name">RAG &amp; Vector Search</span><div class="skill-bar"><div class="skill-fill" style="--w:0.92"></div></div><span class="skill-pct">92%</span></div></div>
           <div><div class="skill-row"><span class="skill-name">Crew AI / AI Agents</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div><span class="skill-pct">88%</span></div></div>
           <div><div class="skill-row"><span class="skill-name">Scikit-learn / TensorFlow</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
         </div>
@@ -500,7 +352,7 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
       <div class="skill-cat reveal reveal-d1">
         <div class="skill-cat-title">
           <div class="skill-cat-icon" style="background:rgba(0,212,255,0.1)">💻</div>
-          <h4>Languages & Frameworks</h4>
+          <h4>Languages &amp; Frameworks</h4>
         </div>
         <div class="skill-list">
           <div><div class="skill-row"><span class="skill-name">Python 3</span><div class="skill-bar"><div class="skill-fill" style="--w:0.95"></div></div><span class="skill-pct">95%</span></div></div>
@@ -514,7 +366,7 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
       <div class="skill-cat reveal reveal-d2">
         <div class="skill-cat-title">
           <div class="skill-cat-icon" style="background:rgba(0,255,170,0.1)">☁️</div>
-          <h4>Cloud & Infrastructure</h4>
+          <h4>Cloud &amp; Infrastructure</h4>
         </div>
         <div class="skill-list">
           <div><div class="skill-row"><span class="skill-name">AWS (Lambda, S3, DynamoDB)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
@@ -543,16 +395,31 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <section id="certifications">
   <div class="container">
     <div class="section-label reveal">Certifications</div>
-    <h2 class="section-title reveal reveal-d1">Credentials & <span>Learning</span></h2>
+    <h2 class="section-title reveal reveal-d1">Credentials &amp; <span>Learning</span></h2>
     <p class="section-sub reveal reveal-d2">Continuous learning from the world's top platforms.</p>
     <div class="certs-grid">
       <div class="cert-card reveal">
-        <div class="cert-icon" style="background:rgba(0,120,212,0.15)">🪟</div>
-        <div class="cert-body"><h4>Microsoft Certified: Azure AI Fundamentals</h4><span>Microsoft · Sep 2022</span></div>
+        <div class="cert-icon" style="background:rgba(255,153,0,0.15)">☁️</div>
+        <div class="cert-body"><h4>Learning AWS for Developers</h4><span>LinkedIn Learning · Jun 2026</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d1">
+        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🔗</div>
+        <div class="cert-body"><h4>Hands-On Generative AI with Multi-Agent LangChain</h4><span>LinkedIn Learning · Nov 2024</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d2">
+        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
+        <div class="cert-body"><h4>Google Cloud Big Data and Machine Learning Fundamentals</h4><span>Coursera · Oct 2023</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d3">
+        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
+        <div class="cert-body"><h4>Machine Learning for All</h4><span>Coursera · Oct 2023</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
+        <div class="cert-body"><h4>Foundations of Data Science</h4><span>Coursera · Sep 2023</span></div>
       </div>
       <div class="cert-card reveal reveal-d1">
         <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
@@ -560,21 +427,65 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
       </div>
       <div class="cert-card reveal reveal-d2">
         <div class="cert-icon" style="background:rgba(0,119,181,0.15)">💼</div>
-        <div class="cert-body"><h4>Career Essentials in Generative AI</h4><span>Microsoft & LinkedIn · Jul 2023</span></div>
+        <div class="cert-body"><h4>Career Essentials in Data Analysis</h4><span>Microsoft &amp; LinkedIn · Jul 2023</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d3">
+        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">💼</div>
+        <div class="cert-body"><h4>Career Essentials in Generative AI</h4><span>Microsoft &amp; LinkedIn · Jul 2023</span></div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🔗</div>
-        <div class="cert-body"><h4>Hands-On Generative AI with Multi-Agent LangChain</h4><span>LinkedIn Learning · Nov 2024</span></div>
+        <div class="cert-icon" style="background:rgba(108,99,255,0.15)">🧠</div>
+        <div class="cert-body"><h4>Introduction to Artificial Intelligence</h4><span>LinkedIn Learning · Jul 2023</span></div>
       </div>
       <div class="cert-card reveal reveal-d1">
         <div class="cert-icon" style="background:rgba(108,99,255,0.15)">✨</div>
+        <div class="cert-body"><h4>Introduction to Prompt Engineering for Generative AI</h4><span>LinkedIn Learning · May 2023</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d2">
+        <div class="cert-icon" style="background:rgba(108,99,255,0.15)">✨</div>
         <div class="cert-body"><h4>Prompt Engineering: How to Talk to the AIs</h4><span>LinkedIn Learning · May 2023</span></div>
       </div>
+      <div class="cert-card reveal reveal-d3">
+        <div class="cert-icon" style="background:rgba(0,255,170,0.1)">📐</div>
+        <div class="cert-body"><h4>Statistics Foundations 2: Probability</h4><span>LinkedIn Learning · Feb 2023</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon" style="background:rgba(108,99,255,0.15)">🧠</div>
+        <div class="cert-body"><h4>Artificial Intelligence Foundations: Thinking Machines</h4><span>LinkedIn Learning · Feb 2023</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d1">
+        <div class="cert-icon" style="background:rgba(255,107,157,0.12)">🤖</div>
+        <div class="cert-body"><h4>Machine Learning</h4><span>Internshala · Dec 2022</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d2">
+        <div class="cert-icon" style="background:rgba(0,120,212,0.15)">🪟</div>
+        <div class="cert-body"><h4>Microsoft Certified: Azure Fundamentals</h4><span>Microsoft · Dec 2022</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d3">
+        <div class="cert-icon" style="background:rgba(255,215,0,0.1)">📊</div>
+        <div class="cert-body"><h4>Learning Data Analytics: Foundations</h4><span>LinkedIn Learning · Oct 2022</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon" style="background:rgba(0,120,212,0.15)">🪟</div>
+        <div class="cert-body"><h4>Microsoft Certified: Azure AI Fundamentals</h4><span>Microsoft · Sep 2022</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d1">
+        <div class="cert-icon" style="background:rgba(15,98,254,0.12)">🔷</div>
+        <div class="cert-body"><h4>Data Science: 101</h4><span>IBM · Sep 2022</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d2">
+        <div class="cert-icon" style="background:rgba(240,80,50,0.12)">🐙</div>
+        <div class="cert-body"><h4>Git and Version Control</h4><span>Nasscom Foundation · Sep 2022</span></div>
+      </div>
+      <div class="cert-card reveal reveal-d3">
+        <div class="cert-icon" style="background:rgba(0,255,170,0.1)">📐</div>
+        <div class="cert-body"><h4>Statistics Foundations 1: The Basics</h4><span>LinkedIn Learning · Aug 2022</span></div>
+      </div>
     </div>
+    <p style="text-align:center;margin-top:2rem"><a href="https://www.linkedin.com/in/shivjiagnihotri/details/certifications/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:0.9rem;font-weight:600">View all certifications on LinkedIn</a></p>
   </div>
 </section>
 
-<!-- PUBLICATION -->
 <section id="publication" style="background:var(--surface)">
   <div class="container">
     <div class="section-label reveal">Research</div>
@@ -594,19 +505,18 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
   <div class="container">
     <div class="section-label reveal">Education</div>
     <h2 class="section-title reveal reveal-d1">Academic <span>Foundation</span></h2>
     <div class="edu-grid">
       <div class="edu-card reveal">
-        <div class="edu-year">Jul 2019 — Aug 2023</div>
+        <div class="edu-year">Jul 2019 - Aug 2023</div>
         <div class="edu-degree">B.E. in Computer Science</div>
         <div class="edu-school">SSPACE Wardha · RTM Nagpur University, Maharashtra</div>
       </div>
       <div class="edu-card reveal reveal-d1">
-        <div class="edu-year">Apr 2018 — Jun 2019</div>
+        <div class="edu-year">Apr 2018 - Jun 2019</div>
         <div class="edu-degree">Higher Secondary Certificate · CBSE</div>
         <div class="edu-school">Kendriya Vidyalaya WCL New Majri, Maharashtra</div>
       </div>
@@ -614,14 +524,32 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
   </div>
 </section>
 
-<!-- CONTACT -->
+<section id="playground">
+  <div class="container">
+    <div class="section-label reveal">// just_for_fun</div>
+    <h2 class="section-title reveal reveal-d1">Take a <span>Debug Break</span></h2>
+    <p class="section-sub reveal reveal-d2">A portfolio shouldn't only be read, it should be played too. Three tiny games — jump the bugs, fly the bird, loose the arrows. Works with taps, thumbs, mouse and keys.</p>
+
+    <div class="game-tabs reveal" role="tablist" aria-label="Choose a mini game">
+      <button class="game-tab active" data-game="runner" role="tab" aria-selected="true" type="button">🏃 Bug Runner</button>
+      <button class="game-tab" data-game="bird" role="tab" aria-selected="false" type="button">🐤 Bird Fly</button>
+      <button class="game-tab" data-game="archer" role="tab" aria-selected="false" type="button">🏹 Arrow Shooter</button>
+    </div>
+
+    <div class="game-wrap reveal reveal-d1">
+      <canvas id="gameCanvas" tabindex="0" aria-label="Mini game. Use touch, mouse or keyboard to play."></canvas>
+      <p class="game-hint" id="gameHint">Tap or press Space to start</p>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="contact-section">
   <div class="container">
     <div class="contact-inner">
-      <div class="available-badge">Open to new opportunities</div>
+      <div class="available-badge">Open to opportunities</div>
       <div class="section-label">Contact</div>
       <h2 class="section-title">Let's Build Something <span>Remarkable</span></h2>
-      <p class="section-sub">Whether you have a project in mind, want to discuss AI solutions, or just want to say hello — I'd love to hear from you.</p>
+      <p class="section-sub">Whether you have a project in mind, want to discuss AI solutions, or just want to say hello, I'd love to hear from you.</p>
       <div class="contact-links">
         <a href="mailto:shivjiagnihotri@outlook.com" class="contact-link">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -645,59 +573,18 @@ footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem;borde
 </section>
 
 <footer>
-  <p>© 2025 Shivji Agnihotri · Bengaluru, India · Built with care</p>
+  <p>© <span id="year">2026</span> Shivji Agnihotri · Bengaluru, India · Built with Three.js &amp; ❤</p>
 </footer>
 
-<script>
-// Cursor glow
-const glow = document.getElementById('cursorGlow');
-document.addEventListener('mousemove', e => {
-  glow.style.left = e.clientX + 'px';
-  glow.style.top = e.clientY + 'px';
-});
-
-// Hamburger
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
-// Close nav on link click
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-});
-
-// Scroll reveal
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Skill bar animation
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting) {
-      e.target.querySelectorAll('.skill-fill').forEach(bar => {
-        bar.style.transform = 'scaleX(' + (bar.style.getPropertyValue('--w') || 0) + ')';
-        bar.classList.add('animated');
-      });
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.skill-cat').forEach(el => skillObserver.observe(el));
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if(target){ e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  });
-});
-
-// Nav scroll shadow
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').style.background =
-    window.scrollY > 50 ? 'rgba(6,6,18,0.95)' : 'rgba(6,6,18,0.7)';
-});
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.module.js"
+  }
+}
 </script>
+<script type="module" src="js/scene.js"></script>
+<script type="module" src="js/games.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
