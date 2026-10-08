@@ -1,386 +1,163 @@
-import * as THREE from 'three'
-
-const canvas = document.getElementById('webgl')
-if (canvas) init()
-
-function init() {
-  const stage = canvas.parentElement
-  const section = document.getElementById('neural')
-  const loader = document.getElementById('loader')
-
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const finePointer = window.matchMedia('(pointer: fine)').matches
-  const lowPower = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768
-
-  const PARTICLES = lowPower ? 2600 : 6500
-  const ANCHORS = lowPower ? 60 : 120
-  const MAX_SEGMENTS = lowPower ? 180 : 480
-
-  let renderer
-  try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' })
-  } catch (err) {
-    fail()
-    return
-  }
-
-  renderer.setClearColor(0x000000, 0)
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
-
-  const scene = new THREE.Scene()
-  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 240)
-  camera.position.set(0, 0, 30)
-
-  const universe = new THREE.Group()
-  let particleMat = null
-  let innerCore = null
-  let coreGroupRef = null
-
-  const palette = [
-    { c: new THREE.Color('#6c63ff'), w: 0.42 },
-    { c: new THREE.Color('#00d4ff'), w: 0.34 },
-    { c: new THREE.Color('#ff6b9d'), w: 0.14 },
-    { c: new THREE.Color('#e8e8ff'), w: 0.1 },
-  ]
-
-  function pickColor() {
-    let t = Math.random()
-    for (const p of palette) {
-      t -= p.w
-      if (t <= 0) return p.c
+﻿// A lightweight, depth-sorted point sculpture. No graphics library on the landing page.
+export function initNeural(canvas, initialReduced = false) {
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+  const coarse = matchMedia("(pointer:coarse)").matches;
+  const points = [],
+    segments = coarse ? 150 : 220,
+    rings = 20;
+  const curve = (t) => [
+    (2 + 0.72 * Math.cos(3 * t)) * Math.cos(2 * t),
+    (2 + 0.72 * Math.cos(3 * t)) * Math.sin(2 * t),
+    0.9 * Math.sin(3 * t),
+  ];
+  for (let i = 0; i < segments; i++) {
+    const t = (i / segments) * Math.PI * 2,
+      p = curve(t),
+      n = curve(t + 0.001);
+    let tangent = n.map((v, j) => v - p[j]);
+    const tl = Math.hypot(...tangent);
+    tangent = tangent.map((v) => v / tl);
+    let u = [-tangent[1], tangent[0], 0];
+    const ul = Math.hypot(...u);
+    u = u.map((v) => v / ul);
+    const v = [
+      tangent[1] * u[2] - tangent[2] * u[1],
+      tangent[2] * u[0] - tangent[0] * u[2],
+      tangent[0] * u[1] - tangent[1] * u[0],
+    ];
+    for (let j = 0; j < rings; j++) {
+      const a = (j / rings) * Math.PI * 2;
+      points.push({
+        p: p.map(
+          (n, k) => n + 0.43 * (u[k] * Math.cos(a) + v[k] * Math.sin(a)),
+        ),
+        gold: Math.sin(t * 2 + 0.6) > 0.63,
+        i: i * rings + j,
+      });
     }
-    return palette[palette.length - 1].c
   }
-
-  function makeGlowTexture() {
-    const size = 256
-    const c = document.createElement('canvas')
-    c.width = c.height = size
-    const ctx = c.getContext('2d')
-    const g = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
-    g.addColorStop(0, 'rgba(255,255,255,1)')
-    g.addColorStop(0.25, 'rgba(255,255,255,0.45)')
-    g.addColorStop(0.6, 'rgba(255,255,255,0.12)')
-    g.addColorStop(1, 'rgba(255,255,255,0)')
-    ctx.fillStyle = g
-    ctx.fillRect(0, 0, size, size)
-    const tex = new THREE.CanvasTexture(c)
-    tex.colorSpace = THREE.SRGBColorSpace
-    return tex
+  let width = 1,
+    height = 1,
+    visible = true,
+    reduced = initialReduced,
+    raf = 0,
+    last = 0,
+    angle = 0.6,
+    mx = 0,
+    my = 0,
+    px = 0,
+    py = 0;
+  function size() {
+    const r = canvas.getBoundingClientRect();
+    width = r.width;
+    height = r.height;
+    const d = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(width * d);
+    canvas.height = Math.round(height * d);
+    ctx.setTransform(d, 0, 0, d, 0, 0);
+    draw();
   }
-
-  function buildParticles() {
-    const positions = new Float32Array(PARTICLES * 3)
-    const colors = new Float32Array(PARTICLES * 3)
-    const scales = new Float32Array(PARTICLES)
-    const phases = new Float32Array(PARTICLES)
-
-    for (let i = 0; i < PARTICLES; i++) {
-      const r = 11 + Math.pow(Math.random(), 0.65) * 15
-      const theta = Math.random() * Math.PI * 2
-      const phi = Math.acos(2 * Math.random() - 1)
-      positions[i * 3] = r * Math.sin(phi) * Math.cos(theta) + (Math.random() - 0.5) * 2.4
-      positions[i * 3 + 1] = r * Math.cos(phi) * 0.82 + (Math.random() - 0.5) * 2.4
-      positions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta) + (Math.random() - 0.5) * 2.4
-
-      const col = pickColor()
-      colors[i * 3] = col.r
-      colors[i * 3 + 1] = col.g
-      colors[i * 3 + 2] = col.b
-
-      scales[i] = 0.6 + Math.random() * Math.random() * 2.2
-      phases[i] = Math.random() * Math.PI * 2
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    const cx = width * 0.5,
+      cy = height * 0.5,
+      scale = Math.min(width, height) * 0.15;
+    ctx.strokeStyle = "#90947d20";
+    ctx.lineWidth = 0.7;
+    for (const radius of [1.2, 1.45]) {
+      ctx.beginPath();
+      ctx.ellipse(
+        cx,
+        cy,
+        scale * 3.0 * radius,
+        scale * 0.82 * radius,
+        -0.4,
+        0,
+        Math.PI * 2,
+      );
+      ctx.stroke();
     }
-
-    const geo = new THREE.BufferGeometry()
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3))
-    geo.setAttribute('aColor', new THREE.BufferAttribute(colors, 3))
-    geo.setAttribute('aScale', new THREE.BufferAttribute(scales, 1))
-    geo.setAttribute('aPhase', new THREE.BufferAttribute(phases, 1))
-
-    const mat = new THREE.ShaderMaterial({
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-      uniforms: {
-        uTime: { value: 0 },
-        uPixelRatio: { value: renderer.getPixelRatio() },
-      },
-      vertexShader: `
-        uniform float uTime;
-        uniform float uPixelRatio;
-        attribute vec3 aColor;
-        attribute float aScale;
-        attribute float aPhase;
-        varying vec3 vColor;
-        varying float vTwinkle;
-        void main() {
-          vec3 p = position;
-          p += normalize(p) * sin(uTime * 0.35 + aPhase * 0.5) * 0.45;
-          vec4 mv = modelViewMatrix * vec4(p, 1.0);
-          gl_Position = projectionMatrix * mv;
-          gl_PointSize = uPixelRatio * aScale * (150.0 / max(1.0, -mv.z));
-          vColor = aColor;
-          vTwinkle = 0.62 + 0.38 * sin(uTime * 1.4 + aPhase);
-        }
-      `,
-      fragmentShader: `
-        varying vec3 vColor;
-        varying float vTwinkle;
-        void main() {
-          float d = length(gl_PointCoord - 0.5);
-          float alpha = smoothstep(0.5, 0.04, d) * vTwinkle;
-          if (alpha < 0.01) discard;
-          gl_FragColor = vec4(vColor, alpha);
-        }
-      `,
-    })
-
-    particleMat = mat
-    return new THREE.Points(geo, mat)
-  }
-
-  function buildConnections(pointsObj) {
-    const src = pointsObj.geometry.getAttribute('position')
-    const pts = []
-    const total = src.count
-    const step = Math.max(1, Math.floor(total / ANCHORS))
-    for (let i = 0; i < total && pts.length < ANCHORS; i += step) {
-      pts.push(new THREE.Vector3().fromBufferAttribute(src, i))
-    }
-    const segs = []
-    const maxDist = 5.4
-    outer: for (let i = 0; i < pts.length; i++) {
-      for (let j = i + 1; j < pts.length; j++) {
-        if (pts[i].distanceTo(pts[j]) < maxDist) {
-          segs.push(pts[i].x, pts[i].y, pts[i].z, pts[j].x, pts[j].y, pts[j].z)
-          if (segs.length >= MAX_SEGMENTS * 6) break outer
-        }
-      }
-    }
-    const geo = new THREE.BufferGeometry()
-    geo.setAttribute('position', new THREE.Float32BufferAttribute(segs, 3))
-    const mat = new THREE.LineBasicMaterial({
-      color: 0x4fd8ff,
-      transparent: true,
-      opacity: 0.09,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    })
-    return new THREE.LineSegments(geo, mat)
-  }
-
-  function buildCore() {
-    const group = new THREE.Group()
-
-    const outer = new THREE.LineSegments(
-      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(7.2, 1)),
-      new THREE.LineBasicMaterial({
-        color: 0x6c63ff,
-        transparent: true,
-        opacity: 0.3,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
+    const ay = angle + px * 0.25,
+      ax = 0.8 + py * 0.2,
+      cyaw = Math.cos(ay),
+      syaw = Math.sin(ay),
+      cp = Math.cos(ax),
+      sp = Math.sin(ax);
+    const projected = points
+      .map((point) => {
+        const p = point.p,
+          x = p[0] * cyaw + p[2] * syaw,
+          z = -p[0] * syaw + p[2] * cyaw,
+          y = p[1] * cp - z * sp,
+          zz = p[1] * sp + z * cp;
+        const perspective = 7 / (7 - zz);
+        return {
+          x: cx + x * scale * perspective,
+          y: cy + y * scale * perspective,
+          z: zz,
+          size: perspective * 0.92,
+          point,
+        };
       })
-    )
-
-    innerCore = new THREE.LineSegments(
-      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(4.1, 0)),
-      new THREE.LineBasicMaterial({
-        color: 0x00d4ff,
-        transparent: true,
-        opacity: 0.55,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
-      })
-    )
-
-    const glow = new THREE.Sprite(
-      new THREE.SpriteMaterial({
-        map: makeGlowTexture(),
-        color: 0x7b74ff,
-        transparent: true,
-        opacity: 0.5,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
-      })
-    )
-    glow.scale.setScalar(26)
-
-    group.add(glow, outer, innerCore)
-    return group
-  }
-
-  const particlePoints = buildParticles()
-  universe.add(particlePoints)
-  universe.add(buildConnections(particlePoints))
-  coreGroupRef = buildCore()
-  universe.add(coreGroupRef)
-  scene.add(universe)
-
-  const mouse = { x: 0, y: 0, tx: 0, ty: 0 }
-  const state = { spin: 0, scrollT: 0, scrollP: 0, visT: 1, lastOpacity: -1 }
-  let running = false
-  let rafId = 0
-  let lastTime = performance.now()
-  let sceneVisible = true
-  let docVisible = !document.hidden
-  let firstFrameDone = false
-  let resizeTimer = 0
-
-  function clamp01(v) {
-    return Math.min(1, Math.max(0, v))
-  }
-
-  function measureSection() {
-    if (!section) return
-    const rect = section.getBoundingClientRect()
-    const vh = window.innerHeight
-    state.scrollT = clamp01((vh - rect.top) / (rect.height + vh))
-    const visiblePx = Math.min(rect.bottom, vh) - Math.max(rect.top, 0)
-    state.visT = clamp01(visiblePx / Math.min(rect.height, vh))
-  }
-
-  function resize() {
-    const rect = canvas.parentElement.getBoundingClientRect()
-    const width = Math.max(1, Math.floor(rect.width))
-    const height = Math.max(1, Math.floor(rect.height))
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
-    renderer.setSize(width, height, false)
-    camera.aspect = width / height
-    camera.updateProjectionMatrix()
-    if (particleMat) particleMat.uniforms.uPixelRatio.value = renderer.getPixelRatio()
-    if (!running) renderStatic()
-  }
-
-  function applyScene(dt, t) {
-    state.spin += dt * 0.05
-    mouse.x += (mouse.tx - mouse.x) * 0.045
-    mouse.y += (mouse.ty - mouse.y) * 0.045
-    state.scrollP += (state.scrollT - state.scrollP) * Math.min(1, dt * 6)
-
-    universe.rotation.y = state.spin + mouse.x * 0.28 + state.scrollP * 1.6
-    universe.rotation.x = -0.12 + mouse.y * 0.16
-    universe.position.y = state.scrollP * 4 - 1.5
-
-    camera.position.z = 30 + state.scrollP * 14
-    camera.position.x = mouse.x * 1.4
-    camera.position.y = -mouse.y * 1.0
-    camera.lookAt(0, 0, 0)
-
-    coreGroupRef.rotation.y += dt * 0.14
-    coreGroupRef.rotation.x += dt * 0.07
-    innerCore.rotation.y -= dt * 0.22
-    innerCore.rotation.z += dt * 0.1
-    coreGroupRef.scale.setScalar(1 + Math.sin(t * 0.8) * 0.035)
-
-    if (particleMat) particleMat.uniforms.uTime.value = t
-
-    const op = 0.15 + 0.85 * clamp01(state.visT * 1.4)
-    const rounded = Math.round(op * 200) / 200
-    if (rounded !== state.lastOpacity) {
-      state.lastOpacity = rounded
-      stage.style.opacity = rounded.toFixed(2)
+      .sort((a, b) => a.z - b.z);
+    for (const p of projected) {
+      const alpha = 0.24 + ((p.z + 3.5) / 7) * 0.65;
+      ctx.fillStyle = p.point.gold
+        ? "rgba(169,115,46," + alpha + ")"
+        : "rgba(38,48,34," + alpha + ")";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, Math.max(0.55, p.size), 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.fillStyle = "#bd965a";
+    for (let i = 0; i < 7; i++) {
+      const p = projected[(i * 631 + 150) % projected.length];
+      ctx.fillRect(p.x - 1.6, p.y - 1.6, 3.2, 3.2);
     }
   }
-
-  function renderStatic() {
-    applyScene(0, 2.5)
-    renderer.render(scene, camera)
-    markFirstFrame()
+  function frame(time) {
+    raf = 0;
+    if (!visible || reduced || document.hidden) return;
+    const dt = Math.min((time - last) / 1000, 0.05);
+    last = time;
+    angle += dt * 0.1;
+    px += (mx - px) * 0.05;
+    py += (my - py) * 0.05;
+    draw();
+    raf = requestAnimationFrame(frame);
   }
-
-  function frame(now) {
-    if (!running) return
-    rafId = requestAnimationFrame(frame)
-    const dt = Math.min((now - lastTime) / 1000, 0.05)
-    lastTime = now
-    applyScene(dt, now / 1000)
-    renderer.render(scene, camera)
-    markFirstFrame()
+  function sync() {
+    cancelAnimationFrame(raf);
+    raf = 0;
+    if (visible && !reduced && !document.hidden) {
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    } else draw();
   }
-
-  function markFirstFrame() {
-    if (firstFrameDone) return
-    firstFrameDone = true
-    requestAnimationFrame(() => {
-      if (loader) loader.classList.add('is-done')
-    })
-  }
-
-  function updateRunning() {
-    const shouldRun = !reducedMotion && docVisible && sceneVisible
-    if (shouldRun && !running) {
-      running = true
-      lastTime = performance.now()
-      rafId = requestAnimationFrame(frame)
-    } else if (!shouldRun && running) {
-      running = false
-      cancelAnimationFrame(rafId)
-    }
-  }
-
-  window.addEventListener(
-    'resize',
-    () => {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(resize, 150)
+  canvas.addEventListener(
+    "pointermove",
+    (e) => {
+      const r = canvas.getBoundingClientRect();
+      mx = (e.clientX - r.left) / r.width - 0.5;
+      my = (e.clientY - r.top) / r.height - 0.5;
     },
-    { passive: true }
-  )
-
-  window.addEventListener(
-    'scroll',
-    () => {
-      measureSection()
-      if (!running) renderStatic()
-    },
-    { passive: true }
-  )
-
-  if (finePointer && !reducedMotion) {
-    window.addEventListener(
-      'pointermove',
-      e => {
-        mouse.tx = (e.clientX / window.innerWidth) * 2 - 1
-        mouse.ty = (e.clientY / window.innerHeight) * 2 - 1
-      },
-      { passive: true }
-    )
-  }
-
-  if ('IntersectionObserver' in window && section) {
-    new IntersectionObserver(
-      entries => {
-        sceneVisible = entries[0].isIntersecting
-        updateRunning()
-      },
-      { threshold: 0.02, rootMargin: '80px' }
-    ).observe(section)
-  } else if (!section) {
-    sceneVisible = false
-  }
-
-  document.addEventListener('visibilitychange', () => {
-    docVisible = !document.hidden
-    updateRunning()
-  })
-
-  canvas.addEventListener('webglcontextlost', e => {
-    e.preventDefault()
-    running = false
-    cancelAnimationFrame(rafId)
-  })
-  canvas.addEventListener('webglcontextrestored', () => updateRunning())
-
-  resize()
-  measureSection()
-  state.scrollP = state.scrollT
-  updateRunning()
-  if (!running) renderStatic()
-
-  function fail() {
-    if (stage) stage.classList.add('no-webgl')
-    if (loader) loader.classList.add('is-done')
-  }
+    { passive: true },
+  );
+  canvas.addEventListener("pointerleave", () => {
+    mx = my = 0;
+  });
+  new ResizeObserver(size).observe(canvas);
+  new IntersectionObserver((entries) => {
+    visible = entries[0].isIntersecting;
+    sync();
+  }).observe(canvas);
+  document.addEventListener("visibilitychange", sync);
+  addEventListener("portfolio-motion", (e) => {
+    reduced = e.detail;
+    sync();
+  });
+  size();
+  sync();
 }

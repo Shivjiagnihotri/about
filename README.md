@@ -1,59 +1,76 @@
-# shivjiagnihotri.tech — 3D Portfolio
+﻿# Shivji Agnihotri — Portfolio
 
-Production single-page portfolio with a Lottie hero, a real-time **Three.js** "neural space" section, and a three-game arcade — built as a zero-build static site so it deploys straight from this repository to **GitHub Pages**.
+An editorial portfolio and two original, first-person 3D browser games. Built with **HTML, CSS, and vanilla JavaScript**. No framework, build step, backend, or production npm dependencies.
 
-## Stack
+## Preview and check
 
-- [Three.js](https://threejs.org) `v0.178.0` via ES-module import map (jsDelivr CDN, pinned version — no bundler needed)
-- Vanilla JS modules (`js/scene.js`, `js/games.js`, `js/main.js`)
-- Single stylesheet (`css/style.css`)
-- Lottie hero background + mid-page interactive 3D "neural space" section
-- Arcade with three games: Bug Runner, Bird Fly, Arrow Shooter (touch/mouse/keyboard)
+With Node.js 20 or newer:
 
-## Structure
-
-```
-about/
-├── index.html        # markup + import map
-├── css/style.css     # theme, layout, reduced-motion & no-JS handling
-├── js/scene.js       # Three.js mid-page scene: particles, constellation lines, wireframe core
-├── js/games.js       # arcade engine: shared loop/input helpers + 3 games
-├── js/main.js        # nav, reveal animations, tilt cards, ticker speed, arcade wiring
-├── CNAME             # custom domain: shivjiagnihotri.tech
-└── .nojekyll         # serve repo files as-is on Pages
+```sh
+npm start
+# http://127.0.0.1:4173
+npm test
 ```
 
-## Run locally
+Alternatively, run `python -m http.server 8000` from this folder. Use HTTP instead of opening `index.html` as a file so browser ES modules work.
 
-Any static server works (ES modules require http://, not file://):
+## What is included
 
-```bash
-python -m http.server 8000
-# or
-npx serve .
-```
+- Responsive ivory-and-ink layout, local typography, original particle sculpture, and project case-study dialogs.
+- Career history, all 20 existing credentials, research, education, and contact links.
+- Motion toggle, reduced-motion support, native keyboard-accessible dialogs, mobile navigation, and clipboard feedback.
+- Games load their engine, photographic PBR materials, and HDR environment only when launched. The landing page does not download the 3D engine.
+- Local fonts, Three.js, textures, sky, and portrait: no runtime CDN dependency.
+- No accounts, analytics, cookies, or server-side data storage. Motion preference and game bests use optional localStorage.
 
-Then open http://localhost:8000
+## Games
 
-## Deploy
+**Rooftop Protocol** — cross a seven-building course and collect six signals. Each signal saves a checkpoint. Falling restores the last checkpoint and adds five seconds. Complete the course to record a best time.
 
-This repo deploys from the **gh-pages** branch root:
+**Resistance Zero** — survive three waves of security drones. Drones move, strafe, and fire when they have line of sight. Bullets respect cover. Clearing waves replenishes health and ammunition. Finish all three waves to secure the district.
 
-```bash
-git add .
-git commit -m "3D Three.js portfolio"
-git push origin gh-pages
-```
+Both are original browser demos inspired by parkour and tactical action, with textured environments, HDR lighting, dynamic shadows, a compass, radar, and optional synthesized audio. They are not affiliated with Assassin’s Creed, Ubisoft, Freedom Fighters, or IO Interactive.
 
-GitHub Pages serves it at https://shivjiagnihotri.tech (custom domain via `CNAME`). Verify under **Settings → Pages** that source is *Deploy from a branch → gh-pages → /(root)*.
+### Controls
 
-## Production features
+| Action                     | Desktop                                                            | Touch                        |
+| -------------------------- | ------------------------------------------------------------------ | ---------------------------- |
+| Move                       | WASD / arrow keys                                                  | Direction buttons            |
+| Look                       | Mouse; drag if capture unavailable; IJKL as a keyboard alternative | Drag the view                |
+| Sprint                     | Shift                                                              | Hold Sprint                  |
+| Parkour jump / double jump | Space (press twice)                                                | Tap Jump twice               |
+| Fire                       | Left mouse / hold Space                                            | Hold Fire                    |
+| Aim                        | Right mouse                                                        | Aim using the center reticle |
+| Reload                     | R                                                                  | Reload                       |
+| Crouch                     | Hold C                                                             | Hold Crouch                  |
+| Pause                      | Esc / P / pause button                                             | Pause button                 |
 
-- DPR clamped to 2, particle count halved on mobile/coarse pointers
-- 3D scene pauses when the tab is hidden or offscreen (IntersectionObserver); games pause when their tab is inactive
-- Games render at device-pixel resolution via a logical-coordinate fit (crisp on any screen/DPR)
-- Pointer Events everywhere: every game works with touch, mouse and keyboard
-- `prefers-reduced-motion`: static rendered frame instead of animation loop
-- WebGL failure fallback (CSS gradient stays, canvas hidden)
-- Loader overlay with failsafe timeout; content visible without JavaScript
-- Scroll-linked camera pull-back and fade tied to the scene section; mouse parallax; context-loss recovery
+Modern WebGL 2 support is required for games. Browser pointer capture needs a user click. Game loops pause when the page loses focus, is hidden, or the experience closes. Graphics quality and sound are adjustable. High-quality rendering is intended for a computer with hardware acceleration; balanced quality uses fewer display pixels and disables shadows.
+
+## GitHub Pages
+
+GitHub Pages serves HTML, CSS, JavaScript, images, fonts, and other static assets. JavaScript, WebGL, games, animation, and localStorage run in the visitor’s browser, so **all features here work on GitHub Pages**. Server-side applications and secret API keys would require a separate backend.
+
+The existing repository used the `gh-pages` branch root. Keep the existing Pages publishing configuration, or select the intended branch and `/(root)` under **Settings → Pages**. Deploy this folder’s contents, including `assets`, `css`, and `js`.
+
+- `.nojekyll` is preserved.
+- `CNAME` remains `shivjiagnihotri.tech`.
+- All local asset paths are relative, supporting custom domains and project subpaths.
+- No deployment or push is performed by the local preview.
+
+## Source map
+
+| File                     | Purpose                                                                |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `index.html`             | Semantic portfolio, content, and native dialogs                        |
+| `css/style.css`          | Responsive portfolio styling                                           |
+| `css/arcade.css`         | Game menus, HUD, touch controls, and fullscreen                        |
+| `js/main.js`             | Navigation, motion preference, project details, and lazy game loading  |
+| `js/scene.js`            | Lightweight 2D projection of a 3D point sculpture                      |
+| `js/games.js`            | Input, player state, combat, missions, audio, and game lifecycle       |
+| `js/worlds.js`           | Three.js environments, instanced architecture, drones, and view models |
+| `js/physics.js`          | Player collision, jumping, and ray/cover intersection                  |
+| `js/level-data.js`       | Shared rooftop course dimensions                                       |
+| `tests/physics.test.mjs` | Physics checks and reachability of every rooftop jump                  |
+
+See `assets/CREDITS.md` for third-party licenses. No proprietary game assets are included.

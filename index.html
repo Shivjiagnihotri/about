@@ -1,590 +1,965 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shivji Agnihotri - AI Engineer</title>
-<meta name="description" content="Shivji Agnihotri, AI Engineer at Merck Group. Building intelligent systems with LLMs, AI Agents, and scalable data pipelines.">
-<meta name="theme-color" content="#060612">
-<link rel="canonical" href="https://shivjiagnihotri.tech/">
-<meta property="og:title" content="Shivji Agnihotri - AI Engineer">
-<meta property="og:description" content="Building intelligent systems that think, learn, and deliver real business value.">
-<meta property="og:image" content="https://2.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?size=512">
-<meta property="og:url" content="https://shivjiagnihotri.tech/">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="https://www.gravatar.com/avatar/9f6c38f8590a7258a0cc8781168098bde77d7a588e98a3ca396e73dc23113a64?s=32">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-<script>document.documentElement.classList.add('js')</script>
-<noscript><style>.loader{display:none!important}</style></noscript>
-</head>
-<body>
-
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="loader-ring"></div>
-  <div class="loader-label">INITIALIZING NEURAL SPACE</div>
-</div>
-
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
-<a class="skip-link" href="#about">Skip to content</a>
-
-<nav id="navbar">
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#playground">Play</a></li>
-    <li><a href="#contact" class="nav-cta">Talk to Me</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <div class="hero-bg" id="heroBg">
-    <dotlottie-player src="https://lottie.host/5dc52378-0945-4f86-b0cd-2781ab8f38df/23IgtC7qRi.lottie" background="transparent" speed="2" loop autoplay></dotlottie-player>
-  </div>
-  <div class="hero-content">
-    <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/110963535?v=4" alt="Shivji Agnihotri" width="120" height="120">
-    <h1>Shivji <span>Agnihotri</span></h1>
-    <p class="hero-role">AI Engineer at <strong>Merck Group</strong> · Building Intelligent Systems</p>
-    <p class="hero-summary">I turn raw data and ideas into AI systems that actually work ; systems that learn, reason, and deliver real results. From building multi-agent AI assistants to designing pipelines that save millions in costs.</p>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
-      <div class="stat"><div class="stat-num">30M+</div><div class="stat-label">Data Records Handled</div></div>
-      <div class="stat"><div class="stat-num">1.2M€</div><div class="stat-label">Cost Savings Delivered</div></div>
-      <div class="stat"><div class="stat-num">80%</div><div class="stat-label">Operational Cost Reduction</div></div>
-    </div>
-    <div class="hero-btns">
-      <a href="#experience" class="btn-primary">See My Work</a>
-      <a href="#contact" class="btn-secondary">Get In Touch</a>
-    </div>
-    <div class="scroll-hint">Scroll</div>
-    <button id="tickerSpeedBtn" class="speed-btn" type="button">Speed: 1x</button>
-  </div>
-</section>
-
-<div class="ticker-section" aria-hidden="true">
-  <div class="ticker-track" id="ticker">
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="" loading="lazy">Python</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy">TensorFlow</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="" loading="lazy">Docker</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="" loading="lazy">FastAPI</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="" loading="lazy">AWS</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="" loading="lazy">PostgreSQL</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="" loading="lazy">Node.js</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" alt="" loading="lazy">Neo4j</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="" loading="lazy">Grafana</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="" loading="lazy">Git</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="" loading="lazy">Scikit-learn</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="" loading="lazy">PyTorch</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="" loading="lazy">GitHub</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="" loading="lazy">TypeScript</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="" loading="lazy">Next.js</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="" loading="lazy">Firebase</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/n8n.svg" alt="" loading="lazy">n8n</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/langflow.svg" alt="" loading="lazy">Langflow</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="" loading="lazy">Python</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy">TensorFlow</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="" loading="lazy">Docker</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" alt="" loading="lazy">FastAPI</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="" loading="lazy">AWS</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="" loading="lazy">PostgreSQL</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="" loading="lazy">Node.js</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" alt="" loading="lazy">Neo4j</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="" loading="lazy">Grafana</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="" loading="lazy">Git</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg" alt="" loading="lazy">Scikit-learn</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg" alt="" loading="lazy">PyTorch</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="" loading="lazy">GitHub</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="" loading="lazy">TypeScript</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="" loading="lazy">Next.js</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" alt="" loading="lazy">Firebase</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/n8n.svg" alt="" loading="lazy">n8n</div>
-    <div class="ticker-item ticker-sep">✦</div>
-    <div class="ticker-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/langflow.svg" alt="" loading="lazy">Langflow</div>
-    <div class="ticker-item ticker-sep">✦</div>
-  </div>
-</div>
-
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <div class="section-label">About Me</div>
-        <h2 class="section-title">I Build AI That <span>Delivers Results</span></h2>
-        <p>I'm an AI Engineer with over 3 years of hands-on experience designing and shipping intelligent systems — from conversational agents to large-scale data pipelines. Currently at <strong>Merck Group</strong>, where my work directly saves millions in operational costs.</p>
-        <p>My focus is on making AI <strong>practical and impactful</strong>: systems that answer real business questions, automate tedious manual work, and give teams superpowers they didn't have before. I've led projects from concept to production across supply chain, brand intelligence, document processing, and more.</p>
-        <p>I hold a <strong>B.E. in Computer Science</strong>, certifications from Microsoft, Coursera, and LinkedIn Learning, and a published research paper on computer vision for visually impaired users.</p>
-        <div class="skills-pills">
-          <span class="pill">AI Agents</span>
-          <span class="pill">LLMs</span>
-          <span class="pill">RAG Systems</span>
-          <span class="pill">NLP</span>
-          <span class="pill">Data Pipelines</span>
-          <span class="pill">Vector Search</span>
-          <span class="pill">Python</span>
-          <span class="pill">Node.js</span>
-          <span class="pill">Cloud (AWS/GCP/Azure)</span>
-          <span class="pill">Computer Vision</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shivji Agnihotri — AI Engineer & Creative Builder</title>
+    <meta
+      name="description"
+      content="AI engineer at Merck Group. Building intelligent systems, useful products, and immersive browser experiences. Explore the work of Shivji Agnihotri."
+    />
+    <meta name="theme-color" content="#f4f2eb" />
+    <link rel="canonical" href="https://shivjiagnihotri.tech/" />
+    <meta
+      property="og:title"
+      content="Shivji Agnihotri — Intelligence, engineered."
+    />
+    <meta
+      property="og:description"
+      content="AI systems with real-world impact. €1.2M in cost savings. 30M+ records. A little creative obsession."
+    />
+    <meta property="og:url" content="https://shivjiagnihotri.tech/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://shivjiagnihotri.tech/assets/social-card.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Shivji Agnihotri — Intelligence. Engineered. An amber and charcoal particle sculpture."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/arcade.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="navbar">
+      <a class="brand" href="#home" aria-label="Shivji Agnihotri, home"
+        ><span class="monogram">sa<span>.</span></span
+        ><span class="brand-name"
+          >Shivji Agnihotri<span>AI engineer & creative builder</span></span
+        ></a
+      >
+      <nav aria-label="Main navigation" id="navLinks">
+        <a href="#projects">Selected work</a><a href="#experience">Experience</a
+        ><a href="#about">About</a
+        ><a href="#playground">Playground <span class="nav-dot"></span></a>
+      </nav>
+      <a class="header-cta" href="#contact"
+        >Let’s talk <span aria-hidden="true">↗</span></a
+      >
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-controls="navLinks"
+        aria-expanded="false"
+        aria-label="Open navigation"
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+    <main id="main">
+      <section class="hero shell" id="home" aria-labelledby="heroTitle">
+        <div class="hero-topline">
+          <span><i class="status-dot"></i> AI / ML ENGINEER AT MERCK GROUP</span
+          ><span class="hero-edition">PORTFOLIO — VOL. 026</span>
         </div>
-        <div class="agent-tools">
-          <div class="agent-tools-label">Also shipping with AI coding agents</div>
-          <div class="agent-chips">
-            <a class="agent-chip" href="https://claude.com/claude-code" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/claude.svg" alt="" loading="lazy">Claude Code</a>
-            <a class="agent-chip" href="https://openai.com/codex/" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg" alt="" loading="lazy">Codex</a>
-            <a class="agent-chip" href="https://replit.com/ai" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/replit.svg" alt="" loading="lazy">Replit Agent</a>
-            <a class="agent-chip" href="https://opencode.ai" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/opencode.svg" alt="" loading="lazy">OpenCode</a>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 id="heroTitle">Intelligence.<br /><em>Engineered.</em></h1>
+            <p class="hero-description">
+              I turn complex problems into intelligent systems.<br
+                class="desktop-break"
+              />
+              Built with purpose. Shipped with impact.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-dark" href="#projects"
+                >Explore my work <span aria-hidden="true">↗</span></a
+              ><a class="text-link" href="#playground"
+                ><span class="play-icon" aria-hidden="true">▷</span> Play
+                something different</a
+              >
+            </div>
+            <div class="hero-person">
+              <img
+                class="person-avatar"
+                src="assets/portrait.jpg"
+                width="35"
+                height="35"
+                alt="Shivji Agnihotri"
+              />
+              <div>
+                <strong>Shivji Agnihotri</strong
+                ><span>Based in Bengaluru. Building for the world.</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hero-art"
+            id="neural"
+            role="img"
+            aria-label="An interactive rotating sculpture of thousands of connected amber and charcoal data points"
+          >
+            <div class="art-label">
+              <span class="tiny-cross">+</span> NEURAL FIELD / 001
+              <span class="art-live"><i></i> LIVE</span>
+            </div>
+            <canvas id="neuralCanvas" aria-hidden="true"></canvas>
+            <div class="art-bottom">
+              <span>ORDER IN COMPLEXITY.</span
+              ><span class="art-hint">MOVE TO EXPLORE ↗</span>
+            </div>
+            <span class="art-corner corner-a"></span
+            ><span class="art-corner corner-b"></span>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="neural" class="scene-section" aria-label="Interactive 3D neural graph">
-  <div class="scene-stage">
-    <canvas id="webgl" aria-hidden="true"></canvas>
-  </div>
-  <div class="scene-overlay reveal">
-    <div class="section-label">// neural_space</div>
-    <h2 class="section-title">Where Data Becomes <span>Intelligence</span></h2>
-    <p class="scene-sub">A living graph — nodes, signals, and decisions in motion. The same architecture behind the systems I ship to production.</p>
-    <p class="scene-hint">Move your cursor · the graph responds</p>
-  </div>
-</section>
-
-<section id="experience" class="exp-section">
-  <div class="container">
-    <div class="section-label reveal">Experience</div>
-    <h2 class="section-title reveal reveal-d1">Where I've <span>Made Impact</span></h2>
-    <p class="section-sub reveal reveal-d2">Real projects, real outcomes. Here's what I've built and the numbers behind it.</p>
-
-    <div class="exp-timeline">
-
-      <div class="exp-item reveal">
-        <div class="exp-dot"></div>
-        <div class="exp-header">
+        <div class="hero-bottom">
+          <span>SCROLL TO DISCOVER <span aria-hidden="true">↓</span></span
+          ><span>AI SYSTEMS. REAL OUTCOMES. A LITTLE PLAY.</span
+          ><button id="motionToggle" class="motion-toggle" aria-pressed="false">
+            Motion: on <span aria-hidden="true">◉</span>
+          </button>
+        </div>
+      </section>
+      <section class="impact-strip" aria-label="Career impact">
+        <div class="shell impact-grid">
+          <div class="impact-intro">
+            <span class="eyebrow">THE SHORT VERSION</span>
+            <p>Good engineering.<br /><em>Measurable impact.</em></p>
+          </div>
+          <div class="impact-stat">
+            <strong>€1.2<span>M</span></strong
+            ><span>Business cost savings</span>
+          </div>
+          <div class="impact-stat">
+            <strong>30<span>M+</span></strong
+            ><span>Data records processed</span>
+          </div>
+          <div class="impact-stat">
+            <strong>80<span>%</span></strong
+            ><span>Lower processing costs</span>
+          </div>
+          <div class="impact-stat">
+            <strong>3<span>+</span></strong
+            ><span>Years building AI</span>
+          </div>
+        </div>
+      </section>
+      <section class="section shell" id="projects">
+        <div class="section-heading reveal">
           <div>
-            <div class="exp-title">AI / ML Engineer <span class="exp-current">Current</span></div>
-            <div class="exp-company">Merck Group</div>
+            <span class="eyebrow"><span>01 /</span> SELECTED WORK</span>
+            <h2>From possibility<br />to <em>production.</em></h2>
           </div>
-          <div class="exp-period">Apr 2025 - Present</div>
+          <p>
+            A few things I’ve built at the intersection<br />of intelligence,
+            engineering, and impact.
+          </p>
         </div>
-        <ul class="exp-achievements">
-          <li>Built a <strong>multi-agent AI assistant for supply chain</strong> on the Palantir AIP platform, processing over 30 million data records and delivering real-time insights. Saved the business approximately <span class="impact-badge">1.2M€</span> in time and opportunity cost by eliminating manual data work.</li>
-          <li>Designed a <strong>document processing pipeline</strong> on MLflow and vLLM, self-hosting open-source vision models (DeepSeek OCR V2 + Docling), achieving a <span class="impact-badge">~80% cost reduction</span> versus Palantir AIP Intelligence and 74%+ cost avoidance versus the Mistral OCR API ($4k).</li>
-          <li>Built a <strong>conversational data agent</strong> using Claude Sonnet that turns plain English questions into database queries — letting non-technical business users access large datasets without writing a single line of code.</li>
-          <li>Developed a <strong>RAG pipeline on tabular metadata</strong>, connecting a vector database (Qdrant) with an AI chatbot to automate information retrieval and answer generation from structured data.</li>
-          <li>Created a <strong>brand sentiment intelligence tool</strong> that monitors Reddit and the web, surfacing how customers feel about the brand over time ; with AI-generated summaries, scores, and trend timelines.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item reveal reveal-d1">
-        <div class="exp-dot"></div>
-        <div class="exp-header">
+        <div class="featured-grid">
+          <article class="project feature-project reveal">
+            <div class="project-art graph-art" aria-hidden="true">
+              <span class="project-type">01 / INTELLIGENT SYSTEMS</span>
+              <div class="graph-lines"></div>
+              <div class="graph-node node-core"><span>AI</span></div>
+              <span class="graph-node node-one">REASON</span
+              ><span class="graph-node node-two">RETRIEVE</span
+              ><span class="graph-node node-three">ACT</span
+              ><span class="graph-node node-four">LEARN</span>
+              <div class="art-caption">
+                <span>30M+ RECORDS</span
+                ><span class="light-dot">SYSTEM CONNECTED</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-kicker">
+                MERCK GROUP <span>AI AGENTS · PALANTIR AIP</span>
+              </div>
+              <h3>Less manual work.<br />More intelligent decisions.</h3>
+              <p>
+                A multi-agent supply chain assistant that turns complex
+                enterprise data into real-time answers and saves €1.2M in time
+                and opportunity costs.
+              </p>
+              <button class="project-open text-link" data-project="supply">
+                Explore the system <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+          <article class="project feature-project reveal">
+            <div class="project-art document-art" aria-hidden="true">
+              <span class="project-type">02 / DOCUMENT INTELLIGENCE</span>
+              <div class="document-sheet sheet-back"></div>
+              <div class="document-sheet">
+                <span class="doc-label">UNSTRUCTURED → UNDERSTOOD</span
+                ><b>Read. Reason.<br />Extract.</b><i></i><i></i><i></i>
+                <div class="doc-scan"></div>
+                <span class="doc-check">✓ PROCESSED</span>
+              </div>
+              <span class="cost-stamp">−80%<small>PROCESSING COST</small></span>
+              <div class="art-caption">
+                <span>VISION + LANGUAGE</span><span>SELF-HOSTED MODELS ↗</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-kicker">
+                MERCK GROUP <span>vLLM · MLFLOW · DOCLING</span>
+              </div>
+              <h3>Documents in.<br />Understanding out.</h3>
+              <p>
+                A self-hosted vision pipeline that makes document processing
+                more practical, with approximately 80% lower operational costs.
+              </p>
+              <button class="project-open text-link" data-project="documents">
+                Inside the pipeline <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+        </div>
+        <div class="project-list reveal">
+          <button class="project-row" data-project="recommend">
+            <span class="row-number">03</span>
+            <div>
+              <h3>Recommendations that understand people</h3>
+              <p>Semantic search · Graph databases · TensorFlow</p>
+            </div>
+            <span class="row-result">70% more product visibility</span
+            ><span class="row-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="project-row" data-project="search">
+            <span class="row-number">04</span>
+            <div>
+              <h3>Search beyond the keyword</h3>
+              <p>Weaviate · Hybrid search · Embeddings</p>
+            </div>
+            <span class="row-result">70% faster discovery</span
+            ><span class="row-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="project-row" data-project="birthday">
+            <span class="row-number">05</span>
+            <div>
+              <h3>Small wishes. Meaningful connections.</h3>
+              <p>wishyoubirthday.com · Neo4j · Next.js · OpenAI</p>
+            </div>
+            <span class="row-result"
+              ><i class="status-dot"></i> Live personal project</span
+            ><span class="row-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="project-row" data-project="content">
+            <span class="row-number">06</span>
+            <div>
+              <h3>From documents to useful content</h3>
+              <p>Retrieval-augmented generation · GPT-4 · Python</p>
+            </div>
+            <span class="row-result">Grounded product descriptions</span
+            ><span class="row-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="project-row" data-project="analytics">
+            <span class="row-number">07</span>
+            <div>
+              <h3>A pipeline that keeps up</h3>
+              <p>Real-time analytics · MongoDB · AWS / Azure</p>
+            </div>
+            <span class="row-result">40% higher throughput</span
+            ><span class="row-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="project-row" data-project="sahitatkal">
+            <span class="row-number">08</span>
+            <div>
+              <h3>SahiTatkal — citizen-first rail reservations</h3>
+              <p>
+                SahiTatkal.com · Intelligent reservations · Travel experience
+              </p>
+            </div>
+            <span class="row-result">Less friction. More clarity.</span
+            ><span class="row-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+      <section class="experience-section section" id="experience">
+        <div class="shell experience-grid">
+          <div class="experience-intro reveal">
+            <span class="eyebrow"><span>02 /</span> THE JOURNEY</span>
+            <h2>Always learning.<br />Always <em>building.</em></h2>
+            <p>
+              From my first ML endpoints to enterprise AI systems. Every
+              chapter, a bigger challenge.
+            </p>
+            <a
+              class="text-link"
+              href="https://linkedin.com/in/shivjiagnihotri"
+              target="_blank"
+              rel="noopener noreferrer"
+              >My full story on LinkedIn <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="experience-list reveal">
+            <details class="experience-item" open>
+              <summary>
+                <div class="experience-meta">
+                  <span>APR 2025 — PRESENT</span
+                  ><span class="current-tag">CURRENT</span>
+                </div>
+                <div class="experience-title">
+                  <div>
+                    <h3>Merck Group</h3>
+                    <p>AI / ML Engineer</p>
+                  </div>
+                  <span class="expand-sign" aria-hidden="true">+</span>
+                </div>
+              </summary>
+              <div class="experience-detail">
+                <p>
+                  Building AI that helps teams make better decisions, faster.
+                </p>
+                <ul>
+                  <li>
+                    Multi-agent supply chain intelligence across 30M+ records,
+                    saving approximately €1.2M in business costs.
+                  </li>
+                  <li>
+                    Self-hosted document understanding with MLflow, vLLM,
+                    DeepSeek OCR V2, and Docling: ~80% lower processing cost and
+                    74%+ cost avoidance versus the Mistral OCR API.
+                  </li>
+                  <li>
+                    Conversational data agents using Claude Sonnet, turning
+                    plain English into database queries.
+                  </li>
+                  <li>
+                    RAG over tabular metadata using Qdrant, plus brand sentiment
+                    intelligence across Reddit and the web.
+                  </li>
+                </ul>
+              </div>
+            </details>
+            <details class="experience-item">
+              <summary>
+                <div class="experience-meta">
+                  <span>OCT 2023 — APR 2025</span><span>BENGALURU, IN</span>
+                </div>
+                <div class="experience-title">
+                  <div>
+                    <h3>Sangria by Dotkonnekt</h3>
+                    <p>AI / ML Engineer</p>
+                  </div>
+                  <span class="expand-sign" aria-hidden="true">+</span>
+                </div>
+              </summary>
+              <div class="experience-detail">
+                <ul>
+                  <li>
+                    Built Graph RAG recommendation endpoints with FastAPI and
+                    graph databases.
+                  </li>
+                  <li>
+                    Automated backend testing with Playwright and Node.js,
+                    reducing manual QA by 60%.
+                  </li>
+                  <li>
+                    Delivered production AI with LangFlow, Langfuse, LangGraph,
+                    and web scrapers.
+                  </li>
+                  <li>
+                    Integrated Google Analytics and Search Console with Node.js
+                    and NestJS.
+                  </li>
+                  <li>
+                    Trained tone and intent models from data collection through
+                    deployment in private infrastructure.
+                  </li>
+                </ul>
+              </div>
+            </details>
+            <details class="experience-item">
+              <summary>
+                <div class="experience-meta">
+                  <span>JUL 2023 — OCT 2023</span><span>BENGALURU, IN</span>
+                </div>
+                <div class="experience-title">
+                  <div>
+                    <h3>Dotkonnekt</h3>
+                    <p>AI / ML Intern</p>
+                  </div>
+                  <span class="expand-sign" aria-hidden="true">+</span>
+                </div>
+              </summary>
+              <div class="experience-detail">
+                <ul>
+                  <li>
+                    Built question answering and summarization with Rasa, spaCy,
+                    and Hugging Face.
+                  </li>
+                  <li>
+                    Researched ML models and implemented FastAPI endpoints.
+                  </li>
+                  <li>
+                    Built resilient Python logging with Grafana monitoring.
+                  </li>
+                  <li>
+                    Contributed to live data analysis and web scraping tools in
+                    Streamlit.
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="section shell" id="about">
+        <div class="about-grid">
+          <div class="about-art reveal">
+            <img
+              class="about-portrait"
+              src="assets/portrait.jpg"
+              width="460"
+              height="460"
+              alt="Portrait of Shivji Agnihotri"
+              loading="lazy"
+            /><span class="about-coordinates"
+              >ROOTS IN MAHARASHTRA<br />BUILDING IN BENGALURU</span
+            >
+            <div class="about-photo-label">
+              <span>CURIOUS BY NATURE.<br />ENGINEER BY PRACTICE.</span
+              ><span aria-hidden="true">↗</span>
+            </div>
+          </div>
+          <div class="about-copy reveal">
+            <span class="eyebrow"
+              ><span>03 /</span> THE PERSON BEHIND THE CODE</span
+            >
+            <h2>
+              Serious about the work.<br /><em>Curious about everything.</em>
+            </h2>
+            <p>
+              I’m Shivji, an AI engineer who enjoys the messy space between an
+              interesting idea and a system people actually use.
+            </p>
+            <p>
+              My work spans agents, language models, search, and data
+              infrastructure. The common thread? Make complex things useful,
+              make useful things reliable, and keep asking better questions.
+            </p>
+            <p>
+              Outside the production pipeline, I make things just to see what’s
+              possible. Like the browser games a little further down this page.
+            </p>
+            <div class="about-facts">
+              <div>
+                <span>EDUCATION</span><strong>B.E. Computer Science</strong
+                ><small
+                  >SSPACE Wardha · RTM Nagpur University<br />2019 — 2023</small
+                >
+              </div>
+              <div>
+                <span>BASED IN</span><strong>Bengaluru, India</strong
+                ><small>Thinking globally.<br />Building thoughtfully.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="toolkit reveal" id="skills">
+          <div class="toolkit-heading">
+            <h3>A toolkit for <em>real problems.</em></h3>
+            <span class="eyebrow">THE RIGHT TOOL. THE RIGHT REASON.</span>
+          </div>
+          <div class="toolkit-grid">
+            <div>
+              <span class="tool-number">/01</span>
+              <h4>Intelligence</h4>
+              <p>
+                AI agents · RAG · LangChain<br />LangFlow · Hugging Face<br />TensorFlow
+                · Scikit-learn
+              </p>
+            </div>
+            <div>
+              <span class="tool-number">/02</span>
+              <h4>Engineering</h4>
+              <p>
+                Python · JavaScript · SQL<br />FastAPI · Flask · Node.js<br />Express
+                · NestJS
+              </p>
+            </div>
+            <div>
+              <span class="tool-number">/03</span>
+              <h4>Infrastructure</h4>
+              <p>
+                AWS · GCP · Azure<br />Docker · GitHub Actions<br />Jenkins ·
+                Grafana
+              </p>
+            </div>
+            <div>
+              <span class="tool-number">/04</span>
+              <h4>Data & retrieval</h4>
+              <p>
+                Qdrant · Weaviate · Neo4j<br />PostgreSQL · MongoDB<br />Redis ·
+                DynamoDB
+              </p>
+            </div>
+          </div>
+          <div class="agent-line">
+            <span>BUILDING WITH AI, TOO</span
+            ><a
+              href="https://claude.com/claude-code"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Claude Code ↗</a
+            ><a
+              href="https://openai.com/codex/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Codex ↗</a
+            ><a
+              href="https://replit.com/ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Replit Agent ↗</a
+            ><a
+              href="https://opencode.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              >OpenCode ↗</a
+            >
+          </div>
+        </div>
+        <div class="research-card reveal" id="publication">
+          <span class="research-icon" aria-hidden="true">◎</span>
           <div>
-            <div class="exp-title">AI / ML Engineer</div>
-            <div class="exp-company">Sangria by Dotkonnekt - Bengaluru, India</div>
+            <span class="eyebrow">PUBLISHED RESEARCH / IJRASET · MAY 2023</span>
+            <h3>Seeing possibilities. <em>Improving accessibility.</em></h3>
+            <p>
+              VISION AI: a deep learning object recognition system for visually
+              impaired people, using YOLOv7, TensorFlow, and OpenCV. Trained on
+              the COCO dataset to make real-time visual assistance more
+              accessible.
+            </p>
           </div>
-          <div class="exp-period">Oct 2023 - Apr 2025</div>
+          <a
+            class="circle-link"
+            href="https://doi.org/10.22214/ijraset.2023.52197"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Read the VISION AI research paper"
+            >↗</a
+          >
         </div>
-        <ul class="exp-achievements">
-          <li>Built GraphDB-based <strong>Graph RAG</strong> endpoints using FastAPI for product recommendation leveraging entities and relationships.</li>
-          <li>Delivered an <strong>Playwright based automated backend testing script</strong> using Node.js that reduced manual QA testing by <span class="impact-badge">60%</span>.</li>
-          <li>Contributed to a <strong>production AI stack </strong> built on LangFlow, integrated with langfuse, langraph and web scrapers.</li>
-          <li>Handled Google Analytics and Search Console integration to a <strong>production AI stack</strong> built on Node.js and Nest Js</li>
-          <li>Trained machine learning models on Tone and Intent, starting from data collection and cleaning from kaggle - to usage in secure private infrastructure.</li>
-          <li>Worked closely with cross-functional teams using agile practices, translating business needs into technical solutions that shipped on time.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item reveal reveal-d2">
-        <div class="exp-dot"></div>
-        <div class="exp-header">
+        <details class="credentials reveal" id="certifications">
+          <summary>
+            <span
+              ><span class="eyebrow">NEVER DONE LEARNING</span
+              ><strong>Credentials & continuing education</strong></span
+            ><span class="credential-count"
+              >20 credentials <span aria-hidden="true">+</span></span
+            >
+          </summary>
+          <div class="credential-grid" id="credentialList">
+            <div>
+              <h4>Learning AWS for Developers</h4>
+              <p>LinkedIn Learning · Jun 2026</p>
+            </div>
+            <div>
+              <h4>Hands-On Generative AI with Multi-Agent LangChain</h4>
+              <p>LinkedIn Learning · Nov 2024</p>
+            </div>
+            <div>
+              <h4>Google Cloud Big Data and Machine Learning Fundamentals</h4>
+              <p>Coursera · Oct 2023</p>
+            </div>
+            <div>
+              <h4>Machine Learning for All</h4>
+              <p>Coursera · Oct 2023</p>
+            </div>
+            <div>
+              <h4>Foundations of Data Science</h4>
+              <p>Coursera · Sep 2023</p>
+            </div>
+            <div>
+              <h4>Generative AI with Large Language Models</h4>
+              <p>Coursera · Sep 2023</p>
+            </div>
+            <div>
+              <h4>Career Essentials in Data Analysis</h4>
+              <p>Microsoft &amp; LinkedIn · Jul 2023</p>
+            </div>
+            <div>
+              <h4>Career Essentials in Generative AI</h4>
+              <p>Microsoft &amp; LinkedIn · Jul 2023</p>
+            </div>
+            <div>
+              <h4>Introduction to Artificial Intelligence</h4>
+              <p>LinkedIn Learning · Jul 2023</p>
+            </div>
+            <div>
+              <h4>Introduction to Prompt Engineering for Generative AI</h4>
+              <p>LinkedIn Learning · May 2023</p>
+            </div>
+            <div>
+              <h4>Prompt Engineering: How to Talk to the AIs</h4>
+              <p>LinkedIn Learning · May 2023</p>
+            </div>
+            <div>
+              <h4>Statistics Foundations 2: Probability</h4>
+              <p>LinkedIn Learning · Feb 2023</p>
+            </div>
+            <div>
+              <h4>Artificial Intelligence Foundations: Thinking Machines</h4>
+              <p>LinkedIn Learning · Feb 2023</p>
+            </div>
+            <div>
+              <h4>Machine Learning</h4>
+              <p>Internshala · Dec 2022</p>
+            </div>
+            <div>
+              <h4>Microsoft Certified: Azure Fundamentals</h4>
+              <p>Microsoft · Dec 2022</p>
+            </div>
+            <div>
+              <h4>Learning Data Analytics: Foundations</h4>
+              <p>LinkedIn Learning · Oct 2022</p>
+            </div>
+            <div>
+              <h4>Microsoft Certified: Azure AI Fundamentals</h4>
+              <p>Microsoft · Sep 2022</p>
+            </div>
+            <div>
+              <h4>Data Science: 101</h4>
+              <p>IBM · Sep 2022</p>
+            </div>
+            <div>
+              <h4>Git and Version Control</h4>
+              <p>Nasscom Foundation · Sep 2022</p>
+            </div>
+            <div>
+              <h4>Statistics Foundations 1: The Basics</h4>
+              <p>LinkedIn Learning · Aug 2022</p>
+            </div>
+          </div>
+          <a
+            class="text-link"
+            href="https://www.linkedin.com/in/shivjiagnihotri/details/certifications/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View credentials on LinkedIn ↗</a
+          >
+          <p class="education-note">
+            Earlier education: Higher Secondary Certificate, CBSE · Kendriya
+            Vidyalaya WCL New Majri, Maharashtra · 2018–2019.
+          </p>
+        </details>
+      </section>
+      <section class="playground-section section" id="playground">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <div>
+              <span class="eyebrow"
+                ><span>04 /</span> OFF THE CLOCK. IN THE GAME.</span
+              >
+              <h2>A different kind<br />of <em>playground.</em></h2>
+            </div>
+            <p>
+              Two original 3D worlds. Built for your browser.<br />Step away
+              from the scroll. Step into the action.
+            </p>
+          </div>
+          <div class="game-cards reveal">
+            <article class="game-card parkour-card">
+              <div class="game-card-art">
+                <img
+                  src="assets/parkour-preview.webp"
+                  width="1100"
+                  height="619"
+                  loading="lazy"
+                  alt="Actual gameplay: a sunlit rooftop course above a historic city"
+                /><span class="game-number">EXPERIENCE 01</span
+                ><span class="game-category">FIRST-PERSON PARKOUR</span>
+              </div>
+              <div class="game-card-content">
+                <div>
+                  <span class="eyebrow">THE CITY IS YOUR CANVAS</span>
+                  <h3>Rooftop <em>Protocol</em></h3>
+                  <p>
+                    Chase the horizon. Leap between rooftops, find six signals,
+                    and reach the extraction beacon above a sunlit city.
+                  </p>
+                </div>
+                <button class="button button-light" data-launch="parkour">
+                  Enter the rooftops <span aria-hidden="true">↗</span></button
+                ><span class="game-inspiration"
+                  >Inspired by the freedom of Assassin’s Creed.</span
+                >
+              </div>
+            </article>
+            <article class="game-card shooter-card">
+              <div class="game-card-art">
+                <img
+                  src="assets/shooter-preview.webp"
+                  width="1100"
+                  height="619"
+                  loading="lazy"
+                  alt="Actual gameplay: first-person combat in an industrial district"
+                /><span class="game-number">EXPERIENCE 02</span
+                ><span class="game-category">FIRST-PERSON COMBAT</span>
+              </div>
+              <div class="game-card-content">
+                <div>
+                  <span class="eyebrow">HOLD YOUR GROUND</span>
+                  <h3>Resistance <em>Zero</em></h3>
+                  <p>
+                    An occupied industrial district. Three waves of hostile
+                    drones. Use cover, watch your ammo, and take back the
+                    sector.
+                  </p>
+                </div>
+                <button class="button button-light" data-launch="shooter">
+                  Enter the resistance
+                  <span aria-hidden="true">↗</span></button
+                ><span class="game-inspiration"
+                  >Inspired by the urban combat of Freedom Fighters.</span
+                >
+              </div>
+            </article>
+          </div>
+          <div class="playground-footnote">
+            <span
+              ><i class="status-dot"></i> REAL-TIME 3D · NO INSTALL
+              REQUIRED</span
+            ><span>Mouse + keyboard or touch controls · Sound is optional</span>
+          </div>
+          <noscript
+            ><p class="noscript-notice">
+              Enable JavaScript to play the 3D games. All portfolio content
+              remains available below and above.
+            </p></noscript
+          >
+        </div>
+      </section>
+      <section class="contact-section section shell" id="contact">
+        <div class="contact-top">
+          <span class="eyebrow"><span>05 /</span> WHAT’S NEXT?</span
+          ><span class="availability"
+            ><i class="status-dot"></i> Open to meaningful opportunities</span
+          >
+        </div>
+        <h2>
+          Have something<br />in <em>mind?</em
+          ><a
+            href="mailto:shivjiagnihotri@outlook.com"
+            aria-label="Email Shivji Agnihotri"
+            class="contact-arrow"
+            >↗</a
+          >
+        </h2>
+        <div class="contact-bottom">
           <div>
-            <div class="exp-title">AI / ML Intern</div>
-            <div class="exp-company">Dotkonnekt - Bengaluru, India</div>
+            <p>Let’s make it something that matters.</p>
+            <a class="email-link" href="mailto:shivjiagnihotri@outlook.com"
+              >shivjiagnihotri@outlook.com</a
+            ><button
+              class="copy-email"
+              id="copyEmail"
+              aria-label="Copy email address"
+            >
+              Copy ↗</button
+            ><span id="copyStatus" class="sr-only" role="status"></span>
           </div>
-          <div class="exp-period">Jul 2023 - Oct 2023</div>
+          <div class="social-links">
+            <a
+              href="https://linkedin.com/in/shivjiagnihotri"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn ↗</a
+            ><a
+              href="https://github.com/shivjiagnihotri"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub ↗</a
+            >
+          </div>
         </div>
-        <ul class="exp-achievements">
-          <li>Built a <strong>question-answering chatbot and summarization tool</strong> using Rasa, spaCy, and Hugging Face.</li>
-          <li>Documented and contributed to <strong>ML model research and endpoints</strong> using FastAPI.</li>
-          <li>Improvised a code level <strong>resilient Python logger</strong> with Grafana for real-time monitoring, error tracking, and performance metrics — improving issue resolution and operational visibility.</li>
-          <li>Contributed to a <strong>live data analysis tool</strong> using Streamlit, enabling teams to run web scraping and large-scale dataset analysis through a simple interface.</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="container">
-    <div class="section-label reveal">Projects</div>
-    <h2 class="section-title reveal reveal-d1">Things I've <span>Built</span></h2>
-    <p class="section-sub reveal reveal-d2">A selection of projects that pushed the boundaries of what AI can do in the real world.</p>
-
-    <div class="projects-grid">
-
-      <div class="project-card reveal" data-tilt>
-        <div class="project-icon g1">🤖</div>
-        <h3>AI-Powered Product Recommendation Engine</h3>
-        <p>Led the design of an AI recommendation system that uses semantic understanding and graph databases to match products to people ; boosting product visibility by 70%. Deployed via CI/CD with Docker in a fully automated pipeline.</p>
-        <div class="project-tags">
-          <span class="tag">Semantic Search</span><span class="tag">Graph DB</span><span class="tag">TensorFlow</span><span class="tag">REST APIs</span><span class="tag">Docker</span>
+      </section>
+    </main>
+    <footer class="site-footer shell">
+      <span>© <span id="year">2026</span> Shivji Agnihotri</span
+      ><span>CRAFTED WITH INTENTION. BUILT TO EXPLORE.</span
+      ><a href="#home">Back to top ↑</a>
+    </footer>
+    <dialog
+      id="projectDialog"
+      class="project-dialog"
+      aria-labelledby="projectDialogTitle"
+    >
+      <button
+        class="dialog-close"
+        data-close-project
+        aria-label="Close project details"
+      >
+        ×
+      </button>
+      <div id="projectDialogContent"></div>
+    </dialog>
+    <dialog id="gameDialog" class="game-dialog" aria-labelledby="gameTitle">
+      <div id="gameShell" class="game-shell">
+        <div class="game-toolbar">
+          <div>
+            <span class="game-logo" aria-hidden="true">SA / LAB</span>
+            <h2 id="gameTitle">Rooftop Protocol</h2>
+          </div>
+          <div class="game-toolbar-actions">
+            <button
+              id="soundToggle"
+              aria-pressed="false"
+              aria-label="Enable game sound"
+            >
+              Sound off</button
+            ><button id="qualityToggle" aria-label="Change graphics quality">
+              Quality: high</button
+            ><button
+              id="fullscreenToggle"
+              aria-label="Enter full screen"
+              aria-pressed="false"
+              title="Enter full screen"
+            >
+              <svg
+                class="fullscreen-expand"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5" />
+              </svg>
+              <svg
+                class="fullscreen-restore"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M3 8h5V3M16 3v5h5M8 21v-5H3M21 16h-5v5" />
+              </svg></button
+            ><button id="closeGame" aria-label="Close game">×</button>
+          </div>
+        </div>
+        <div class="game-viewport" id="gameViewport">
+          <canvas
+            id="gameCanvas"
+            tabindex="0"
+            aria-label="3D game. Controls and mission instructions are provided before you play."
+          ></canvas>
+          <div class="game-vignette" aria-hidden="true"></div>
+          <div class="game-hud" id="gameHud" hidden>
+            <div class="hud-top">
+              <div>
+                <span class="hud-label" id="missionLabel">ROOFTOP PROTOCOL</span
+                ><strong id="missionObjective">Collect the six signals</strong>
+              </div>
+              <div class="hud-score">
+                <span id="gameProgress">0 / 6</span
+                ><small id="gameTimer">00:00</small>
+              </div>
+            </div>
+            <canvas
+              class="game-radar"
+              id="gameRadar"
+              width="220"
+              height="220"
+              aria-hidden="true"
+            ></canvas
+            ><span
+              id="gameCompass"
+              class="game-compass"
+              aria-hidden="true"
+            ></span>
+            <div class="crosshair" id="crosshair" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </div>
+            <div class="hit-marker" id="hitMarker" aria-hidden="true">×</div>
+            <div
+              class="game-notification"
+              id="gameNotification"
+              role="status"
+            ></div>
+            <div class="hud-bottom">
+              <div class="hud-vitals">
+                <span id="healthLabel">SYNC</span>
+                <div class="health-track"><i id="healthBar"></i></div>
+                <strong id="healthValue">100</strong>
+              </div>
+              <span id="gameAmmo">DOUBLE JUMP READY</span>
+            </div>
+          </div>
+          <div class="game-screen" id="gameScreen">
+            <span class="eyebrow" id="gameScreenLabel"
+              >EXPERIENCE 01 / PARKOUR</span
+            >
+            <h3 id="gameScreenTitle">The horizon<br />is yours.</h3>
+            <p id="gameScreenDescription">
+              Follow the amber beacons across six rooftops. Sprint, double jump,
+              and reach extraction. A missed leap returns you to your last
+              checkpoint.
+            </p>
+            <div class="control-guide" id="controlGuide"></div>
+            <button class="button button-gold" id="startGame">
+              Start mission <span aria-hidden="true">↗</span>
+            </button>
+            <p id="gameScreenNote">
+              Mouse to look · Esc to pause · Your best result stays on this
+              device.
+            </p>
+            <button class="restart-link" id="restartGame" hidden>
+              Restart mission
+            </button>
+          </div>
+          <div class="touch-controls" id="touchControls" hidden>
+            <div class="touch-movement">
+              <button data-key="KeyW" aria-label="Move forward">↑</button
+              ><button data-key="KeyA" aria-label="Move left">←</button
+              ><button data-key="KeyS" aria-label="Move back">↓</button
+              ><button data-key="KeyD" aria-label="Move right">→</button>
+            </div>
+            <div class="touch-actions">
+              <button data-action="reload" id="touchReload">Reload</button
+              ><button data-key="ShiftLeft">Sprint</button
+              ><button data-key="KeyC" id="touchCrouch">Crouch</button
+              ><button data-action="primary" id="touchPrimary">Jump</button>
+            </div>
+            <span class="touch-look-hint">Drag the view to look</span>
+          </div>
+          <button
+            class="game-pause"
+            id="pauseGame"
+            aria-label="Pause game"
+            hidden
+          >
+            Ⅱ
+          </button>
+        </div>
+        <div class="game-footer">
+          <span id="gameControlHint"
+            >WASD move · Mouse look · Space jump · Shift sprint · Esc
+            pause</span
+          ><span id="gameBest">BEST —</span>
         </div>
       </div>
-
-      <div class="project-card reveal reveal-d1" data-tilt>
-        <div class="project-icon g2">💬</div>
-        <h3>RAG System for Content Generation</h3>
-        <p>Built a retrieval-augmented generation system that reads documents (PDFs, Word files, plain text) and generates accurate product descriptions using GPT-4. Makes unstructured data actionable and reduces manual writing effort significantly.</p>
-        <div class="project-tags">
-          <span class="tag">RAG</span><span class="tag">GPT-4</span><span class="tag">PyPDF2</span><span class="tag">Semantic Search</span><span class="tag">Python</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal reveal-d2" data-tilt>
-        <div class="project-icon g3">🔍</div>
-        <h3>Weaviate Vector Search Platform</h3>
-        <p>Implemented a high-speed semantic search system using the Weaviate vector database ; making it 70% faster to find relevant information. Combined AI vector search with traditional keyword search to improve accuracy by over 40%.</p>
-        <div class="project-tags">
-          <span class="tag">Weaviate</span><span class="tag">Vector DB</span><span class="tag">Hybrid Search</span><span class="tag">AWS</span><span class="tag">Embeddings</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal" data-tilt>
-        <div class="project-icon g4">👁️</div>
-        <h3>Navigation Assistant for Visually Impaired Users</h3>
-        <p>Built a real-time object detection and navigation system using computer vision and reinforcement learning to help visually impaired users move safely through complex environments. Published as a research paper.</p>
-        <div class="project-tags">
-          <span class="tag">YOLOv7</span><span class="tag">OpenCV</span><span class="tag">TensorFlow</span><span class="tag">COCO Dataset</span><span class="tag">Reinforcement Learning</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal reveal-d1" data-tilt>
-        <div class="project-icon g5">⚡</div>
-        <h3>Real-Time Analytics Data Pipeline</h3>
-        <p>Built a scalable pipeline that ingests, processes, and makes sense of large volumes of live data ; improving throughput by 40%. Integrated with machine learning models to surface actionable business insights continuously.</p>
-        <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">MongoDB</span><span class="tag">LangFlow</span><span class="tag">LangFuse</span><span class="tag">AWS</span><span class="tag">Azure</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal reveal-d2" data-tilt>
-        <div class="project-icon g6">🎂</div>
-        <h3>wishyoubirthday.com</h3>
-        <p>A personal project that turns "happy birthday" into something that actually means it. Relationships are modeled as a graph in Neo4j, a living web of who-loves-who, because that is genuinely the right shape for that kind of tenderness. OpenAI helps write each wish, and Firebase verifies that the phone number typing it in really belongs to the person sending it.</p>
-        <div class="project-tags">
-          <span class="tag tag-live">Live Project</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Neo4j</span><span class="tag">OpenAI</span><span class="tag">Firebase</span>
-        </div>
-        <a href="https://wishyoubirthday.com" target="_blank" rel="noopener" class="project-link">Visit wishyoubirthday.com</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="skills" class="skills-section">
-  <div class="container">
-    <div class="section-label reveal">Skills</div>
-    <h2 class="section-title reveal reveal-d1">My <span>Toolkit</span></h2>
-    <p class="section-sub reveal reveal-d2">The languages, frameworks, and platforms I use to build intelligent systems.</p>
-
-    <div class="skills-categories">
-
-      <div class="skill-cat reveal">
-        <div class="skill-cat-title">
-          <div class="skill-cat-icon" style="background:rgba(108,99,255,0.15)">🧠</div>
-          <h4>AI &amp; Machine Learning</h4>
-        </div>
-        <div class="skill-list">
-          <div><div class="skill-row"><span class="skill-name">LangChain / LangFlow</span><div class="skill-bar"><div class="skill-fill" style="--w:0.93"></div></div><span class="skill-pct">93%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Hugging Face Transformers</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">RAG &amp; Vector Search</span><div class="skill-bar"><div class="skill-fill" style="--w:0.92"></div></div><span class="skill-pct">92%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Crew AI / AI Agents</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div><span class="skill-pct">88%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Scikit-learn / TensorFlow</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
-        </div>
-      </div>
-
-      <div class="skill-cat reveal reveal-d1">
-        <div class="skill-cat-title">
-          <div class="skill-cat-icon" style="background:rgba(0,212,255,0.1)">💻</div>
-          <h4>Languages &amp; Frameworks</h4>
-        </div>
-        <div class="skill-list">
-          <div><div class="skill-row"><span class="skill-name">Python 3</span><div class="skill-bar"><div class="skill-fill" style="--w:0.95"></div></div><span class="skill-pct">95%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Node.js / Express</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">FastAPI / Flask</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div><span class="skill-pct">88%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div><span class="skill-pct">80%</span></div></div>
-        </div>
-      </div>
-
-      <div class="skill-cat reveal reveal-d2">
-        <div class="skill-cat-title">
-          <div class="skill-cat-icon" style="background:rgba(0,255,170,0.1)">☁️</div>
-          <h4>Cloud &amp; Infrastructure</h4>
-        </div>
-        <div class="skill-list">
-          <div><div class="skill-row"><span class="skill-name">AWS (Lambda, S3, DynamoDB)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">CI/CD (Jenkins, GitHub Actions)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.82"></div></div><span class="skill-pct">82%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">GCP / Azure</span><div class="skill-bar"><div class="skill-fill" style="--w:0.78"></div></div><span class="skill-pct">78%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Grafana / Monitoring</span><div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div><span class="skill-pct">80%</span></div></div>
-        </div>
-      </div>
-
-      <div class="skill-cat reveal reveal-d3">
-        <div class="skill-cat-title">
-          <div class="skill-cat-icon" style="background:rgba(255,215,0,0.1)">🗄️</div>
-          <h4>Databases</h4>
-        </div>
-        <div class="skill-list">
-          <div><div class="skill-row"><span class="skill-name">PostgreSQL / MySQL</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div><span class="skill-pct">88%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">MongoDB Atlas</span><div class="skill-bar"><div class="skill-fill" style="--w:0.85"></div></div><span class="skill-pct">85%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Weaviate / Qdrant (Vector)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div><span class="skill-pct">90%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Neo4j (Graph DB)</span><div class="skill-bar"><div class="skill-fill" style="--w:0.78"></div></div><span class="skill-pct">78%</span></div></div>
-          <div><div class="skill-row"><span class="skill-name">Redis / DynamoDB</span><div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div><span class="skill-pct">80%</span></div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="container">
-    <div class="section-label reveal">Certifications</div>
-    <h2 class="section-title reveal reveal-d1">Credentials &amp; <span>Learning</span></h2>
-    <p class="section-sub reveal reveal-d2">Continuous learning from the world's top platforms.</p>
-<div class="certs-grid">
-      <div class="cert-card reveal">
-        <div class="cert-icon" style="background:rgba(255,153,0,0.15)">☁️</div>
-        <div class="cert-body"><h4>Learning AWS for Developers</h4><span>LinkedIn Learning · Jun 2026</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d1">
-        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🔗</div>
-        <div class="cert-body"><h4>Hands-On Generative AI with Multi-Agent LangChain</h4><span>LinkedIn Learning · Nov 2024</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d2">
-        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
-        <div class="cert-body"><h4>Google Cloud Big Data and Machine Learning Fundamentals</h4><span>Coursera · Oct 2023</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d3">
-        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
-        <div class="cert-body"><h4>Machine Learning for All</h4><span>Coursera · Oct 2023</span></div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
-        <div class="cert-body"><h4>Foundations of Data Science</h4><span>Coursera · Sep 2023</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d1">
-        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">🎓</div>
-        <div class="cert-body"><h4>Generative AI with Large Language Models</h4><span>Coursera · Sep 2023</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d2">
-        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">💼</div>
-        <div class="cert-body"><h4>Career Essentials in Data Analysis</h4><span>Microsoft & LinkedIn · Jul 2023</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d3">
-        <div class="cert-icon" style="background:rgba(0,119,181,0.15)">💼</div>
-        <div class="cert-body"><h4>Career Essentials in Generative AI</h4><span>Microsoft & LinkedIn · Jul 2023</span></div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-icon" style="background:rgba(108,99,255,0.15)">🧠</div>
-        <div class="cert-body"><h4>Introduction to Artificial Intelligence</h4><span>LinkedIn Learning · Jul 2023</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d1">
-        <div class="cert-icon" style="background:rgba(108,99,255,0.15)">✨</div>
-        <div class="cert-body"><h4>Introduction to Prompt Engineering for Generative AI</h4><span>LinkedIn Learning · May 2023</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d2">
-        <div class="cert-icon" style="background:rgba(108,99,255,0.15)">✨</div>
-        <div class="cert-body"><h4>Prompt Engineering: How to Talk to the AIs</h4><span>LinkedIn Learning · May 2023</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d3">
-        <div class="cert-icon" style="background:rgba(0,255,170,0.1)">📐</div>
-        <div class="cert-body"><h4>Statistics Foundations 2: Probability</h4><span>LinkedIn Learning · Feb 2023</span></div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-icon" style="background:rgba(108,99,255,0.15)">🧠</div>
-        <div class="cert-body"><h4>Artificial Intelligence Foundations: Thinking Machines</h4><span>LinkedIn Learning · Feb 2023</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d1">
-        <div class="cert-icon" style="background:rgba(255,107,157,0.12)">🤖</div>
-        <div class="cert-body"><h4>Machine Learning</h4><span>Internshala · Dec 2022</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d2">
-        <div class="cert-icon" style="background:rgba(0,120,212,0.15)">🪟</div>
-        <div class="cert-body"><h4>Microsoft Certified: Azure Fundamentals</h4><span>Microsoft · Dec 2022</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d3">
-        <div class="cert-icon" style="background:rgba(255,215,0,0.1)">📊</div>
-        <div class="cert-body"><h4>Learning Data Analytics: Foundations</h4><span>LinkedIn Learning · Oct 2022</span></div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-icon" style="background:rgba(0,120,212,0.15)">🪟</div>
-        <div class="cert-body"><h4>Microsoft Certified: Azure AI Fundamentals</h4><span>Microsoft · Sep 2022</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d1">
-        <div class="cert-icon" style="background:rgba(15,98,254,0.12)">🔷</div>
-        <div class="cert-body"><h4>Data Science: 101</h4><span>IBM · Sep 2022</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d2">
-        <div class="cert-icon" style="background:rgba(240,80,50,0.12)">🐙</div>
-        <div class="cert-body"><h4>Git and Version Control</h4><span>Nasscom Foundation · Sep 2022</span></div>
-      </div>
-      <div class="cert-card reveal reveal-d3">
-        <div class="cert-icon" style="background:rgba(0,255,170,0.1)">📐</div>
-        <div class="cert-body"><h4>Statistics Foundations 1: The Basics</h4><span>LinkedIn Learning · Aug 2022</span></div>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:2rem"><a href="https://www.linkedin.com/in/shivjiagnihotri/details/certifications/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:0.9rem;font-weight:600">View all certifications on LinkedIn</a></p>
-  </div>
-</section>
-
-<section id="publication" style="background:var(--surface)">
-  <div class="container">
-    <div class="section-label reveal">Research</div>
-    <h2 class="section-title reveal reveal-d1">Published <span>Work</span></h2>
-    <p class="section-sub reveal reveal-d2">Peer-reviewed research contributing to accessible AI technology.</p>
-    <div class="pub-card reveal">
-      <div>
-        <div class="pub-label">IJRASET · May 2023</div>
-        <h3>VISION AI: A Deep Learning-Based Object Recognition System for Visually Impaired People using TensorFlow and OpenCV</h3>
-        <p>Trained YOLOv7 on the COCO dataset (330k images, 80 object categories) to build a real-time object detection system that helps visually impaired users understand and navigate their environment safely. The research evaluates the model on accuracy, speed, and memory footprint ; demonstrating that cutting-edge AI can be made accessible and practical for people who need it most.</p>
-      </div>
-      <a href="https://doi.org/10.22214/ijraset.2023.52197" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        Read Paper
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="container">
-    <div class="section-label reveal">Education</div>
-    <h2 class="section-title reveal reveal-d1">Academic <span>Foundation</span></h2>
-    <div class="edu-grid">
-      <div class="edu-card reveal">
-        <div class="edu-year">Jul 2019 - Aug 2023</div>
-        <div class="edu-degree">B.E. in Computer Science</div>
-        <div class="edu-school">SSPACE Wardha · RTM Nagpur University, Maharashtra</div>
-      </div>
-      <div class="edu-card reveal reveal-d1">
-        <div class="edu-year">Apr 2018 - Jun 2019</div>
-        <div class="edu-degree">Higher Secondary Certificate · CBSE</div>
-        <div class="edu-school">Kendriya Vidyalaya WCL New Majri, Maharashtra</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="playground">
-  <div class="container">
-    <div class="section-label reveal">// just_for_fun</div>
-    <h2 class="section-title reveal reveal-d1">Take a <span>Debug Break</span></h2>
-    <p class="section-sub reveal reveal-d2">A portfolio shouldn't only be read, it should be played too. Three tiny games — jump the bugs, fly the bird, loose the arrows. Works with taps, thumbs, mouse and keys.</p>
-
-    <div class="game-tabs reveal" role="tablist" aria-label="Choose a mini game">
-      <button class="game-tab active" data-game="runner" role="tab" aria-selected="true" type="button">🏃 Bug Runner</button>
-      <button class="game-tab" data-game="bird" role="tab" aria-selected="false" type="button">🐤 Bird Fly</button>
-      <button class="game-tab" data-game="archer" role="tab" aria-selected="false" type="button">🏹 Arrow Shooter</button>
-    </div>
-
-    <div class="game-wrap reveal reveal-d1">
-      <canvas id="gameCanvas" tabindex="0" aria-label="Mini game. Use touch, mouse or keyboard to play."></canvas>
-      <p class="game-hint" id="gameHint">Tap or press Space to start</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact-section">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="available-badge">Open to opportunities</div>
-      <div class="section-label">Contact</div>
-      <h2 class="section-title">Let's Build Something <span>Remarkable</span></h2>
-      <p class="section-sub">Whether you have a project in mind, want to discuss AI solutions, or just want to say hello, I'd love to hear from you.</p>
-      <div class="contact-links">
-        <a href="mailto:shivjiagnihotri@outlook.com" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          shivjiagnihotri@outlook.com
-        </a>
-        <a href="https://linkedin.com/in/shivjiagnihotri" target="_blank" rel="noopener" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/shivjiagnihotri" target="_blank" rel="noopener" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://shivjiagnihotri.tech/" target="_blank" rel="noopener" class="contact-link">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-          shivjiagnihotri.tech
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© <span id="year">2026</span> Shivji Agnihotri · Bengaluru, India · Built with Three.js &amp; ❤</p>
-</footer>
-
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.module.js"
-  }
-}
-</script>
-<script type="module" src="js/scene.js"></script>
-<script type="module" src="js/games.js"></script>
-<script type="module" src="js/main.js"></script>
-</body>
+    </dialog>
+  </body>
 </html>

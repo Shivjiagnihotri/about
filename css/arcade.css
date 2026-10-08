@@ -1,0 +1,585 @@
+.game-dialog {
+  width: min(1440px, 96vw);
+  max-width: none;
+  max-height: 96dvh;
+  border-radius: 6px;
+  background: #151c1b;
+  color: #edf0e9;
+  overflow: hidden;
+}
+.game-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 21px;
+  border-bottom: 1px solid #ffffff15;
+  align-items: center;
+}
+.game-toolbar > div {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.game-logo {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  padding-right: 20px;
+  border-right: 1px solid #ffffff20;
+}
+.game-toolbar h2 {
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.game-toolbar-actions {
+  gap: 16px !important;
+}
+.game-toolbar button {
+  background: none;
+  border: 0;
+  color: #b7c4bb;
+  font-size: 10px;
+  padding: 5px;
+}
+#fullscreenToggle,
+#closeGame {
+  font-size: 22px !important;
+  line-height: 1;
+}
+.game-viewport {
+  position: relative;
+  aspect-ratio: 16/9;
+  max-height: calc(96dvh - 104px);
+  overflow: hidden;
+  background: #455454;
+}
+.game-viewport > #gameCanvas {
+  width: 100%;
+  height: 100%;
+  outline-offset: -4px;
+  touch-action: none;
+}
+#fullscreenToggle {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 34px;
+}
+#fullscreenToggle svg {
+  display: block;
+}
+#fullscreenToggle[aria-pressed="false"] .fullscreen-restore,
+#fullscreenToggle[aria-pressed="true"] .fullscreen-expand {
+  display: none;
+}
+.game-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 120px #0c171350;
+  z-index: 1;
+}
+.game-hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  font-family: var(--sans);
+}
+.hud-top {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  text-shadow: 0 2px 12px #000;
+}
+.hud-label {
+  display: block;
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+.hud-top strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 7px;
+}
+.hud-score {
+  text-align: right;
+}
+.hud-score > span {
+  display: block;
+  font-size: 23px;
+  letter-spacing: 0.06em;
+}
+.hud-score small {
+  display: block;
+  font-size: 10px;
+}
+.crosshair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 1px 2px #000);
+}
+.crosshair i {
+  position: absolute;
+  background: #fff9;
+}
+.crosshair i:nth-child(1) {
+  left: 10px;
+  top: 0;
+  width: 2px;
+  height: 6px;
+}
+.crosshair i:nth-child(2) {
+  left: 10px;
+  bottom: 0;
+  width: 2px;
+  height: 6px;
+}
+.crosshair i:nth-child(3) {
+  top: 10px;
+  left: 0;
+  width: 6px;
+  height: 2px;
+}
+.crosshair i:nth-child(4) {
+  top: 10px;
+  right: 0;
+  width: 6px;
+  height: 2px;
+}
+.hit-marker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 34px;
+  color: #e9bd62;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.hit-marker.hit {
+  opacity: 1;
+}
+.game-notification {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.07em;
+  color: #ffe1a3;
+  text-shadow: 0 2px 12px #000;
+}
+.hud-bottom {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 12px #000;
+}
+.hud-vitals {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hud-vitals > span {
+  font-size: 8px;
+}
+.health-track {
+  width: 100px;
+  height: 4px;
+  background: #ffffff40;
+}
+.health-track i {
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: #d8dcb7;
+  transition: width 0.2s;
+}
+.hud-vitals > strong {
+  font-weight: 500;
+}
+.game-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(90deg, #14211aeb, #14211a9e, #14211adb);
+  padding: 30px;
+  overflow: auto;
+}
+.game-screen .eyebrow {
+  color: var(--gold);
+  font-size: 9px;
+}
+.game-screen h3 {
+  font-size: clamp(32px, 5vw, 72px);
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 20px;
+  letter-spacing: -0.03em;
+}
+.game-screen > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #c1cbbf;
+  max-width: 490px;
+  margin-top: 20px;
+}
+.control-guide {
+  display: flex;
+  gap: 22px;
+  margin: 23px 0;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.control-guide > span {
+  font-size: 9px;
+  color: #becabb;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.control-guide kbd {
+  display: inline-block;
+  padding: 3px 7px;
+  min-width: 24px;
+  background: #ffffff10;
+  border: 1px solid #ffffff30;
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  color: white;
+  font: 10px var(--sans);
+}
+#gameScreenNote {
+  font-size: 9px;
+  margin-top: 16px;
+  color: #b3c0af;
+}
+.restart-link {
+  margin-top: 15px;
+  border: 0;
+  background: none;
+  color: #c7d0bd;
+  font-size: 10px;
+  text-decoration: underline;
+}
+.game-footer {
+  padding: 11px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 8px;
+  color: #a6b4aa;
+}
+.game-pause {
+  position: absolute;
+  right: 30px;
+  bottom: 70px;
+  z-index: 3;
+  background: #18241b9c;
+  border: 1px solid #ffffff30;
+  border-radius: 3px;
+  color: white;
+  width: 34px;
+  height: 34px;
+}
+.touch-controls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  touch-action: none;
+}
+.touch-controls button {
+  pointer-events: auto;
+  touch-action: none;
+  background: #16271e80;
+  color: white;
+  border: 1px solid #ffffff50;
+  min-width: 46px;
+  height: 44px;
+  border-radius: 7px;
+  user-select: none;
+  font-size: 12px;
+}
+.touch-movement {
+  position: absolute;
+  bottom: 48px;
+  left: 18px;
+  width: 145px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+.touch-movement button:first-child {
+  grid-column: 2;
+}
+.touch-movement button:nth-child(2) {
+  grid-column: 1;
+}
+.touch-actions {
+  position: absolute;
+  right: 18px;
+  bottom: 48px;
+  display: flex;
+  gap: 6px;
+}
+.touch-actions button {
+  padding: 0 12px;
+}
+.touch-look-hint {
+  position: absolute;
+  bottom: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  opacity: 0.65;
+}
+.noscript-notice {
+  padding: 20px;
+  font-size: 13px;
+}
+@media (max-width: 760px) {
+  .game-dialog {
+    width: 100vw;
+    max-height: 100dvh;
+    border-radius: 0;
+    margin: auto;
+  }
+  .game-toolbar {
+    padding: 12px;
+    gap: 6px;
+  }
+  .game-toolbar > div {
+    gap: 8px;
+  }
+  .game-logo {
+    display: none;
+  }
+  .game-toolbar h2 {
+    font-size: 12px;
+  }
+  .game-toolbar-actions {
+    gap: 6px !important;
+  }
+  .game-toolbar button {
+    font-size: 8px;
+  }
+  .game-viewport {
+    aspect-ratio: auto;
+    height: calc(100dvh - 92px);
+    max-height: none;
+    min-height: 300px;
+  }
+  .game-screen {
+    padding: 22px;
+  }
+  .game-screen h3 {
+    font-size: 51px;
+  }
+  .game-screen > p {
+    font-size: 11px;
+  }
+  .control-guide {
+    gap: 10px;
+    margin-block: 20px;
+  }
+  .control-guide > span {
+    font-size: 8px;
+  }
+  .hud-top {
+    top: 18px;
+    left: 18px;
+    right: 18px;
+  }
+  .hud-top strong {
+    font-size: 11px;
+    max-width: 235px;
+  }
+  .hud-label {
+    font-size: 7px;
+  }
+  .hud-score > span {
+    font-size: 18px;
+  }
+  .hud-bottom {
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    font-size: 8px;
+  }
+  .health-track {
+    width: 65px;
+  }
+  .hud-vitals {
+    gap: 6px;
+  }
+  .game-footer {
+    padding: 10px;
+    font-size: 7px;
+    gap: 10px;
+  }
+  .game-footer > span:first-child {
+    max-width: 75%;
+  }
+  .game-pause {
+    right: 18px;
+    bottom: 110px;
+  }
+  .game-notification {
+    font-size: 10px;
+    padding-inline: 15px;
+  }
+  .game-vignette {
+    box-shadow: inset 0 0 60px #0c171350;
+  }
+}
+@media (max-height: 550px) and (orientation: landscape) {
+  .game-toolbar {
+    padding: 7px 16px;
+  }
+  .game-viewport {
+    height: calc(100dvh - 77px);
+    max-height: none;
+    aspect-ratio: auto;
+  }
+  .game-screen {
+    padding: 16px;
+  }
+  .game-screen h3 {
+    font-size: 32px;
+    margin-top: 8px;
+  }
+  .game-screen h3 br {
+    display: none;
+  }
+  .game-screen > p {
+    margin-top: 10px;
+    font-size: 10px;
+  }
+  .control-guide {
+    margin: 12px 0;
+    gap: 14px;
+  }
+  .game-screen .button {
+    min-height: 40px;
+    padding: 7px 18px;
+  }
+  #gameScreenNote {
+    margin-top: 9px;
+    font-size: 8px;
+  }
+  .game-hud .hud-top {
+    top: 16px;
+    left: 20px;
+    right: 20px;
+  }
+  .hud-bottom {
+    bottom: 16px;
+  }
+  .game-footer {
+    padding: 8px 15px;
+  }
+  .touch-movement,
+  .touch-actions {
+    bottom: 40px;
+  }
+}
+
+.game-radar {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  width: 110px;
+  height: 110px;
+  border-radius: 3px;
+  opacity: 0.85;
+}
+.game-compass {
+  position: absolute;
+  left: 50%;
+  top: 26px;
+  transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: #f6e8c5;
+  text-shadow: 0 2px 8px #000;
+}
+@media (max-width: 760px) {
+  .game-radar {
+    top: 90px;
+    left: 18px;
+    width: 80px;
+    height: 80px;
+  }
+  .game-compass {
+    top: 65px;
+    font-size: 8px;
+  }
+  .touch-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 60px);
+  }
+}
+
+.game-dialog[data-state="error"] #qualityToggle,
+.game-dialog[data-state="error"] #soundToggle {
+  display: none;
+}
+
+/* A dialog cannot request fullscreen; its inner game shell can. */
+.game-dialog.is-expanded {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  border-radius: 0;
+}
+.game-shell:fullscreen,
+.game-dialog.is-expanded .game-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #151c1b;
+}
+.game-shell:fullscreen .game-viewport,
+.game-dialog.is-expanded .game-viewport {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+}
+.game-shell:fullscreen .game-toolbar,
+.game-shell:fullscreen .game-footer,
+.game-dialog.is-expanded .game-toolbar,
+.game-dialog.is-expanded .game-footer {
+  flex: none;
+}

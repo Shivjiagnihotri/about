@@ -1,872 +1,1104 @@
-const HS = {
-  get(key) {
-    try { return parseInt(localStorage.getItem('sa_' + key) || '0', 10) || 0 } catch (e) { return 0 }
+﻿import {
+  THREE,
+  loadMaterials,
+  createWorld,
+  createDrone,
+  createWeapon,
+} from "./worlds.js";
+import { clamp, stepPlayer, jumpPlayer, rayBox } from "./physics.js";
+
+const $ = (id) => document.getElementById(id);
+const titles = { parkour: "Rooftop Protocol", shooter: "Resistance Zero" };
+const instructions = {
+  parkour: {
+    label: "EXPERIENCE 01 / PARKOUR",
+    title: "The horizon<br>is yours.",
+    description:
+      "Follow the amber signals across six rooftops. Sprint and double jump to cross the gaps. Each signal saves a checkpoint; a missed leap adds five seconds.",
+    guide: [
+      ["WASD", "Move"],
+      ["MOUSE", "Look"],
+      ["SPACE ×2", "Double jump"],
+      ["SHIFT", "Sprint"],
+    ],
+    hint: "WASD / arrows move · Mouse look · Space double jump · Shift sprint · Esc pause",
   },
-  set(key, v) {
-    try { localStorage.setItem('sa_' + key, String(v)) } catch (e) {}
+  shooter: {
+    label: "EXPERIENCE 02 / COMBAT",
+    title: "Take back<br>the district.",
+    description:
+      "Survive three waves of armed security drones. Use the barricades as cover. Aim for their red sensors, keep your rifle loaded, and clear the sector.",
+    guide: [
+      ["WASD", "Move"],
+      ["CLICK", "Fire"],
+      ["RIGHT CLICK", "Aim"],
+      ["R", "Reload"],
+      ["C", "Crouch"],
+    ],
+    hint: "WASD / arrows move · Mouse look · Click / Space fire · Right click aim · R reload · C crouch · Esc pause",
   },
-}
-
-const C = {
-  bg: '#0d0d1f',
-  text: '#e8e8f0',
-  muted: '#8888aa',
-  accent: '#6c63ff',
-  cyan: '#00d4ff',
-  pink: '#ff6b9d',
-  green: '#00ffaa',
-}
-
-function fitLogical(canvas, LW, LH) {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2)
-  const cssW = canvas.clientWidth || canvas.parentElement.clientWidth || LW
-  canvas.style.aspectRatio = LW + ' / ' + LH
-  const w = Math.max(1, Math.round(cssW * dpr))
-  const h = Math.max(1, Math.round((cssW * LH / LW) * dpr))
-  if (canvas.width !== w || canvas.height !== h) {
-    canvas.width = w
-    canvas.height = h
+};
+const storage = {
+  get(k) {
+    try {
+      return Number(localStorage.getItem("sa_3d_" + k)) || 0;
+    } catch {
+      return 0;
+    }
+  },
+  set(k, v) {
+    try {
+      localStorage.setItem("sa_3d_" + k, String(v));
+    } catch {}
+  },
+};
+export function initArcade() {
+  const dialog = $("gameDialog"),
+    canvas = $("gameCanvas"),
+    viewport = $("gameViewport");
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: false,
+    powerPreference: "high-performance",
+  });
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const camera = new THREE.PerspectiveCamera(78, 1, 0.06, 400);
+  const viewCamera = new THREE.PerspectiveCamera(60, 1, 0.01, 5);
+  const viewScene = new THREE.Scene();
+  viewScene.add(new THREE.HemisphereLight(0xffffff, 0x4f5144, 2));
+  const weaponLight = new THREE.DirectionalLight(0xffe7c4, 3);
+  weaponLight.position.set(-2, 3, 2);
+  viewScene.add(weaponLight);
+  const direction = new THREE.Vector3(),
+    origin = new THREE.Vector3();
+  const touch = matchMedia("(pointer:coarse)").matches;
+  const radar = $("gameRadar").getContext("2d");
+  let low = touch,
+    world,
+    assets,
+    mode = "parkour",
+    state = "closed",
+    p,
+    weapon,
+    checkpoint,
+    signals = 0,
+    wave = 1,
+    kills = 0,
+    score = 0,
+    health = 100,
+    ammo = 24,
+    reload = 0,
+    shotCooldown = 0,
+    elapsed = 0,
+    waveWait = 0,
+    raf = 0,
+    last = 0,
+    walking = 0,
+    recoil = 0,
+    damage = 0,
+    notifyTimer = 0,
+    hitTimer = 0,
+    opening = false,
+    opener = null;
+  let enemies = [],
+    effects = [],
+    keys = new Set(),
+    firing = false,
+    aiming = false,
+    drag = null,
+    frameCount = 0;
+  let audio = null,
+    sound = false,
+    footTimer = 0;
+  renderer.shadowMap.enabled = !low;
+  const reduced = () =>
+    document.body.classList.contains("motion-off") ||
+    matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function soundEffect(type) {
+    if (!sound) return;
+    try {
+      audio ||= new (window.AudioContext || window.webkitAudioContext)();
+      if (audio.state === "suspended") audio.resume().catch(() => {});
+      const gain = audio.createGain();
+      gain.connect(audio.destination);
+      const now = audio.currentTime;
+      if (type === "shot" || type === "step" || type === "hit") {
+        const duration = type === "shot" ? 0.16 : 0.09,
+          buffer = audio.createBuffer(
+            1,
+            Math.ceil(audio.sampleRate * duration),
+            audio.sampleRate,
+          ),
+          channel = buffer.getChannelData(0);
+        for (let i = 0; i < channel.length; i++)
+          channel[i] = (Math.random() * 2 - 1) * (1 - i / channel.length);
+        const source = audio.createBufferSource();
+        source.buffer = buffer;
+        const filter = audio.createBiquadFilter();
+        filter.type = "lowpass";
+        filter.frequency.value = type === "shot" ? 1600 : 450;
+        source.connect(filter);
+        filter.connect(gain);
+        gain.gain.setValueAtTime(type === "shot" ? 0.13 : 0.025, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+        source.start();
+        source.onended = () => {
+          source.disconnect();
+          filter.disconnect();
+          gain.disconnect();
+        };
+      } else {
+        const osc = audio.createOscillator();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(type === "signal" ? 660 : 280, now);
+        osc.frequency.exponentialRampToValueAtTime(
+          type === "signal" ? 1320 : 140,
+          now + 0.2,
+        );
+        osc.connect(gain);
+        gain.gain.setValueAtTime(0.06, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+        osc.start();
+        osc.stop(now + 0.3);
+        osc.onended = () => {
+          osc.disconnect();
+          gain.disconnect();
+        };
+      }
+    } catch {
+      sound = false;
+      updateSound();
+    }
   }
-  const s = w / LW
-  const ctx = canvas.getContext('2d')
-  ctx.setTransform(s, 0, 0, s, 0, 0)
-  return ctx
-}
-
-function rr(ctx, x, y, w, h, r) {
-  ctx.beginPath()
-  if (ctx.roundRect) ctx.roundRect(x, y, w, h, r)
-  else ctx.rect(x, y, w, h)
-}
-
-function monoText(ctx, text, x, y, size, color, align) {
-  ctx.font = size + 'px monospace'
-  ctx.fillStyle = color
-  ctx.textAlign = align || 'left'
-  ctx.fillText(text, x, y)
-}
-
-function overlay(ctx, LW, LH, title, sub) {
-  ctx.fillStyle = 'rgba(6,6,18,0.74)'
-  ctx.fillRect(0, 0, LW, LH)
-  monoText(ctx, title, LW / 2, LH / 2 - 6, 17, '#fff', 'center')
-  if (sub) monoText(ctx, sub, LW / 2, LH / 2 + 20, 13, C.muted, 'center')
-}
-
-function bindInput(canvas, handlers) {
-  let activePointer = null
-  const down = e => {
-    e.preventDefault()
-    if (activePointer !== null) return
-    activePointer = e.pointerId
-    canvas.focus()
-    handlers.down(e)
+  function updateSound() {
+    $("soundToggle").textContent = sound ? "Sound on" : "Sound off";
+    $("soundToggle").setAttribute("aria-pressed", String(sound));
+    $("soundToggle").setAttribute(
+      "aria-label",
+      sound ? "Disable game sound" : "Enable game sound",
+    );
   }
-  const move = e => { if (activePointer === null || e.pointerId === activePointer) handlers.move(e) }
-  const up = e => { if (activePointer === null || e.pointerId === activePointer) { activePointer = null; handlers.up(e) } }
-  canvas.addEventListener('pointerdown', down, { passive: false })
-  canvas.addEventListener('pointermove', move)
-  canvas.addEventListener('pointerup', up)
-  canvas.addEventListener('pointercancel', up)
-  return () => {
-    canvas.removeEventListener('pointerdown', down)
-    canvas.removeEventListener('pointermove', move)
-    canvas.removeEventListener('pointerup', up)
-    canvas.removeEventListener('pointercancel', up)
+  function notify(message, seconds = 2.8) {
+    $("gameNotification").textContent = message;
+    notifyTimer = seconds;
   }
-}
-
-function gameLoopCtl(game, canvas, step) {
-  let active = false
-  let raf = 0
-  let last = 0
-  function loop(now) {
-    if (!active) return
-    raf = requestAnimationFrame(loop)
-    const dt = Math.min((now - last) / 1000, 0.033)
-    last = now
-    step(dt, now / 1000)
+  function setState(next) {
+    state = next;
+    dialog.dataset.state = next;
+    canvas.dataset.game = mode;
   }
-  return {
-    get active() { return active },
-    start() {
-      if (active) return
-      active = true
-      last = performance.now()
-      raf = requestAnimationFrame(loop)
-    },
-    stop() {
-      active = false
-      cancelAnimationFrame(raf)
-    },
-    refit() {
-      cancelAnimationFrame(raf)
-      game.refitCtx()
-      last = performance.now()
-      raf = requestAnimationFrame(loop)
-    },
+  function formatTime(t) {
+    return (
+      String(Math.floor(t / 60)).padStart(2, "0") +
+      ":" +
+      String(Math.floor(t % 60)).padStart(2, "0")
+    );
   }
-}
-
-function baseGame(canvas) {
-  const listeners = []
-  function listen(target, type, fn, opts) {
-    target.addEventListener(type, fn, opts)
-    listeners.push(() => target.removeEventListener(type, fn))
+  function setBest() {
+    const best = storage.get(mode);
+    $("gameBest").textContent =
+      mode === "parkour"
+        ? "BEST " + (best ? formatTime(best) : "—")
+        : "BEST " + (best ? best.toLocaleString() : "—");
   }
-  return {
-    _listen: listen,
-    _cleanup() { listeners.forEach(off => off()); listeners.length = 0 },
+  function setScreen(kind) {
+    const info = instructions[mode];
+    $("gameHud").hidden = kind === "menu";
+    $("gameScreen").hidden = false;
+    $("pauseGame").hidden = true;
+    $("touchControls").hidden = true;
+    $("gameScreenLabel").textContent =
+      kind === "menu"
+        ? info.label
+        : kind === "paused"
+          ? "MISSION PAUSED"
+          : kind === "won"
+            ? "MISSION COMPLETE"
+            : "MISSION ENDED";
+    $("gameScreenTitle").innerHTML =
+      kind === "menu"
+        ? info.title
+        : kind === "paused"
+          ? "Take a breath."
+          : kind === "won"
+            ? mode === "parkour"
+              ? "Perfect<br>synchronization."
+              : "District<br>secured."
+            : "Signal<br>lost.";
+    $("gameScreenDescription").textContent =
+      kind === "menu"
+        ? info.description
+        : kind === "paused"
+          ? "Your progress is saved for this session. Resume when you’re ready."
+          : kind === "won"
+            ? mode === "parkour"
+              ? "All six signals recovered in " +
+                formatTime(elapsed) +
+                ". The city is yours."
+              : "All three waves cleared. " +
+                score.toLocaleString() +
+                " points. Sector control restored."
+            : "The drones overwhelmed your position. Try using the barricades to break their line of sight.";
+    $("controlGuide").innerHTML = touch
+      ? "<span>Left controls: move</span><span>Drag the view: look</span><span>Right controls: act</span>"
+      : info.guide
+          .map(
+            ([key, label]) =>
+              "<span><kbd>" + key + "</kbd>" + label + "</span>",
+          )
+          .join("");
+    $("startGame").hidden = false;
+    $("startGame").disabled = false;
+    $("startGame").innerHTML =
+      (kind === "paused"
+        ? "Resume mission"
+        : kind === "menu"
+          ? "Start mission"
+          : "Play again") + ' <span aria-hidden="true">↗</span>';
+    $("restartGame").hidden = kind !== "paused";
+    $("gameScreenNote").textContent = touch
+      ? "Drag with your right thumb to look. Rotate your device for a wider view."
+      : "Click Start to capture your mouse · Esc to pause · Best results are stored on this device.";
   }
-}
-
-function makeRunner(canvas) {
-  const LW = 800
-  const LH = 240
-  const GROUND = LH - 34
-  const G = 3240
-  const JV = -840
-  const labels = ['bug', 'null', 'undefined', '500', 'NaN', 'segfault', 'merge conflict', 'todo']
-  const game = baseGame(canvas)
-  let ctx = null
-  let player, obstacles, speed, scoreF, over, running, spawnT, speedT
-  let best = HS.get('bugrun')
-
+  function resize() {
+    if (!dialog.open) return;
+    const w = Math.max(1, viewport.clientWidth),
+      h = Math.max(1, viewport.clientHeight);
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, low ? 1 : 1.65));
+    renderer.setSize(w, h, false);
+    camera.aspect = viewCamera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    viewCamera.updateProjectionMatrix();
+    if (world) render();
+  }
+  function clearEffects() {
+    for (const e of effects) {
+      world?.scene.remove(e.mesh);
+      e.mesh.geometry.dispose();
+      e.mesh.material.dispose();
+    }
+    effects = [];
+  }
+  function removeEnemy(enemy) {
+    world.scene.remove(enemy.group);
+    enemy.group.traverse((o) => {
+      if (o.isMesh && o.geometry.type === "TorusGeometry") o.geometry.dispose();
+    });
+  }
   function reset() {
-    player = { x: 60, y: GROUND - 30, w: 26, h: 30, vy: 0, jumping: false }
-    obstacles = []
-    speed = 5.5
-    scoreF = 0
-    over = false
-    running = false
-    spawnT = 0
-    speedT = 0
-  }
-
-  function jump() {
-    if (over) { reset(); running = true; return }
-    if (!running) { running = true; return }
-    if (!player.jumping) { player.vy = JV; player.jumping = true }
-  }
-
-  function spawn() {
-    const text = labels[Math.floor(Math.random() * labels.length)]
-    ctx.font = '13px monospace'
-    obstacles.push({ x: LW + 20, y: GROUND - 26, w: ctx.measureText(text).width + 20, h: 26, text })
-  }
-
-  function update(dt) {
-    player.vy += G * dt
-    player.y += player.vy * dt
-    if (player.y >= GROUND - player.h) {
-      player.y = GROUND - player.h
-      player.vy = 0
-      player.jumping = false
+    clearEffects();
+    enemies.forEach(removeEnemy);
+    enemies = [];
+    if (weapon) {
+      viewScene.remove(weapon);
+      weapon.traverse((o) => {
+        if (
+          o.geometry &&
+          (o.userData.weaponGeometry ||
+            ["TorusGeometry", "ConeGeometry"].includes(o.geometry.type))
+        )
+          o.geometry.dispose();
+      });
+      weapon.userData.ownedMaterials.forEach((material) => material.dispose());
     }
-    spawnT -= dt
-    if (spawnT <= 0) {
-      spawn()
-      spawnT = Math.max(0.55, (70 - speed * 3) / 60)
+    p = {
+      ...world.spawn,
+      vx: 0,
+      vy: 0,
+      vz: 0,
+      yaw: 0,
+      pitch: mode === "parkour" ? -0.06 : 0,
+      grounded: true,
+      jumps: 2,
+      moving: 0,
+    };
+    checkpoint = { ...world.spawn };
+    signals = 0;
+    wave = 1;
+    kills = 0;
+    score = 0;
+    health = 100;
+    ammo = 24;
+    reload = 0;
+    shotCooldown = 0;
+    elapsed = 0;
+    waveWait = 0;
+    recoil = 0;
+    damage = 0;
+    walking = 0;
+    footTimer = 0;
+    keys.clear();
+    firing = aiming = false;
+    world.beacons.forEach((b) => {
+      b.active = true;
+      b.group.visible = true;
+    });
+    weapon = createWeapon(world.materials, mode === "parkour");
+    viewScene.add(weapon);
+    if (mode === "parkour") weapon.scale.setScalar(0.85);
+    if (mode === "shooter") spawnWave();
+    updateHud();
+    updateCamera(0);
+    render();
+  }
+  function spawnWave() {
+    const count = wave * 2 + 1;
+    for (let i = 0; i < count; i++) {
+      const angle = (i / count) * Math.PI * 2 + 0.5,
+        drone = createDrone(world.materials);
+      drone.group.position.set(
+        Math.cos(angle) * 22,
+        2.2 + world.random() * 0.6,
+        Math.sin(angle) * 22,
+      );
+      const enemy = {
+        ...drone,
+        hp: 3,
+        cooldown: 2.2 + i * 0.5,
+        phase: world.random() * 6.28,
+        flash: 0,
+      };
+      world.scene.add(enemy.group);
+      enemies.push(enemy);
     }
-    speedT += dt
-    if (speedT >= 5) { speedT -= 5; speed += 0.5 }
-    obstacles.forEach(o => { o.x -= speed * 60 * dt })
-    obstacles = obstacles.filter(o => o.x + o.w > 0)
-    for (const o of obstacles) {
-      if (player.x < o.x + o.w - 6 && player.x + player.w > o.x + 6 && player.y + player.h > o.y + 4) {
-        over = true
-        running = false
-        const sc = Math.floor(scoreF)
-        if (sc > best) { best = sc; HS.set('bugrun', best) }
-        break
+    if (state === "playing")
+      notify("WAVE " + wave + " / 3 — " + count + " HOSTILE DRONES", 3);
+  }
+  function updateHud() {
+    $("missionLabel").textContent =
+      mode === "parkour"
+        ? "ROOFTOP PROTOCOL"
+        : "RESISTANCE ZERO / WAVE " + wave;
+    $("missionObjective").textContent =
+      mode === "parkour"
+        ? "Follow the amber signals · sprint + double jump"
+        : "Clear wave " + wave + " of 3 · use cover";
+    $("gameProgress").textContent =
+      mode === "parkour" ? signals + " / 6" : enemies.length + " HOSTILES";
+    $("gameTimer").textContent = formatTime(elapsed);
+    drawRadar();
+    $("healthLabel").textContent = mode === "parkour" ? "SYNC" : "HEALTH";
+    $("healthValue").textContent = String(Math.ceil(health));
+    $("healthBar").style.width = health + "%";
+    $("gameAmmo").textContent =
+      mode === "parkour"
+        ? p.jumps > 0
+          ? "AIR JUMP READY"
+          : "LAND TO RECHARGE"
+        : reload > 0
+          ? "RELOADING…"
+          : String(ammo).padStart(2, "0") + " / ∞";
+  }
+  function drawRadar() {
+    radar.clearRect(0, 0, 220, 220);
+    radar.fillStyle = "rgba(15,28,24,.6)";
+    radar.fillRect(0, 0, 220, 220);
+    radar.strokeStyle = "#aabb9840";
+    radar.lineWidth = 1;
+    radar.strokeRect(1, 1, 218, 218);
+    const scale = mode === "parkour" ? 2 : 3,
+      centerX = p.x,
+      centerZ = p.z;
+    radar.save();
+    radar.beginPath();
+    radar.rect(3, 3, 214, 214);
+    radar.clip();
+    radar.fillStyle = "#90a08c50";
+    for (const b of world.colliders) {
+      if (b.maxY < 0 || b.maxX - b.minX > 80) continue;
+      radar.fillRect(
+        110 + (b.minX - centerX) * scale,
+        110 + (b.minZ - centerZ) * scale,
+        (b.maxX - b.minX) * scale,
+        (b.maxZ - b.minZ) * scale,
+      );
+    }
+    const targets =
+      mode === "parkour"
+        ? world.beacons.filter((b) => b.active).map((b) => b.roof)
+        : enemies.map((e) => e.group.position);
+    radar.fillStyle = mode === "parkour" ? "#ffd18a" : "#ff9277";
+    for (const target of targets) {
+      radar.beginPath();
+      radar.arc(
+        110 + (target.x - centerX) * scale,
+        110 + (target.z - centerZ) * scale,
+        4,
+        0,
+        Math.PI * 2,
+      );
+      radar.fill();
+    }
+    radar.translate(110, 110);
+    radar.rotate(-p.yaw);
+    radar.fillStyle = "#f4f3dd";
+    radar.beginPath();
+    radar.moveTo(0, -8);
+    radar.lineTo(6, 6);
+    radar.lineTo(0, 3);
+    radar.lineTo(-6, 6);
+    radar.closePath();
+    radar.fill();
+    radar.restore();
+    const degrees = ((((-p.yaw * 180) / Math.PI) % 360) + 360) % 360;
+    const cardinal = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"][
+      Math.round(degrees / 45) % 8
+    ];
+    $("gameCompass").textContent = cardinal + " / " + Math.round(degrees) + "°";
+  }
+  function nearestBlock(o, d, limit = 200) {
+    let distance = limit;
+    for (const b of world.colliders)
+      distance = Math.min(distance, rayBox(o, d, b, distance));
+    return distance;
+  }
+  function tracer(from, to, color = 0xfad18a) {
+    const geo = new THREE.BufferGeometry().setFromPoints([from, to]),
+      material = new THREE.LineBasicMaterial({
+        color,
+        transparent: true,
+        opacity: 0.85,
+        depthWrite: false,
+      });
+    const mesh = new THREE.Line(geo, material);
+    world.scene.add(mesh);
+    effects.push({ mesh, life: 0.1, max: 0.1 });
+  }
+  function burst(pos, color) {
+    const coords = [];
+    for (let i = 0; i < 12; i++) {
+      coords.push(
+        pos.x,
+        pos.y,
+        pos.z,
+        pos.x + (Math.random() - 0.5) * 0.65,
+        pos.y + (Math.random() - 0.5) * 0.65,
+        pos.z + (Math.random() - 0.5) * 0.65,
+      );
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.Float32BufferAttribute(coords, 3));
+    const mesh = new THREE.LineSegments(
+      geo,
+      new THREE.LineBasicMaterial({
+        color,
+        transparent: true,
+        opacity: 1,
+        depthWrite: false,
+      }),
+    );
+    world.scene.add(mesh);
+    effects.push({ mesh, life: 0.25, max: 0.25 });
+  }
+  function reloadWeapon() {
+    if (mode !== "shooter" || reload > 0 || ammo === 24 || state !== "playing")
+      return;
+    reload = 1.5;
+    soundEffect("reload");
+    updateHud();
+  }
+  function fire() {
+    if (
+      mode !== "shooter" ||
+      state !== "playing" ||
+      shotCooldown > 0 ||
+      reload > 0
+    )
+      return;
+    if (ammo <= 0) {
+      reloadWeapon();
+      return;
+    }
+    ammo--;
+    shotCooldown = 0.16;
+    recoil = 0.075;
+    soundEffect("shot");
+    weapon.userData.flash.visible = true;
+    camera.getWorldPosition(origin);
+    camera.getWorldDirection(direction);
+    const obstacle = nearestBlock(origin, direction),
+      end = origin.clone().addScaledVector(direction, Math.min(obstacle, 100));
+    let closest = null,
+      closestDistance = obstacle;
+    for (const enemy of enemies) {
+      const vector = enemy.group.position.clone().sub(origin),
+        along = vector.dot(direction);
+      // The rotor volume provides a forgiving silhouette without shooting through walls.
+      if (
+        along > 0 &&
+        along < closestDistance &&
+        vector.lengthSq() - along * along < 0.7 * 0.7
+      ) {
+        closest = enemy;
+        closestDistance = along;
       }
     }
-    scoreF += dt * 12
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, LW, LH)
-    ctx.fillStyle = C.bg
-    ctx.fillRect(0, 0, LW, LH)
-    ctx.strokeStyle = 'rgba(255,255,255,0.15)'
-    ctx.setLineDash([6, 6])
-    ctx.beginPath()
-    ctx.moveTo(0, GROUND)
-    ctx.lineTo(LW, GROUND)
-    ctx.stroke()
-    ctx.setLineDash([])
-    const grad = ctx.createLinearGradient(player.x, player.y, player.x + player.w, player.y + player.h)
-    grad.addColorStop(0, C.accent)
-    grad.addColorStop(1, C.cyan)
-    ctx.fillStyle = grad
-    rr(ctx, player.x, player.y, player.w, player.h, 6)
-    ctx.fill()
-    monoText(ctx, '</>', player.x + player.w / 2, player.y + player.h / 2 + 5, 13, '#060612', 'center')
-    obstacles.forEach(o => {
-      ctx.fillStyle = 'rgba(255,107,157,0.15)'
-      ctx.strokeStyle = C.pink
-      ctx.lineWidth = 1.5
-      rr(ctx, o.x, o.y, o.w, o.h, 6)
-      ctx.fill()
-      ctx.stroke()
-      monoText(ctx, o.text, o.x + o.w / 2, o.y + o.h / 2 + 4, 13, C.pink, 'center')
-    })
-    const score = Math.floor(scoreF)
-    monoText(ctx, 'score: ' + score, 14, 24, 13, C.text)
-    monoText(ctx, 'best: ' + best, 14, 42, 13, C.muted)
-    if (!running) {
-      overlay(ctx, LW, LH,
-        over ? 'Game over — tap or press Space to retry' : 'Tap or press Space to start',
-        over ? 'score: ' + score + '   best: ' + best : null)
-    }
-  }
-
-  const ctl = gameLoopCtl({ refitCtx() { ctx = fitLogical(canvas, LW, LH) } }, canvas, dt => {
-    if (running) update(dt)
-    draw()
-  })
-
-  return Object.assign(game, {
-    label: 'Bug Runner',
-    hint() { return 'Tap / click / Space to jump · Best: ' + best },
-    enter() {
-      ctl.refit()
-      reset()
-      game._listen(canvas, 'pointerdown', () => jump(), { passive: false })
-      game._listen(canvas, 'keydown', e => {
-        if (e.code === 'Space' || e.code === 'ArrowUp') { e.preventDefault(); jump() }
-      })
-      ctl.start()
-    },
-    exit() {
-      ctl.stop()
-      game._cleanup()
-    },
-  })
-}
-
-function makeBird(canvas) {
-  const LW = 800
-  const LH = 450
-  const GROUND = LH - 36
-  const G = 1500
-  const FLAP = -430
-  const BIRD_X = LW * 0.28
-  const game = baseGame(canvas)
-  let ctx = null
-  let bird, pipes, score, over, running, distToNext
-  let best = HS.get('flappy')
-
-  function reset() {
-    bird = { y: LH / 2, vy: 0, r: 14 }
-    pipes = []
-    score = 0
-    over = false
-    running = false
-    distToNext = 200
-  }
-
-  function flap() {
-    if (over) { reset(); running = true; return }
-    if (!running) { running = true; return }
-    bird.vy = FLAP
-  }
-
-  function die() {
-    over = true
-    running = false
-    if (score > best) { best = score; HS.set('flappy', best) }
-  }
-
-  function circleRect(cx, cy, r, rx, ry, rw, rh) {
-    const nx = Math.max(rx, Math.min(cx, rx + rw))
-    const ny = Math.max(ry, Math.min(cy, ry + rh))
-    const dx = cx - nx
-    const dy = cy - ny
-    return dx * dx + dy * dy < r * r
-  }
-
-  function update(dt) {
-    const spd = 175 + Math.min(score * 5, 95)
-    bird.vy = Math.min(bird.vy + G * dt, 680)
-    bird.y += bird.vy * dt
-    distToNext -= spd * dt
-    if (distToNext <= 0) {
-      const gap = Math.max(132, 172 - score * 2)
-      pipes.push({ x: LW + 40, gy: 70 + Math.random() * (GROUND - 140 - gap), gap, passed: false })
-      distToNext = 272
-    }
-    pipes.forEach(p => { p.x -= spd * dt })
-    pipes = pipes.filter(p => p.x > -80)
-    for (const p of pipes) {
-      if (!p.passed && BIRD_X > p.x + 66) {
-        p.passed = true
-        score++
+    if (closest) {
+      closest.hp--;
+      closest.flash = 0.1;
+      end.copy(origin).addScaledVector(direction, closestDistance);
+      burst(end, 0xffcf7a);
+      $("hitMarker").classList.add("hit");
+      hitTimer = 0.12;
+      soundEffect("hit");
+      if (closest.hp <= 0) {
+        burst(closest.group.position, 0xffb357);
+        removeEnemy(closest);
+        enemies = enemies.filter((e) => e !== closest);
+        kills++;
+        score += 100;
+        health = Math.min(100, health + 4);
       }
-      if (circleRect(BIRD_X, bird.y, bird.r - 2, p.x, 0, 66, p.gy) ||
-          circleRect(BIRD_X, bird.y, bird.r - 2, p.x, p.gy + p.gap, 66, GROUND - p.gy - p.gap)) {
-        die()
-        return
+    } else if (obstacle < 100) burst(end, 0xd1bb91);
+    const start = origin
+      .clone()
+      .add(
+        new THREE.Vector3(0.23, -0.12, -0.6).applyQuaternion(camera.quaternion),
+      );
+    tracer(start, end);
+    if (ammo === 0) notify("MAGAZINE EMPTY — PRESS R TO RELOAD", 1.5);
+    updateHud();
+  }
+  function primary() {
+    if (state !== "playing") return;
+    if (mode === "parkour") {
+      if (jumpPlayer(p, true)) soundEffect("jump");
+    } else fire();
+  }
+  function updateEnemies(dt, time) {
+    for (const enemy of enemies) {
+      const pos = enemy.group.position,
+        dx = p.x - pos.x,
+        dz = p.z - pos.z,
+        dist = Math.hypot(dx, dz) || 1;
+      const approach = dist > 10 ? 1.7 : dist < 6 ? -1 : 0;
+      const strafe = Math.sin(time * 0.65 + enemy.phase) * 1.25;
+      const nx = pos.x + ((dx / dist) * approach + (dz / dist) * strafe) * dt,
+        nz = pos.z + ((dz / dist) * approach - (dx / dist) * strafe) * dt;
+      const blocked = world.colliders.some(
+        (b) =>
+          b.maxY > 1 &&
+          nx > b.minX - 0.9 &&
+          nx < b.maxX + 0.9 &&
+          nz > b.minZ - 0.9 &&
+          nz < b.maxZ + 0.9,
+      );
+      if (!blocked) {
+        pos.x = clamp(nx, -25, 25);
+        pos.z = clamp(nz, -29, 29);
       }
-    }
-    if (bird.y + bird.r >= GROUND || bird.y - bird.r <= 2) die()
-  }
-
-  function draw(t) {
-    ctx.clearRect(0, 0, LW, LH)
-    const sky = ctx.createLinearGradient(0, 0, 0, LH)
-    sky.addColorStop(0, '#10102a')
-    sky.addColorStop(1, C.bg)
-    ctx.fillStyle = sky
-    ctx.fillRect(0, 0, LW, LH)
-    ctx.fillStyle = 'rgba(108,99,255,0.25)'
-    for (let i = 0; i < 26; i++) {
-      const sx = ((i * 137 + t * 18) % (LW + 40)) - 20
-      const sy = (i * 89) % (GROUND - 20)
-      ctx.fillRect(LW - sx, sy, 2, 2)
-    }
-    pipes.forEach(p => {
-      ctx.fillStyle = 'rgba(255,107,157,0.13)'
-      ctx.strokeStyle = C.pink
-      ctx.lineWidth = 2
-      rr(ctx, p.x, -8, 66, p.gy + 8, 8)
-      ctx.fill()
-      ctx.stroke()
-      rr(ctx, p.x - 5, p.gy - 14, 76, 14, 5)
-      ctx.fill()
-      ctx.stroke()
-      rr(ctx, p.x, p.gy + p.gap, 66, GROUND - p.gy - p.gap + 8, 8)
-      ctx.fill()
-      ctx.stroke()
-      rr(ctx, p.x - 5, p.gy + p.gap, 76, 14, 5)
-      ctx.fill()
-      ctx.stroke()
-    })
-    ctx.strokeStyle = 'rgba(255,255,255,0.15)'
-    ctx.setLineDash([6, 6])
-    ctx.beginPath()
-    ctx.moveTo(0, GROUND)
-    ctx.lineTo(LW, GROUND)
-    ctx.stroke()
-    ctx.setLineDash([])
-    const bob = running ? 0 : Math.sin(t * 4) * 6
-    const by = bird.y + bob
-    const body = ctx.createRadialGradient(BIRD_X - 4, by - 5, 2, BIRD_X, by, bird.r + 4)
-    body.addColorStop(0, C.cyan)
-    body.addColorStop(1, C.accent)
-    ctx.fillStyle = body
-    ctx.beginPath()
-    ctx.arc(BIRD_X, by, bird.r, 0, Math.PI * 2)
-    ctx.fill()
-    const wingDir = running ? Math.sin(t * 22) : Math.sin(t * 6)
-    ctx.fillStyle = 'rgba(232,232,240,0.9)'
-    ctx.beginPath()
-    ctx.ellipse(BIRD_X - 5, by + 2, 7, 4, wingDir * 0.7, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.fillStyle = C.green
-    ctx.beginPath()
-    ctx.moveTo(BIRD_X + bird.r - 2, by - 3)
-    ctx.lineTo(BIRD_X + bird.r + 8, by)
-    ctx.lineTo(BIRD_X + bird.r - 2, by + 3)
-    ctx.closePath()
-    ctx.fill()
-    ctx.fillStyle = '#fff'
-    ctx.beginPath()
-    ctx.arc(BIRD_X + 5, by - 5, 3, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.fillStyle = '#060612'
-    ctx.beginPath()
-    ctx.arc(BIRD_X + 6, by - 5, 1.4, 0, Math.PI * 2)
-    ctx.fill()
-    monoText(ctx, 'score: ' + score, 14, 28, 15, C.text)
-    monoText(ctx, 'best: ' + best, 14, 48, 13, C.muted)
-    if (!running) {
-      overlay(ctx, LW, LH,
-        over ? 'Game over — tap or press Space to retry' : 'Tap / click / Space to fly',
-        over ? 'score: ' + score + '   best: ' + best : 'thread the neon gaps')
-    }
-  }
-
-  const ctl = gameLoopCtl({ refitCtx() { ctx = fitLogical(canvas, LW, LH) } }, canvas, (dt, t) => {
-    if (running) update(dt)
-    draw(t)
-  })
-
-  return Object.assign(game, {
-    label: 'Bird Fly',
-    hint() { return 'Tap / click / Space to flap · Best: ' + best },
-    enter() {
-      ctl.refit()
-      reset()
-      game._listen(canvas, 'pointerdown', () => flap(), { passive: false })
-      game._listen(canvas, 'keydown', e => {
-        if (e.code === 'Space' || e.code === 'ArrowUp') { e.preventDefault(); flap() }
-      })
-      ctl.start()
-    },
-    exit() {
-      ctl.stop()
-      game._cleanup()
-    },
-  })
-}
-
-function makeArcher(canvas) {
-  const LW = 800
-  const LH = 450
-  const BOW = { x: 110, y: 300 }
-  const G = 900
-  const ROUND_TIME = 60
-  const game = baseGame(canvas)
-  let ctx = null
-  let targets, arrows, bursts, floaters
-  let score, combo, lastHitAt, timeLeft, phase, startedAt, shake, missFlash
-  let aim, dragging, chargeT, charging
-  let best = HS.get('archer')
-
-  const targetColors = [C.accent, C.cyan, C.pink, C.green]
-
-  function newTarget(xMin) {
-    return {
-      x: xMin !== undefined ? xMin : LW + 70,
-      y: 60 + Math.random() * (LH - 200),
-      r: 22 + Math.random() * 16,
-      vx: -(65 + Math.random() * 85),
-      ph: Math.random() * Math.PI * 2,
-      color: targetColors[Math.floor(Math.random() * targetColors.length)],
-    }
-  }
-
-  function reset() {
-    targets = [newTarget(320), newTarget(520), newTarget(700)]
-    arrows = []
-    bursts = []
-    floaters = []
-    score = 0
-    combo = 1
-    lastHitAt = -9999
-    timeLeft = ROUND_TIME
-    phase = 'idle'
-    startedAt = 0
-    aim = { angle: -Math.PI / 5, len: 0 }
-    dragging = false
-    charging = false
-    chargeT = 0
-    shake = 0
-    missFlash = 0
-  }
-
-  function beginRound(now) {
-    if (phase === 'playing') return true
-    const keepBest = best
-    reset()
-    best = keepBest
-    phase = 'playing'
-    startedAt = now
-    return true
-  }
-
-  function endRound(now) {
-    phase = 'over'
-    if (score > best) { best = score; HS.set('archer', best) }
-  }
-
-  function shotVector() {
-    const power = dragging ? Math.min(aim.len / 180, 1) : (charging ? 0.35 + 0.6 * (0.5 - 0.5 * Math.cos(chargeT * 8.8)) : 0.55)
-    return { dirX: Math.cos(aim.angle + Math.PI), dirY: Math.sin(aim.angle + Math.PI), power }
-  }
-
-  function fire(now) {
-    if (phase !== 'playing') return
-    if (arrows.length > 5) return
-    const { dirX, dirY, power } = shotVector()
-    arrows.push({ x: BOW.x, y: BOW.y, vx: dirX * (380 + power * 560), vy: dirY * (380 + power * 560), hit: false })
-  }
-
-  function toLocal(e) {
-    const r = canvas.getBoundingClientRect()
-    const sx = LW / r.width
-    return { x: (e.clientX - r.left) * sx, y: (e.clientY - r.top) * sx }
-  }
-
-  function onDown(e) {
-    const p = toLocal(e)
-    beginRound(performance.now())
-    if (phase !== 'playing') return
-    if (p.x < LW * 0.45 || p.y > LH * 0.55) {
-      dragging = true
-      updateAim(p)
-    } else {
-      updateAim(p)
-      fire(performance.now())
-    }
-  }
-
-  function updateAim(p) {
-    const dx = p.x - BOW.x
-    const dy = p.y - BOW.y
-    const len = Math.hypot(dx, dy)
-    aim.angle = Math.atan2(dy, dx)
-    aim.len = Math.min(len, 220)
-  }
-
-  function onMove(e) {
-    if (!dragging) return
-    updateAim(toLocal(e))
-  }
-
-  function onUp() {
-    if (!dragging) return
-    dragging = false
-    fire(performance.now())
-  }
-
-  function burst(x, y, color) {
-    for (let i = 0; i < 14; i++) {
-      const a = Math.random() * Math.PI * 2
-      const v = 60 + Math.random() * 160
-      bursts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 40, life: 0.7, color })
-    }
-  }
-
-  function floater(x, y, text, color) {
-    floaters.push({ x, y, text, color, life: 1 })
-  }
-
-  function update(dt, now) {
-    if (charging && phase === 'playing') chargeT += dt
-    if (shake > 0) shake = Math.max(0, shake - dt * 30)
-    if (missFlash > 0) missFlash -= dt
-
-    if (phase === 'playing') {
-      timeLeft = ROUND_TIME - (now * 1000 - startedAt) / 1000
-      if (timeLeft <= 0) {
-        timeLeft = 0
-        endRound(now * 1000)
-      }
-    }
-
-    targets.forEach(tg => {
-      tg.x += tg.vx * dt
-      tg.ph += dt * 2
-      const wy = tg.y + Math.sin(tg.ph) * 12
-      tg.drawY = wy
-      if (tg.x < -tg.r - 20) Object.assign(tg, newTarget())
-    })
-
-    arrows.forEach(a => {
-      a.vy += G * dt
-      a.x += a.vx * dt
-      a.y += a.vy * dt
-      if (!a.hit) {
-        for (const tg of targets) {
-          const ty = tg.drawY !== undefined ? tg.drawY : tg.y
-          if ((a.x - tg.x) ** 2 + (a.y - ty) ** 2 < tg.r * tg.r) {
-            a.hit = true
-            const nowMs = now * 1000
-            combo = nowMs - lastHitAt < 2500 ? Math.min(combo + 1, 6) : 1
-            lastHitAt = nowMs
-            const pts = Math.round(120 - tg.r + 10)
-            const total = pts * combo
-            score += total
-            burst(tg.x, ty, tg.color)
-            floater(tg.x, ty - tg.r - 8, '+' + total + (combo > 1 ? ' x' + combo : ''), C.green)
-            shake = 5
-            Object.assign(tg, newTarget())
-            break
+      pos.y = 2.35 + Math.sin(time * 1.2 + enemy.phase) * 0.3;
+      enemy.group.lookAt(p.x, pos.y, p.z);
+      enemy.group.rotation.z = Math.sin(time + enemy.phase) * 0.035;
+      enemy.rotors.forEach((r) => (r.rotation.y += dt * 90));
+      enemy.cooldown -= dt;
+      enemy.flash = Math.max(0, enemy.flash - dt);
+      if (enemy.cooldown <= 0 && dist < 33) {
+        enemy.cooldown = 1.8 + world.random() * 1.3;
+        const target = new THREE.Vector3(
+            p.x,
+            p.y + (keys.has("KeyC") ? 0.82 : 1.45),
+            p.z,
+          ),
+          toward = target.clone().sub(pos),
+          length = toward.length();
+        toward.normalize();
+        if (nearestBlock(pos, toward, length) >= length - 0.2) {
+          // The first shot is deliberately slower; moving and cover improve survivability.
+          const hit = world.random() < (p.moving > 3 ? 0.46 : 0.78);
+          if (!hit) target.x += 1.2;
+          tracer(pos.clone(), target, 0xff7661);
+          if (hit) {
+            health = Math.max(0, health - (5 + wave));
+            damage = 0.3;
+            soundEffect("hit");
           }
         }
       }
-    })
-    let missed = false
-    arrows.forEach(a => {
-      if (!a.hit && (a.x < -40 || a.x > LW + 60 || a.y > LH + 60)) a.gone = true
-    })
-    if (arrows.some(a => a.gone)) {
-      missFlash = 0.3
-      combo = 1
-    }
-    arrows = arrows.filter(a => !a.hit && !a.gone)
-
-    bursts.forEach(p => {
-      p.life -= dt
-      p.vy += G * 0.4 * dt
-      p.x += p.vx * dt
-      p.y += p.vy * dt
-    })
-    bursts = bursts.filter(p => p.life > 0)
-
-    floaters.forEach(f => {
-      f.life -= dt * 1.2
-      f.y -= 34 * dt
-    })
-    floaters = floaters.filter(f => f.life > 0)
-  }
-
-  function drawBow() {
-    const { dirX, dirY, power } = shotVector()
-    const perpX = -dirY
-    const perpY = dirX
-    const pull = dragging ? Math.min(aim.len, 140) : power * 120
-    const nx = BOW.x - dirX * pull
-    const ny = BOW.y - dirY * pull
-    const tipA = { x: BOW.x + perpX * 40 + dirX * 10, y: BOW.y + perpY * 40 + dirY * 10 }
-    const tipB = { x: BOW.x - perpX * 40 + dirX * 10, y: BOW.y - perpY * 40 + dirY * 10 }
-    const ctrl = { x: BOW.x - dirX * 52, y: BOW.y - dirY * 52 }
-
-    ctx.strokeStyle = C.accent
-    ctx.lineWidth = 5
-    ctx.lineCap = 'round'
-    ctx.beginPath()
-    ctx.moveTo(tipA.x, tipA.y)
-    ctx.quadraticCurveTo(ctrl.x, ctrl.y, BOW.x, BOW.y)
-    ctx.quadraticCurveTo(ctrl.x, ctrl.y, tipB.x, tipB.y)
-    ctx.stroke()
-
-    ctx.strokeStyle = 'rgba(232,232,240,0.75)'
-    ctx.lineWidth = 1.5
-    ctx.beginPath()
-    ctx.moveTo(tipA.x, tipA.y)
-    ctx.lineTo(nx, ny)
-    ctx.lineTo(tipB.x, tipB.y)
-    ctx.stroke()
-
-    const ax = nx + dirX * 26
-    const ay = ny + dirY * 26
-    ctx.strokeStyle = C.text
-    ctx.lineWidth = 3
-    ctx.beginPath()
-    ctx.moveTo(nx, ny)
-    ctx.lineTo(ax, ay)
-    ctx.stroke()
-    ctx.fillStyle = C.pink
-    ctx.beginPath()
-    ctx.moveTo(ax + dirX * 9, ay + dirY * 9)
-    ctx.lineTo(ax + perpX * 4, ay + perpY * 4)
-    ctx.lineTo(ax - perpX * 4, ay - perpY * 4)
-    ctx.closePath()
-    ctx.fill()
-  }
-
-  function drawPreview() {
-    const { dirX, dirY, power } = shotVector()
-    let x = BOW.x
-    let y = BOW.y
-    let vx = dirX * (380 + power * 560)
-    let vy = dirY * (380 + power * 560)
-    const step = 1 / 24
-    for (let i = 0; i < 26; i++) {
-      vy += G * step
-      x += vx * step
-      y += vy * step
-      if (x > LW || y > LH || y < 0) break
-      ctx.fillStyle = 'rgba(0,212,255,' + (0.5 * (1 - i / 26)).toFixed(2) + ')'
-      ctx.beginPath()
-      ctx.arc(x, y, 2.6, 0, Math.PI * 2)
-      ctx.fill()
     }
   }
-
-  function draw(t) {
-    ctx.save()
-    if (shake > 0) ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake)
-    ctx.clearRect(-10, -10, LW + 20, LH + 20)
-    const sky = ctx.createLinearGradient(0, 0, 0, LH)
-    sky.addColorStop(0, '#10102a')
-    sky.addColorStop(1, C.bg)
-    ctx.fillStyle = sky
-    ctx.fillRect(-10, -10, LW + 20, LH + 20)
-
-    ctx.fillStyle = 'rgba(108,99,255,0.18)'
-    for (let i = 0; i < 20; i++) {
-      const gx = (i * 173 + t * 10) % LW
-      const gy = (i * 97) % LH
-      ctx.fillRect(LW - gx, gy, 2, 2)
-    }
-
-    ctx.strokeStyle = 'rgba(255,255,255,0.15)'
-    ctx.setLineDash([6, 6])
-    ctx.beginPath()
-    ctx.moveTo(0, LH - 28)
-    ctx.lineTo(LW, LH - 28)
-    ctx.stroke()
-    ctx.setLineDash([])
-
-    targets.forEach(tg => {
-      const ty = tg.drawY !== undefined ? tg.drawY : tg.y
-      ctx.fillStyle = 'rgba(255,255,255,0.06)'
-      ctx.strokeStyle = tg.color
-      ctx.lineWidth = 3
-      ctx.beginPath()
-      ctx.arc(tg.x, ty, tg.r, 0, Math.PI * 2)
-      ctx.fill()
-      ctx.stroke()
-      ctx.beginPath()
-      ctx.arc(tg.x, ty, tg.r * 0.55, 0, Math.PI * 2)
-      ctx.stroke()
-      ctx.fillStyle = tg.color
-      ctx.beginPath()
-      ctx.arc(tg.x, ty, 3.5, 0, Math.PI * 2)
-      ctx.fill()
-    })
-
-    arrows.forEach(a => {
-      const m = Math.hypot(a.vx, a.vy) || 1
-      const ux = a.vx / m
-      const uy = a.vy / m
-      const tailX = a.x - ux * 34
-      const tailY = a.y - uy * 34
-      ctx.strokeStyle = C.text
-      ctx.lineWidth = 3
-      ctx.beginPath()
-      ctx.moveTo(tailX, tailY)
-      ctx.lineTo(a.x, a.y)
-      ctx.stroke()
-      ctx.fillStyle = a.hit ? C.green : C.pink
-      ctx.beginPath()
-      ctx.moveTo(a.x + ux * 8, a.y + uy * 8)
-      ctx.lineTo(a.x - uy * 4, a.y + ux * 4)
-      ctx.lineTo(a.x + uy * 4, a.y - ux * 4)
-      ctx.closePath()
-      ctx.fill()
-      ctx.strokeStyle = C.muted
-      ctx.lineWidth = 2
-      ctx.beginPath()
-      ctx.moveTo(tailX, tailY)
-      ctx.lineTo(tailX - uy * 6, tailY + ux * 6)
-      ctx.moveTo(tailX, tailY)
-      ctx.lineTo(tailX + uy * 6, tailY - ux * 6)
-      ctx.stroke()
-    })
-
-    bursts.forEach(p => {
-      ctx.fillStyle = p.color
-      ctx.globalAlpha = Math.max(0, p.life / 0.7)
-      ctx.fillRect(p.x - 2, p.y - 2, 4, 4)
-      ctx.globalAlpha = 1
-    })
-
-    drawBow(t)
-    if ((dragging || charging) && phase === 'playing') drawPreview()
-
-    floaters.forEach(f => {
-      ctx.globalAlpha = Math.max(0, f.life)
-      monoText(ctx, f.text, f.x, f.y, 16, f.color, 'center')
-      ctx.globalAlpha = 1
-    })
-
-    monoText(ctx, 'score: ' + score, 14, 28, 15, C.text)
-    monoText(ctx, 'best: ' + best, 14, 48, 13, C.muted)
-    if (combo > 1 && phase === 'playing' && performance.now() / 1000 - lastHitAt / 1000 < 2.5) {
-      monoText(ctx, 'combo x' + combo, LW / 2, 30, 15, C.green, 'center')
-    }
-    if (phase === 'playing') {
-      monoText(ctx, 'time: ' + Math.ceil(timeLeft) + 's', LW - 14, 28, 15, timeLeft < 10 ? C.pink : C.text, 'right')
-    }
-    if (missFlash > 0) {
-      ctx.fillStyle = 'rgba(255,107,157,' + (missFlash * 0.25).toFixed(2) + ')'
-      ctx.fillRect(-10, -10, LW + 20, LH + 20)
-    }
-    ctx.restore()
-
-    if (phase !== 'playing') {
-      overlay(ctx, LW, LH,
-        phase === 'over' ? "Time's up — tap or press Space again" : 'Drag from the bow to aim & release · Space charges',
-        phase === 'over' ? 'score: ' + score + '   best: ' + best : 'pop the rings before the clock runs out')
+  function updateCamera(dt) {
+    walking += p.moving * dt;
+    const motion = reduced() ? 0 : 1;
+    const bob =
+      (p.grounded
+        ? Math.sin(walking * 1.7) * Math.min(p.moving / 8, 1) * 0.035
+        : 0) * motion;
+    const eyeHeight = mode === "shooter" && keys.has("KeyC") ? 0.92 : 1.67;
+    camera.position.set(p.x, p.y + eyeHeight + bob, p.z);
+    camera.rotation.set(
+      p.pitch + recoil * 0.12,
+      p.yaw,
+      Math.sin(walking * 0.85) * 0.003 * motion,
+      "YXZ",
+    );
+    const desiredFov =
+      aiming && mode === "shooter"
+        ? 55
+        : keys.has("ShiftLeft") && p.moving > 4
+          ? 85
+          : 78;
+    camera.fov += (desiredFov - camera.fov) * Math.min(1, dt * 10);
+    camera.updateProjectionMatrix();
+    camera.updateMatrixWorld();
+    if (mode === "shooter") {
+      const zoom = aiming ? 0 : 0.25;
+      weapon.position.x += (zoom - weapon.position.x) * Math.min(1, dt * 14);
+      weapon.position.y =
+        -0.22 +
+        bob * 0.4 -
+        (reload > 0 ? Math.sin((reload / 1.5) * Math.PI) * 0.24 : 0);
+      weapon.position.z = -0.46 + recoil;
+      weapon.rotation.z =
+        reload > 0
+          ? -0.35 * Math.sin((reload / 1.5) * Math.PI)
+          : Math.sin(walking * 0.8) * 0.015 * motion;
+      weapon.userData.flash.visible = shotCooldown > 0.1;
+    } else {
+      weapon.position.y = bob * 1.7 + (p.grounded ? -0.08 : -0.02);
+      weapon.rotation.z = Math.sin(walking) * 0.025 * motion;
     }
   }
-
-  const ctl = gameLoopCtl({ refitCtx() { ctx = fitLogical(canvas, LW, LH) } }, canvas, (dt, t) => {
-    update(dt, t)
-    draw(t)
-  })
-
-  return Object.assign(game, {
-    label: 'Arrow Shooter',
-    hint() { return 'Touch/mouse: drag from bow, release to shoot · Keys: ←→ aim, hold Space, release · Best: ' + best },
-    enter() {
-      ctl.refit()
-      reset()
-      game._listen(canvas, 'pointerdown', onDown, { passive: false })
-      game._listen(canvas, 'pointermove', onMove)
-      game._listen(canvas, 'pointerup', onUp)
-      game._listen(canvas, 'pointercancel', onUp)
-      const keys = new Set()
-      game._listen(canvas, 'keydown', e => {
-        if (['Space', 'ArrowLeft', 'ArrowRight'].includes(e.code)) e.preventDefault()
-        if (e.code === 'Space' && !keys.has('Space')) {
-          keys.add('Space')
-          beginRound(performance.now())
-          charging = true
-          chargeT = 0
+  function render() {
+    if (!world) return;
+    renderer.autoClear = true;
+    renderer.render(world.scene, camera);
+    renderer.autoClear = false;
+    renderer.clearDepth();
+    renderer.render(viewScene, viewCamera);
+    renderer.autoClear = true;
+  }
+  function frame(now) {
+    raf = 0;
+    if (state !== "playing") return;
+    const dt = Math.min((now - last) / 1000, 0.1);
+    last = now;
+    elapsed += dt;
+    frameCount++;
+    const input = {
+      crouch: keys.has("KeyC"),
+      forward: keys.has("KeyW") || keys.has("ArrowUp"),
+      back: keys.has("KeyS") || keys.has("ArrowDown"),
+      left: keys.has("KeyA") || keys.has("ArrowLeft"),
+      right: keys.has("KeyD") || keys.has("ArrowRight"),
+      sprint: keys.has("ShiftLeft") || keys.has("ShiftRight"),
+    };
+    if (keys.has("KeyJ")) p.yaw += dt * 1.6;
+    if (keys.has("KeyL")) p.yaw -= dt * 1.6;
+    if (keys.has("KeyI")) p.pitch = clamp(p.pitch + dt, -1.35, 1.35);
+    if (keys.has("KeyK")) p.pitch = clamp(p.pitch - dt, -1.35, 1.35);
+    // Substeps keep collisions stable without slowing movement at modest frame rates.
+    const steps = Math.max(1, Math.ceil(dt / (1 / 60)));
+    for (let i = 0; i < steps; i++)
+      stepPlayer(p, input, world.colliders, dt / steps);
+    shotCooldown = Math.max(0, shotCooldown - dt);
+    recoil = Math.max(0, recoil - dt * 0.7);
+    damage = Math.max(0, damage - dt);
+    if (reload > 0) {
+      reload -= dt;
+      if (reload <= 0) {
+        reload = 0;
+        ammo = 24;
+      }
+    }
+    if (firing || (keys.has("Space") && mode === "shooter")) fire();
+    if (mode === "parkour") {
+      for (const beacon of world.beacons) {
+        if (
+          beacon.active &&
+          Math.hypot(p.x - beacon.roof.x, p.z - beacon.roof.z) < 1.9 &&
+          Math.abs(p.y - beacon.roof.y) < 2.5
+        ) {
+          beacon.active = false;
+          beacon.group.visible = false;
+          signals++;
+          checkpoint = { x: beacon.roof.x, y: beacon.roof.y, z: beacon.roof.z };
+          soundEffect("signal");
+          notify("SIGNAL " + signals + " / 6 — CHECKPOINT SAVED");
         }
-        if (e.code === 'ArrowLeft') keys.add('ArrowLeft')
-        if (e.code === 'ArrowRight') keys.add('ArrowRight')
-      })
-      game._listen(canvas, 'keyup', e => {
-        if (e.code === 'Space' && keys.has('Space')) {
-          keys.delete('Space')
-          charging = false
-          fire(performance.now())
+      }
+      if (p.y < 7) {
+        Object.assign(p, checkpoint, {
+          vx: 0,
+          vy: 0,
+          vz: 0,
+          grounded: true,
+          jumps: 2,
+        });
+        elapsed += 5;
+        notify("CHECKPOINT RESTORED · +5 SECONDS");
+      }
+      if (signals === 6) {
+        finish(true);
+        return;
+      }
+    } else {
+      updateEnemies(dt, elapsed);
+      if (health <= 0) {
+        finish(false);
+        return;
+      }
+      if (enemies.length === 0) {
+        if (wave === 3) {
+          score += Math.max(0, 500 - Math.floor(elapsed));
+          finish(true);
+          return;
         }
-        if (e.code === 'ArrowLeft') keys.delete('ArrowLeft')
-        if (e.code === 'ArrowRight') keys.delete('ArrowRight')
-      })
-      game._keyLoopTimer = setInterval(() => {
-        if (keys.has('ArrowLeft')) aim.angle = Math.max(-Math.PI + 0.4, aim.angle - 0.05)
-        if (keys.has('ArrowRight')) aim.angle = Math.min(-0.08, aim.angle + 0.05)
-      }, 16)
-      this._stopKeys = () => clearInterval(game._keyLoopTimer)
-      ctl.start()
-    },
-    exit() {
-      ctl.stop()
-      game._cleanup()
-      if (this._stopKeys) this._stopKeys()
-    },
-  })
-}
-
-const GAME_FACTORIES = { runner: makeRunner, bird: makeBird, archer: makeArcher }
-
-export function initArcade(canvas, hintEl, tabsEl) {
-  if (!canvas || !GAME_FACTORIES) return
-  const games = {}
-  for (const key of Object.keys(GAME_FACTORIES)) games[key] = GAME_FACTORIES[key](canvas)
-
-  let current = null
-
-  function activate(id) {
-    if (!games[id] || current === games[id]) return
-    if (current) current.exit()
-    current = games[id]
-    if (tabsEl) {
-      tabsEl.querySelectorAll('[data-game]').forEach(btn => {
-        const isActive = btn.dataset.game === id
-        btn.classList.toggle('active', isActive)
-        btn.setAttribute('aria-selected', String(isActive))
-      })
+        if (waveWait === 0) {
+          waveWait = 4;
+          notify("WAVE CLEARED — REINFORCEMENTS INBOUND", 4);
+          health = Math.min(100, health + 25);
+          ammo = 24;
+        }
+        waveWait -= dt;
+        if (waveWait <= 0) {
+          wave++;
+          waveWait = 0;
+          spawnWave();
+        }
+      }
     }
-    current.enter()
-    if (hintEl) hintEl.textContent = current.hint()
+    for (const effect of [...effects]) {
+      effect.life -= dt;
+      effect.mesh.material.opacity = Math.max(0, effect.life / effect.max);
+      if (effect.life <= 0) {
+        world.scene.remove(effect.mesh);
+        effect.mesh.geometry.dispose();
+        effect.mesh.material.dispose();
+        effects.splice(effects.indexOf(effect), 1);
+      }
+    }
+    if (notifyTimer > 0) {
+      notifyTimer -= dt;
+      if (notifyTimer <= 0) $("gameNotification").textContent = "";
+    }
+    if (hitTimer > 0) {
+      hitTimer -= dt;
+      if (hitTimer <= 0) $("hitMarker").classList.remove("hit");
+    }
+    footTimer -= dt;
+    if (p.grounded && p.moving > 1 && footTimer <= 0) {
+      footTimer = input.sprint ? 0.25 : 0.38;
+      soundEffect("step");
+    }
+    document.querySelector(".game-vignette").style.boxShadow =
+      damage > 0 ? "inset 0 0 70px rgba(125,33,20," + damage + ")" : "";
+    if (!reduced()) world.animate(elapsed, dt);
+    updateCamera(dt);
+    if (frameCount % 4 === 0) updateHud();
+    render();
+    raf = requestAnimationFrame(frame);
   }
-
-  if (tabsEl) {
-    tabsEl.addEventListener('click', e => {
-      const btn = e.target.closest('[data-game]')
-      if (btn) activate(btn.dataset.game)
-    })
+  function finish(won) {
+    setState(won ? "won" : "lost");
+    cancelAnimationFrame(raf);
+    keys.clear();
+    firing = false;
+    if (document.pointerLockElement === canvas) document.exitPointerLock();
+    if (won && mode === "parkour") {
+      const best = storage.get(mode);
+      if (!best || elapsed < best) storage.set(mode, Math.floor(elapsed));
+    }
+    if (mode === "shooter" && score > storage.get(mode))
+      storage.set(mode, score);
+    updateHud();
+    setBest();
+    render();
+    setScreen(won ? "won" : "lost");
   }
-
-  let resizeTimer = 0
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer)
-    resizeTimer = setTimeout(() => {
-      if (!current) return
-      current.exit()
-      current.enter()
-    }, 150)
-  }, { passive: true })
-
-  activate('runner')
+  function pause() {
+    if (state !== "playing") return;
+    setState("paused");
+    cancelAnimationFrame(raf);
+    keys.clear();
+    firing = aiming = false;
+    drag = null;
+    if (document.pointerLockElement === canvas) document.exitPointerLock();
+    setScreen("paused");
+    audio?.suspend().catch(() => {});
+  }
+  function start() {
+    if (!world || opening) return;
+    if (state === "won" || state === "lost") reset();
+    setState("playing");
+    $("gameScreen").hidden = true;
+    $("gameHud").hidden = false;
+    $("pauseGame").hidden = false;
+    $("touchControls").hidden = !touch;
+    keys.clear();
+    canvas.focus({ preventScroll: true });
+    if (!touch && canvas.requestPointerLock) {
+      try {
+        const promise = canvas.requestPointerLock();
+        promise?.catch(() =>
+          notify("Mouse capture unavailable — drag to look, or use I J K L", 5),
+        );
+      } catch {
+        notify("Drag to look, or use I J K L", 5);
+      }
+    }
+    if (sound) audio?.resume().catch(() => {});
+    last = performance.now();
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(frame);
+  }
+  function close() {
+    cancelAnimationFrame(raf);
+    setState("closed");
+    keys.clear();
+    firing = aiming = false;
+    drag = null;
+    if (document.pointerLockElement === canvas) document.exitPointerLock();
+    exitGameFullscreen().catch(() => {});
+    audio?.suspend().catch(() => {});
+    if (dialog.open) dialog.close();
+    opener?.focus({ preventScroll: true });
+  }
+  async function open(id, source) {
+    if (opening) return;
+    opening = true;
+    opener = source;
+    mode = id;
+    try {
+      assets = await loadMaterials(renderer);
+      if (world) {
+        clearEffects();
+        enemies.forEach(removeEnemy);
+        enemies = [];
+        world.dispose();
+      }
+      world = createWorld(mode, assets, renderer);
+      viewScene.environment = assets.hdr;
+      viewScene.environmentIntensity = 0.5;
+      renderer.toneMappingExposure = mode === "parkour" ? 1.03 : 1.05;
+      setState("menu");
+      $("gameTitle").textContent = titles[mode];
+      $("gameControlHint").textContent =
+        instructions[mode].hint + " · IJKL keyboard look";
+      $("touchPrimary").textContent = mode === "parkour" ? "Jump" : "Fire";
+      $("touchReload").hidden = mode === "parkour";
+      $("touchCrouch").hidden = mode === "parkour";
+      if (!dialog.open) dialog.showModal();
+      setScreen("menu");
+      reset();
+      setBest();
+      resize();
+      $("startGame").focus({ preventScroll: true });
+    } finally {
+      opening = false;
+    }
+  }
+  function look(dx, dy) {
+    if (state !== "playing") return;
+    p.yaw -= dx * 0.0024;
+    p.pitch = clamp(p.pitch - dy * 0.0024, -1.35, 1.35);
+  }
+  $("startGame").onclick = start;
+  $("restartGame").onclick = () => {
+    reset();
+    start();
+  };
+  $("closeGame").onclick = close;
+  $("pauseGame").onclick = pause;
+  dialog.addEventListener("cancel", (e) => {
+    e.preventDefault();
+    if (isGameFullscreen()) {
+      exitGameFullscreen().catch(() => {});
+      if (state === "playing") pause();
+      return;
+    }
+    if (state === "playing") pause();
+    else close();
+  });
+  dialog.addEventListener("close", () => {
+    if (state !== "closed") close();
+  });
+  $("soundToggle").onclick = () => {
+    sound = !sound;
+    updateSound();
+    if (sound) soundEffect("signal");
+    else audio?.suspend().catch(() => {});
+  };
+  $("qualityToggle").textContent = "Quality: " + (low ? "balanced" : "high");
+  $("qualityToggle").onclick = () => {
+    low = !low;
+    $("qualityToggle").textContent = "Quality: " + (low ? "balanced" : "high");
+    renderer.shadowMap.enabled = !low;
+    renderer.shadowMap.needsUpdate = true;
+    world?.scene.traverse((o) => {
+      if (o.material) o.material.needsUpdate = true;
+    });
+    resize();
+  };
+  const gameShell = $("gameShell"),
+    fullscreenButton = $("fullscreenToggle");
+  function isGameFullscreen() {
+    return (
+      document.fullscreenElement === gameShell ||
+      dialog.classList.contains("is-expanded")
+    );
+  }
+  function syncFullscreen() {
+    const expanded = isGameFullscreen();
+    const label = expanded ? "Exit full screen" : "Enter full screen";
+    fullscreenButton.setAttribute("aria-pressed", String(expanded));
+    fullscreenButton.setAttribute("aria-label", label);
+    fullscreenButton.title = label;
+    resize();
+  }
+  async function exitGameFullscreen() {
+    dialog.classList.remove("is-expanded");
+    if (document.fullscreenElement === gameShell)
+      await document.exitFullscreen();
+    syncFullscreen();
+  }
+  fullscreenButton.onclick = async () => {
+    fullscreenButton.disabled = true;
+    try {
+      if (isGameFullscreen()) {
+        await exitGameFullscreen();
+      } else {
+        // Fullscreen must target an ordinary element, not the modal dialog.
+        try {
+          if (
+            !gameShell.requestFullscreen ||
+            document.fullscreenEnabled === false
+          ) {
+            dialog.classList.add("is-expanded");
+          } else {
+            await gameShell.requestFullscreen();
+          }
+        } catch {
+          // Mobile browsers and embedded previews can still fill the viewport.
+          if (dialog.open) dialog.classList.add("is-expanded");
+        }
+      }
+    } finally {
+      fullscreenButton.disabled = false;
+      syncFullscreen();
+    }
+  };
+  document.addEventListener("fullscreenchange", syncFullscreen);
+  syncFullscreen();
+  canvas.addEventListener("contextmenu", (e) => e.preventDefault());
+  canvas.addEventListener("pointerdown", (e) => {
+    if (state !== "playing") return;
+    canvas.focus({ preventScroll: true });
+    if (e.pointerType === "touch") {
+      drag = { id: e.pointerId, x: e.clientX, y: e.clientY };
+      canvas.setPointerCapture(e.pointerId);
+    } else {
+      if (document.pointerLockElement !== canvas) {
+        drag = { id: e.pointerId, x: e.clientX, y: e.clientY };
+        canvas.setPointerCapture(e.pointerId);
+      }
+      if (e.button === 0 && mode === "shooter") {
+        firing = true;
+        fire();
+      }
+      if (e.button === 2) aiming = true;
+    }
+  });
+  canvas.addEventListener("pointermove", (e) => {
+    if (drag && drag.id === e.pointerId) {
+      look(
+        (e.clientX - drag.x) * (touch ? 1.65 : 1),
+        (e.clientY - drag.y) * (touch ? 1.65 : 1),
+      );
+      drag.x = e.clientX;
+      drag.y = e.clientY;
+    }
+  });
+  function releasePointer(e) {
+    if (drag?.id === e.pointerId) drag = null;
+    firing = false;
+    aiming = false;
+  }
+  canvas.addEventListener("pointerup", releasePointer);
+  canvas.addEventListener("pointercancel", releasePointer);
+  canvas.addEventListener("lostpointercapture", releasePointer);
+  document.addEventListener("mousemove", (e) => {
+    if (document.pointerLockElement === canvas) look(e.movementX, e.movementY);
+  });
+  document.addEventListener("mouseup", () => {
+    firing = aiming = false;
+  });
+  document.addEventListener("pointerlockchange", () => {
+    if (document.pointerLockElement !== canvas && state === "playing") pause();
+  });
+  document.addEventListener("pointerlockerror", () => {
+    if (state === "playing")
+      notify("Drag to look, or use I J K L. Esc pauses.", 4);
+  });
+  const controlled = [
+    "KeyW",
+    "KeyA",
+    "KeyS",
+    "KeyD",
+    "KeyI",
+    "KeyJ",
+    "KeyK",
+    "KeyL",
+    "Space",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ShiftLeft",
+    "ShiftRight",
+    "KeyR",
+    "KeyP",
+    "KeyC",
+  ];
+  document.addEventListener("keydown", (e) => {
+    if (state !== "playing" || !dialog.open) return;
+    if (controlled.includes(e.code)) e.preventDefault();
+    if (e.code === "Escape" || e.code === "KeyP") {
+      pause();
+      return;
+    }
+    if (e.repeat) return;
+    keys.add(e.code);
+    if (e.code === "Space") primary();
+    if (e.code === "KeyR") reloadWeapon();
+  });
+  document.addEventListener("keyup", (e) => keys.delete(e.code));
+  document.querySelectorAll("#touchControls button").forEach((button) => {
+    button.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      button.setPointerCapture(e.pointerId);
+      if (button.dataset.key) keys.add(button.dataset.key);
+      if (button.dataset.action === "primary") {
+        primary();
+        if (mode === "shooter") firing = true;
+      }
+      if (button.dataset.action === "reload") reloadWeapon();
+    });
+    const release = () => {
+      if (button.dataset.key) keys.delete(button.dataset.key);
+      if (button.dataset.action === "primary") firing = false;
+    };
+    button.addEventListener("pointerup", release);
+    button.addEventListener("pointercancel", release);
+    button.addEventListener("lostpointercapture", release);
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) pause();
+  });
+  addEventListener("blur", pause);
+  new ResizeObserver(resize).observe(viewport);
+  canvas.addEventListener("webglcontextlost", (e) => {
+    e.preventDefault();
+    pause();
+    $("gameScreenTitle").textContent = "Graphics interrupted.";
+    $("gameScreenDescription").textContent =
+      "The graphics context was lost. Close this experience and reload the page to restore it.";
+    $("startGame").hidden = true;
+  });
+  return { open, close };
 }
