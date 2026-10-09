@@ -838,6 +838,40 @@ summary::-webkit-details-marker {
 .experience-detail li + li {
   margin-top: 11px;
 }
+.role-history {
+  display: grid;
+  gap: 16px;
+  margin: 4px 0 25px 3px;
+  padding-left: 18px;
+  border-left: 1px solid #c3c8b8;
+}
+.role-history > div {
+  position: relative;
+}
+.role-history > div::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: -22px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #879178;
+}
+.role-history > div:first-child::before {
+  background: var(--accent);
+}
+.role-history h4 {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+.role-history p {
+  margin-top: 3px;
+  font-size: 10px;
+  color: #65695e;
+}
 .about-grid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -846,7 +880,13 @@ summary::-webkit-details-marker {
 }
 .about-art {
   position: relative;
-  background: linear-gradient(130deg, #e2e0d4, #c9cabb);
+  isolation: isolate;
+  background: radial-gradient(
+    ellipse at 52% 49%,
+    #102e54,
+    #0a192b 68%,
+    #070f1a
+  );
   height: 420px;
   overflow: hidden;
   border-radius: 3px;
@@ -856,13 +896,15 @@ summary::-webkit-details-marker {
   position: absolute;
   width: 330px;
   height: 330px;
-  border: 1px solid #b8bba6;
+  border: 1px solid #59bcf13c;
   border-radius: 50%;
   top: 20px;
   left: calc(50% - 165px);
   box-shadow:
-    0 0 0 36px #b8bba620,
-    0 0 0 72px #b8bba612;
+    0 0 0 36px #3d9eef12,
+    0 0 0 72px #3d9eef0a;
+  pointer-events: none;
+  z-index: 2;
 }
 .about-monogram {
   position: absolute;
@@ -884,7 +926,9 @@ summary::-webkit-details-marker {
   font-size: 7px;
   letter-spacing: 0.12em;
   line-height: 1.8;
-  color: #5c6353;
+  color: #a6cfe5;
+  z-index: 4;
+  pointer-events: none;
 }
 .about-photo-label {
   position: absolute;
@@ -894,10 +938,13 @@ summary::-webkit-details-marker {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #b8bba6;
+  color: #dbecf6;
+  border-top: 1px solid #5c91b170;
   padding-top: 16px;
   font-size: 8px;
   letter-spacing: 0.1em;
+  z-index: 4;
+  pointer-events: none;
 }
 .about-photo-label > span:last-child {
   font-size: 25px;
@@ -1862,25 +1909,84 @@ dialog::backdrop {
   }
 }
 
-.about-portrait {
+.about-art::after {
+  content: "sa.";
   position: absolute;
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 50%;
+  z-index: 0;
+  top: 42%;
   left: 50%;
-  top: 44%;
-  transform: translate(-50%, -50%);
-  filter: saturate(0.7);
-  box-shadow: 0 12px 45px #30372b25;
+  transform: translate(-53%, -50%);
+  color: #79c9ff55;
+  font-size: 154px;
+  font-weight: 600;
+  letter-spacing: -0.1em;
+  pointer-events: none;
+}
+.about-art > #portraitMosaic {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  z-index: 1;
+}
+.portrait-mosaic-focus {
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #91ddff;
+  text-align: right;
+  cursor: crosshair;
+  touch-action: pan-y;
+}
+.portrait-mosaic-focus > span {
+  font: 8px/1.6 var(--sans);
+  letter-spacing: 0.14em;
+  text-shadow: 0 0 12px #48b7ff;
+  transition:
+    color 0.25s,
+    text-shadow 0.25s;
+}
+.portrait-mosaic-focus:hover > span,
+.portrait-mosaic-focus:focus-visible > span,
+.portrait-mosaic-focus[aria-pressed="true"] > span {
+  color: #e1f9ff;
+  text-shadow:
+    0 0 12px #4acbff,
+    0 0 26px #298bff;
+}
+.portrait-mosaic-focus:focus-visible {
+  outline-color: #85ddff;
+  outline-offset: -6px;
+}
+.mosaic-instruction {
+  position: absolute;
+  z-index: 4;
+  right: 23px;
+  bottom: 95px;
+  color: #a3dafa;
+  font-size: 7px;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 12px #348de5;
+  pointer-events: none;
 }
 .person-avatar {
   object-fit: cover;
 }
 @media (max-width: 760px) {
-  .about-portrait {
-    width: 225px;
-    height: 225px;
-    top: 43%;
+  .mosaic-instruction {
+    right: 20px;
+    bottom: 83px;
   }
 }

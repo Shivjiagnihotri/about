@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shivji Agnihotri — AI Engineer & Creative Builder</title>
+    <title>Shivji Agnihotri — Data Scientist I at Merck Group</title>
     <meta
       name="description"
-      content="AI engineer at Merck Group. Building intelligent systems, useful products, and immersive browser experiences. Explore the work of Shivji Agnihotri."
+      content="Data Scientist I at Merck Group, building intelligent systems, useful products, and immersive browser experiences. Explore Shivji Agnihotri’s work."
     />
     <meta name="theme-color" content="#f4f2eb" />
     <link rel="canonical" href="https://shivjiagnihotri.tech/" />
     <meta
       property="og:title"
-      content="Shivji Agnihotri — Intelligence, engineered."
+      content="Shivji Agnihotri — Data Scientist I at Merck Group"
     />
     <meta
       property="og:description"
-      content="AI systems with real-world impact. €1.2M in cost savings. 30M+ records. A little creative obsession."
+      content="Data science and AI systems with real-world impact. €1.2M in cost savings. 30M+ records. Explore the work of Shivji Agnihotri, Data Scientist I at Merck Group."
     />
     <meta property="og:url" content="https://shivjiagnihotri.tech/" />
     <meta property="og:type" content="website" />
@@ -28,7 +28,7 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Shivji Agnihotri — Intelligence. Engineered. An amber and charcoal particle sculpture."
+      content="Shivji Agnihotri, Data Scientist I at Merck Group — Intelligence. Engineered. An amber and charcoal particle sculpture."
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -43,7 +43,7 @@
       <a class="brand" href="#home" aria-label="Shivji Agnihotri, home"
         ><span class="monogram">sa<span>.</span></span
         ><span class="brand-name"
-          >Shivji Agnihotri<span>AI engineer & creative builder</span></span
+          >Shivji Agnihotri<span>Data Scientist I · Merck Group</span></span
         ></a
       >
       <nav aria-label="Main navigation" id="navLinks">
@@ -67,7 +67,7 @@
     <main id="main">
       <section class="hero shell" id="home" aria-labelledby="heroTitle">
         <div class="hero-topline">
-          <span><i class="status-dot"></i> AI / ML ENGINEER AT MERCK GROUP</span
+          <span><i class="status-dot"></i> DATA SCIENTIST I AT MERCK GROUP</span
           ><span class="hero-edition">PORTFOLIO — VOL. 026</span>
         </div>
         <div class="hero-grid">
@@ -289,8 +289,8 @@
             <span class="eyebrow"><span>02 /</span> THE JOURNEY</span>
             <h2>Always learning.<br />Always <em>building.</em></h2>
             <p>
-              From my first ML endpoints to enterprise AI systems. Every
-              chapter, a bigger challenge.
+              From building AI products across the stack to data science at
+              Merck. Every chapter, a bigger challenge.
             </p>
             <a
               class="text-link"
@@ -304,21 +304,39 @@
             <details class="experience-item" open>
               <summary>
                 <div class="experience-meta">
-                  <span>APR 2025 — PRESENT</span
+                  <span>AT MERCK SINCE APR 2025</span
                   ><span class="current-tag">CURRENT</span>
                 </div>
                 <div class="experience-title">
                   <div>
                     <h3>Merck Group</h3>
-                    <p>AI / ML Engineer</p>
+                    <p>Data Scientist I</p>
                   </div>
                   <span class="expand-sign" aria-hidden="true">+</span>
                 </div>
               </summary>
               <div class="experience-detail">
-                <p>
-                  Building AI that helps teams make better decisions, faster.
-                </p>
+                <div
+                  class="role-history"
+                  aria-label="Career progression at Merck Group"
+                >
+                  <div>
+                    <h4>Data Scientist I</h4>
+                    <p>
+                      <time datetime="2026-09-01">1 September 2026</time> —
+                      Present
+                    </p>
+                  </div>
+                  <div>
+                    <h4>Full Stack Developer (AI)</h4>
+                    <p>
+                      <time datetime="2025-04">April 2025</time> —
+                      <time datetime="2026-08">August 2026</time> · 1 year 5
+                      months
+                    </p>
+                  </div>
+                </div>
+                <p>Selected work at Merck Group</p>
                 <ul>
                   <li>
                     Multi-agent supply chain intelligence across 30M+ records,
@@ -416,18 +434,31 @@
       <section class="section shell" id="about">
         <div class="about-grid">
           <div class="about-art reveal">
-            <img
-              class="about-portrait"
-              src="assets/portrait.jpg"
-              width="460"
-              height="460"
-              alt="Portrait of Shivji Agnihotri"
-              loading="lazy"
-            /><span class="about-coordinates"
+            <canvas id="portraitMosaic" aria-hidden="true"></canvas>
+            <button
+              class="portrait-mosaic-focus"
+              id="portraitFocus"
+              type="button"
+              aria-label="Focus the portrait fragments"
+              aria-describedby="portraitMosaicHelp"
+              aria-pressed="false"
+              title="Hover or tap the shards to focus them"
+            >
+              <span aria-hidden="true">◈ &nbsp; FOCUS FIELD</span>
+            </button>
+            <span id="portraitMosaicHelp" class="sr-only"
+              >An interactive portrait mosaic of separated hexagonal photo
+              fragments. Hover or tap to reveal nearby details. Use arrow keys
+              to move focus and Enter to hold it.</span
+            >
+            <span class="mosaic-instruction" aria-hidden="true"
+              >HOVER / TAP TO RESOLVE</span
+            >
+            <span class="about-coordinates"
               >ROOTS IN MAHARASHTRA<br />BUILDING IN BENGALURU</span
             >
             <div class="about-photo-label">
-              <span>CURIOUS BY NATURE.<br />ENGINEER BY PRACTICE.</span
+              <span>CURIOUS BY NATURE.<br />SCIENTIST BY PRACTICE.</span
               ><span aria-hidden="true">↗</span>
             </div>
           </div>
@@ -439,13 +470,14 @@
               Serious about the work.<br /><em>Curious about everything.</em>
             </h2>
             <p>
-              I’m Shivji, an AI engineer who enjoys the messy space between an
-              interesting idea and a system people actually use.
+              I’m Shivji, a Data Scientist I at Merck Group. I turn interesting
+              ideas into intelligent systems people actually use.
             </p>
             <p>
-              My work spans agents, language models, search, and data
-              infrastructure. The common thread? Make complex things useful,
-              make useful things reliable, and keep asking better questions.
+              Before moving into my current role in September 2026, I spent 1
+              year and 5 months as a Full Stack Developer (AI) at Merck. My work
+              spans agents, language models, search, and data infrastructure,
+              with a focus on making complex things useful and reliable.
             </p>
             <p>
               Outside the production pipeline, I make things just to see what’s

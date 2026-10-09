@@ -1,4 +1,5 @@
-﻿import { initNeural } from "./scene.js";
+import { initNeural } from "./scene.js";
+import { initPortraitMosaic } from "./portrait-mosaic.js";
 
 const $ = (id) => document.getElementById(id);
 $("year").textContent = new Date().getFullYear();
@@ -28,6 +29,7 @@ $("motionToggle").addEventListener("click", () => {
 });
 media.addEventListener("change", (e) => setMotion(e.matches));
 initNeural($("neuralCanvas"), motionOff);
+initPortraitMosaic($("portraitMosaic"), $("portraitFocus"));
 
 const menu = $("menuToggle");
 function closeMenu() {
