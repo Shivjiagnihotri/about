@@ -1,0 +1,428 @@
+{
+  "collectedAt": "2026-10-09",
+  "provider": "Official Hugging Face Papers API; canonical arXiv destinations",
+  "method": "Seminal ID lookups plus monthly listings, title/abstract topic classification and version-normalized ID deduplication",
+  "individualDestinationLinksChecked": false,
+  "count": 3500,
+  "categoryCounts": {
+    "llms": 2521,
+    "deep-learning": 520,
+    "systems": 408,
+    "machine-learning": 44,
+    "foundations": 7
+  },
+  "earliestPublication": "2013-01-16",
+  "latestPublication": "2026-10-08",
+  "requests": [
+    {
+      "url": "https://huggingface.co/api/papers/1706.03762",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1810.04805",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2005.14165",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2005.11401",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2106.09685",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1406.2661",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1312.6114",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1506.02142",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1409.0473",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1301.3781",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1406.1078",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1412.6980",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1502.03167",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1512.03385",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1409.1556",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1505.04597",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1605.08803",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2006.11239",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2010.02502",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2112.10752",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2103.00020",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1910.10683",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2201.11903",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2203.02155",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2203.15556",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2303.08774",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2302.13971",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2307.09288",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2210.03629",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2305.18290",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2102.04306",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2012.12877",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1802.05365",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1905.11946",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/2004.04906",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1703.10593",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1807.03748",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1606.04838",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1603.02754",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/papers/1812.05905",
+      "status": 200,
+      "records": 1
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2023-05&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2023-06&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2023-07&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2023-08&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2023-09&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2023-10&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2023-11&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2023-12&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-01&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-02&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-03&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-04&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-05&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-06&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-07&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-08&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-09&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-10&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-11&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2024-12&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-01&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-02&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-03&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-04&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-05&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-06&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-07&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-08&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-09&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-10&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-11&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2025-12&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-01&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-02&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-03&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-04&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-05&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-06&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-07&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-08&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-09&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    },
+    {
+      "url": "https://huggingface.co/api/daily_papers?month=2026-10&p=0&limit=90&sort=publishedAt",
+      "status": 200,
+      "records": 90
+    }
+  ]
+}

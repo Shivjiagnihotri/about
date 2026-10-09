@@ -21,11 +21,32 @@ Alternatively, run `python -m http.server 8000` from this folder. Use HTTP inste
 - An interactive celestial garden replaces the Focus Field portrait, with stars, foliage, bees, and the original hover/tap mosaic interaction.
 - Illustrated AI concept maps cover RAG, LLM internals, machine learning, and AI design systems with keyboard-accessible tabs.
 - Each chapter has a coordinated color tint, gentle flowing backgrounds, and spring-like entrances that respect motion preferences.
+- `/learn/` is a public learning garden with 36 visual concepts, 10 interactive teaching models, a free bookshelf, learning paths, and a large source-backed resource catalogue.
 - Career history, all 20 existing credentials, research, education, and contact links.
 - Motion toggle, reduced-motion support, native keyboard-accessible dialogs, mobile navigation, and clipboard feedback.
 - Games load their engine, photographic PBR materials, and HDR environment only when launched. The landing page does not download the 3D engine.
 - Local fonts, Three.js, textures, sky, and portrait: no runtime CDN dependency.
 - No accounts, analytics, cookies, or server-side data storage. Motion preference and game bests use optional localStorage.
+
+## Learning Garden
+
+Open `/learn/` (the local server redirects `/learn` automatically). The standalone learning page is compatible with GitHub Pages directory routes. Its full resource library supports text search, topic, format, provider and level filters, sorting, 24-item pagination, local bookmarks, and shareable filtered URLs. Concept links such as `/learn/#concept/gradient-descent` open the corresponding experiment directly.
+
+The landing page loads only the collection summary. The full catalogue is fetched as the visitor approaches the library, or starts a library search. Books and learning materials remain on their original hosts. Source notes distinguish individually checked destinations from research entries verified through official metadata. The original catalogue inputs and audit records are kept in `learn/catalogue/`.
+
+To refresh the source collections (network access required):
+
+```sh
+node scripts/collect-tutorials.mjs
+node scripts/collect-open-books.mjs
+python scripts/collect-papers.py --target 3500 --as-of YYYY-MM-DD
+npm run catalogue:build
+npm test
+```
+
+Use the actual review date in place of `YYYY-MM-DD`. The tutorial collector caches page metadata for one day; add `--refresh` to check it again. Paper collection uses the official Hugging Face Papers API with rate limiting and keeps canonical arXiv links. The build combines sources and selected recommendations, removes duplicate URLs, assigns stable bookmark IDs, and writes `library.json` plus the public `manifest.json` counts. Commit these generated files with the source changes when publishing an update. Review exclusions and provider terms before adding new collectors.
+
+Book and course selections are in `learn/books.js` and `learn/resources.js`. Educational explanations and simulations are in `learn/concepts.js` and `learn/demos.js`. Simulations use small deterministic examples, with their simplifying assumptions shown alongside the controls. The learning site uses its own `garden.css`, `library.css`, and `demos.css`; it does not load the games or portfolio graphics engine.
 
 ## Games
 

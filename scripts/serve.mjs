@@ -15,13 +15,18 @@ const mime = {
   ".woff2": "font/woff2",
   ".hdr": "application/octet-stream",
   ".txt": "text/plain",
+  ".json": "application/json; charset=utf-8",
+  ".md": "text/plain; charset=utf-8",
 };
 http
   .createServer(async (req, res) => {
     try {
-      let name = decodeURIComponent(
-        new URL(req.url, "http://localhost").pathname,
-      );
+      const url = new URL(req.url, "http://localhost");
+      let name = decodeURIComponent(url.pathname);
+      if (name === "/learn") {
+        res.writeHead(308, { Location: "/learn/" + url.search }).end();
+        return;
+      }
       if (name.split("/").some((part) => part.startsWith("."))) {
         res.writeHead(403).end();
         return;

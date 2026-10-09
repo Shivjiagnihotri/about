@@ -174,7 +174,7 @@ document.querySelectorAll("[data-project]").forEach((button) =>
       '</span><h2 id="projectDialogTitle">' +
       p.title +
       "</h2>" +
-      (p.image ? '<img class="project-dialog-preview" src="' + p.image + '" alt="' + p.imageAlt + '" width="1360" height="920" />' : "") +
+      (p.image ? '<a class="project-preview-link" href="' + p.image + '" target="_blank" rel="noopener noreferrer"><img class="project-dialog-preview" src="' + p.image + '" alt="' + p.imageAlt + '" width="1360" height="920" /><span>Open full preview ↗</span></a>' : "") +
       "<h3>The challenge</h3><p>" +
       p.problem +
       "</p><h3>The approach</h3><p>" +

@@ -51,7 +51,10 @@ main > section { position: relative; isolation: isolate; }
 .portrait-mosaic-focus:focus-visible { outline-color: #f3d194; }
 .mosaic-instruction { color: #badbd4; text-shadow: 0 0 12px #174c40; }
 .about-photo-label { border-color: #a0d1bd42; color: #e3f1e7; }
-.project-dialog-preview { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 5px; margin: 20px 0 24px; border: 1px solid var(--line); }
+.project-dialog:has(.project-preview-link) { width: min(960px, 94vw); }
+.project-preview-link { display: block; margin: 20px 0 24px; }
+.project-dialog-preview { display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; border-radius: 5px; border: 1px solid var(--line); }
+.project-preview-link > span { display: block; margin-top: 7px; text-align: right; font-size: 10px; color: var(--muted); }
 .reveal { transition: none; }
 .reveal.pending { opacity: 0; transform: translate3d(0, 30px, 0); }
 .reveal.arriving { animation: spring-arrival 880ms var(--reveal-delay, 0ms) both; }

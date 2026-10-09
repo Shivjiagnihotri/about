@@ -1,0 +1,12 @@
+{
+  "reviewedAt": "2026-10-09",
+  "exclusions": [
+    { "url": "https://aws.training/machinelearning", "reason": "Broad training portal with mixed access requirements rather than a directly open course." },
+    { "url": "https://hackr.io/tutorials/learn-artificial-intelligence-ai", "reason": "Mixed free and paid course directory rather than a directly free learning resource." },
+    { "url": "https://code.google.com/p/graphbook/", "reason": "Retired project-hosting destination; prefer a maintained book reader or direct author edition." },
+    { "url": "https://cnx.org/contents/5e0744f9-9e79-4348-9237-ed012213a2d6%4040.9", "reason": "Retired OpenStax CNX destination; current OpenStax resources remain elsewhere in the collection." }
+  ],
+  "overrides": [
+    { "url": "https://daily.dev/agentic-ai-hub/", "type": "Collection", "reason": "A hub of AI learning material, not a standalone book." }
+  ]
+}
