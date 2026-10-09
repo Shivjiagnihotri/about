@@ -1,5 +1,7 @@
 import { initNeural } from "./scene.js";
 import { initPortraitMosaic } from "./portrait-mosaic.js";
+import { initMotion } from "./motion.js";
+import { initAILab } from "./ai-lab.js";
 
 const $ = (id) => document.getElementById(id);
 $("year").textContent = new Date().getFullYear();
@@ -56,30 +58,8 @@ document.addEventListener("click", (e) => {
 });
 matchMedia("(min-width:761px)").addEventListener("change", closeMenu);
 
-if ("IntersectionObserver" in window && !motionOff) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.remove("pending");
-          observer.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.07 },
-  );
-  document.querySelectorAll(".reveal").forEach((el) => {
-    if (el.getBoundingClientRect().top > innerHeight)
-      el.classList.add("pending");
-    observer.observe(el);
-  });
-  addEventListener("portfolio-motion", () => {
-    if (motionOff)
-      document
-        .querySelectorAll(".pending")
-        .forEach((el) => el.classList.remove("pending"));
-  });
-}
+initMotion(motionOff);
+initAILab();
 
 const projects = {
   supply: {
@@ -132,6 +112,8 @@ const projects = {
   },
   birthday: {
     label: "PERSONAL PROJECT / LIVE PRODUCT",
+    image: "assets/projects/wishyoubirthday-live.webp",
+    imageAlt: "WishYou live homepage with birthday reminders and personal wishes",
     title: "Make a little wish mean a lot.",
     problem:
       "A generic birthday message rarely captures what makes a relationship special.",
@@ -166,7 +148,9 @@ const projects = {
     tags: ["Python", "MongoDB", "LangFlow", "LangFuse", "AWS", "Azure"],
   },
   sahitatkal: {
-    label: "SELECTED PROJECT / RAIL RESERVATIONS",
+    label: "PERSONAL PROJECT / LIVE PRODUCT",
+    image: "assets/projects/sahitatkal-live.webp",
+    imageAlt: "SahiTatkal live homepage with train search and rail tools",
     title: "SahiTatkal. A clearer way to reserve.",
     problem:
       "Travellers face friction, opaque processes, and high cognitive load when reserving railway seats.",
@@ -177,7 +161,7 @@ const projects = {
       "Make seat reservation clearer and easier for travellers by removing friction, opacity, and the mental effort involved in booking a journey.",
     tags: ["Rail reservations", "Citizen-first design", "Travel technology"],
     link: "https://sahitatkal.com",
-    linkText: "Explore SahiTatkal",
+    linkText: "Visit the live project",
   },
 };
 const projectDialog = $("projectDialog");
@@ -189,7 +173,9 @@ document.querySelectorAll("[data-project]").forEach((button) =>
       p.label +
       '</span><h2 id="projectDialogTitle">' +
       p.title +
-      "</h2><h3>The challenge</h3><p>" +
+      "</h2>" +
+      (p.image ? '<img class="project-dialog-preview" src="' + p.image + '" alt="' + p.imageAlt + '" width="1360" height="920" />' : "") +
+      "<h3>The challenge</h3><p>" +
       p.problem +
       "</p><h3>The approach</h3><p>" +
       p.solution +

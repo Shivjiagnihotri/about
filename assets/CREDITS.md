@@ -8,5 +8,7 @@ All runtime assets are served locally. Game architecture, scenery, drones, weapo
 - **Photographic surface maps**: ambientCG [Bricks051](https://ambientcg.com/view?id=Bricks051), [Concrete034](https://ambientcg.com/view?id=Concrete034), and [Asphalt012](https://ambientcg.com/view?id=Asphalt012). Color, OpenGL normal, and roughness maps converted to WebP. [CC0 license](https://docs.ambientcg.com/license/).
 - **HDR environment**: Poly Haven [Venice Sunset](https://polyhaven.com/a/venice_sunset), 1K HDR. [CC0 license](https://polyhaven.com/license).
 - **Portrait**: Shivji Agnihotri's existing GitHub profile image, retained from the original portfolio.
+- **Live project previews**: Screenshots of the public WishYou and SahiTatkal homepages. See [capture provenance](projects/README.md).
+- **Celestial garden and AI concept diagrams**: Original procedural canvas and SVG artwork created for this portfolio.
 
 Assassin's Creed and Freedom Fighters are referenced only as creative inspirations. No franchise artwork, models, music, characters, or other proprietary game assets are used. This project has no affiliation with those games or their publishers.

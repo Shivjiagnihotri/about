@@ -17,6 +17,10 @@ Alternatively, run `python -m http.server 8000` from this folder. Use HTTP inste
 ## What is included
 
 - Responsive ivory-and-ink layout, local typography, original particle sculpture, and project case-study dialogs.
+- Live personal projects lead the work section with locally saved homepage previews and matching live badges.
+- An interactive celestial garden replaces the Focus Field portrait, with stars, foliage, bees, and the original hover/tap mosaic interaction.
+- Illustrated AI concept maps cover RAG, LLM internals, machine learning, and AI design systems with keyboard-accessible tabs.
+- Each chapter has a coordinated color tint, gentle flowing backgrounds, and spring-like entrances that respect motion preferences.
 - Career history, all 20 existing credentials, research, education, and contact links.
 - Motion toggle, reduced-motion support, native keyboard-accessible dialogs, mobile navigation, and clipboard feedback.
 - Games load their engine, photographic PBR materials, and HDR environment only when launched. The landing page does not download the 3D engine.
@@ -64,9 +68,15 @@ The existing repository used the `gh-pages` branch root. Keep the existing Pages
 | ------------------------ | ---------------------------------------------------------------------- |
 | `index.html`             | Semantic portfolio, content, and native dialogs                        |
 | `css/style.css`          | Responsive portfolio styling                                           |
+| `css/themes.css`         | Section colors, flowing backgrounds, and spring motion                 |
+| `css/projects.css`       | Live project screenshot cards                                          |
+| `css/ai-lab.css`         | Responsive AI diagrams and concept tabs                                |
 | `css/arcade.css`         | Game menus, HUD, touch controls, and fullscreen                        |
 | `js/main.js`             | Navigation, motion preference, project details, and lazy game loading  |
 | `js/scene.js`            | Lightweight 2D projection of a 3D point sculpture                      |
+| `js/portrait-mosaic.js`  | Procedural celestial garden and interactive focus mosaic              |
+| `js/motion.js`           | Scroll reveal and offscreen animation management                      |
+| `js/ai-lab.js`           | Accessible AI concept navigation                                      |
 | `js/games.js`            | Input, player state, combat, missions, audio, and game lifecycle       |
 | `js/worlds.js`           | Three.js environments, instanced architecture, drones, and view models |
 | `js/physics.js`          | Player collision, jumping, and ray/cover intersection                  |

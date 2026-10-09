@@ -203,8 +203,8 @@ export function initArcade() {
     const best = storage.get(mode);
     $("gameBest").textContent =
       mode === "parkour"
-        ? "BEST " + (best ? formatTime(best) : "—")
-        : "BEST " + (best ? best.toLocaleString() : "—");
+        ? "BEST " + (best ? formatTime(best) : "NOT SET")
+        : "BEST " + (best ? best.toLocaleString() : "NOT SET");
   }
   function setScreen(kind) {
     const info = instructions[mode];
@@ -367,7 +367,7 @@ export function initArcade() {
       enemies.push(enemy);
     }
     if (state === "playing")
-      notify("WAVE " + wave + " / 3 — " + count + " HOSTILE DRONES", 3);
+      notify("WAVE " + wave + " / 3 · " + count + " HOSTILE DRONES", 3);
   }
   function updateHud() {
     $("missionLabel").textContent =
@@ -561,7 +561,7 @@ export function initArcade() {
         new THREE.Vector3(0.23, -0.12, -0.6).applyQuaternion(camera.quaternion),
       );
     tracer(start, end);
-    if (ammo === 0) notify("MAGAZINE EMPTY — PRESS R TO RELOAD", 1.5);
+    if (ammo === 0) notify("MAGAZINE EMPTY · PRESS R TO RELOAD", 1.5);
     updateHud();
   }
   function primary() {
@@ -719,7 +719,7 @@ export function initArcade() {
           signals++;
           checkpoint = { x: beacon.roof.x, y: beacon.roof.y, z: beacon.roof.z };
           soundEffect("signal");
-          notify("SIGNAL " + signals + " / 6 — CHECKPOINT SAVED");
+          notify("SIGNAL " + signals + " / 6 · CHECKPOINT SAVED");
         }
       }
       if (p.y < 7) {
@@ -751,7 +751,7 @@ export function initArcade() {
         }
         if (waveWait === 0) {
           waveWait = 4;
-          notify("WAVE CLEARED — REINFORCEMENTS INBOUND", 4);
+          notify("WAVE CLEARED · REINFORCEMENTS INBOUND", 4);
           health = Math.min(100, health + 25);
           ammo = 24;
         }
@@ -836,7 +836,7 @@ export function initArcade() {
       try {
         const promise = canvas.requestPointerLock();
         promise?.catch(() =>
-          notify("Mouse capture unavailable — drag to look, or use I J K L", 5),
+          notify("Mouse capture unavailable. Drag to look, or use I J K L", 5),
         );
       } catch {
         notify("Drag to look, or use I J K L", 5);
