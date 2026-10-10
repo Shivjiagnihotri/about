@@ -3,6 +3,7 @@ import { books } from './books.js';
 import { resources } from './resources.js';
 import { mountDemo } from './demos.js';
 import { initLibrary } from './library.js';
+import { videoCover } from './video-cover.js';
 
 const $ = (id) => document.getElementById(id);
 const escape = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -20,6 +21,7 @@ let motionOff = savedMotion ? savedMotion === 'off' : media.matches;
 let cleanupDemo = () => {};
 let activeConcept = null;
 let library;
+const videoCovers = new Map();
 
 function setMotion(off) {
   motionOff = off;
@@ -92,7 +94,7 @@ function renderResources() {
   const found = resources.filter(x=>matches(x,'resource') && (state.type==='all'||x.type===state.type));
   const shown = state.resourcesExpanded || state.query.trim() || state.savedOnly ? found : found.slice(0,6);
   $('resourceResults').textContent = `${found.length} resources${shown.length<found.length?` · showing ${shown.length}`:''}`;
-  $('resourceGrid').innerHTML = shown.map(item=>`<article class="resource-card tone-${tones[item.category]}">${saveButton('resource',item)}<div class="resource-provider"><span class="provider-icon" aria-hidden="true">${escape(item.provider[0])}</span><span>${escape(item.provider)}</span></div><h3>${escape(item.title)}</h3><p>${escape(item.description)}</p><div class="resource-tags"><span class="meta-pill">${item.type}</span><span class="meta-pill">${item.level}</span><span class="meta-pill">${escape(item.format)}</span></div><div class="resource-footer"><a class="resource-link" href="${escape(item.url)}" target="_blank" rel="noopener noreferrer">${item.type==='Course'?'Explore the course':item.type==='Interactive'?'Try it yourself':'Open the guide'} <span aria-hidden="true">↗</span><span class="sr-only">: ${escape(item.title)}, opens in a new tab</span></a><span>${escape(item.access)}</span></div></article>`).join('') || empty('resources');
+  $('resourceGrid').innerHTML = shown.map(item=>{ const preview=videoCovers.get(item.url); return `<article class="resource-card tone-${tones[item.category]}${preview?' has-video-cover':''}">${preview?videoCover({...item,cover:preview.cover,coverKind:preview.kind}):''}${saveButton('resource',item)}<div class="resource-provider"><span class="provider-icon" aria-hidden="true">${escape(item.provider[0])}</span><span>${escape(item.provider)}</span></div><h3>${escape(item.title)}</h3><p>${escape(item.description)}</p><div class="resource-tags"><span class="meta-pill">${item.type}</span><span class="meta-pill">${item.level}</span><span class="meta-pill">${escape(item.format)}</span></div><div class="resource-footer"><a class="resource-link" href="${escape(item.url)}" target="_blank" rel="noopener noreferrer">${item.type==='Course'?'Explore the course':item.type==='Interactive'?'Try it yourself':'Open the guide'} <span aria-hidden="true">↗</span><span class="sr-only">: ${escape(item.title)}, opens in a new tab</span></a><span>${escape(item.access)}</span></div></article>`; }).join('') || empty('resources');
   updateCollectionButton('moreResources',state.resourcesExpanded,found.length,6,'resources');
   return found.length;
 }
@@ -214,6 +216,13 @@ $('resourceCount').textContent=resources.length;
 $('year').textContent=new Date().getFullYear();
 renderCollections();
 syncHash();
+fetch('catalogue/video-covers.json').then(response=>{
+  if(!response.ok) throw new Error('Video previews unavailable');
+  return response.json();
+}).then(data=>{
+  data.covers.forEach(item=>videoCovers.set(item.url,item));
+  renderResources();
+}).catch(()=>{});
 library=initLibrary({
   isSaved:key=>saved.has(key),
   onReady:keys=>{keys.forEach(key=>allKeys.add(key));updateSavedIndicators();},

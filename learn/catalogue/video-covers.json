@@ -1,0 +1,670 @@
+{
+  "updatedAt": "2026-10-09T17:50:57.030Z",
+  "covers": [
+    {
+      "url": "https://course.fast.ai/",
+      "title": "Practical Deep Learning for Coders",
+      "checkedAt": "2026-10-09T17:50:55.702Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/16349304b467fc6b.png",
+      "remoteImage": "https://course.fast.ai/www/social.png",
+      "sourceTitle": "Practical Deep Learning for Coders - Practical Deep Learning"
+    },
+    {
+      "url": "https://developers.google.com/machine-learning/crash-course?hl=en",
+      "title": "Machine Learning Crash Course",
+      "checkedAt": "2026-10-09T17:50:55.602Z",
+      "kind": "original-illustration",
+      "note": "Image HTTP 404",
+      "cover": "covers/bc8a12cf569e88ad.svg"
+    },
+    {
+      "url": "https://www.3blue1brown.com/?topic=linear-algebra",
+      "title": "Essence of Linear Algebra",
+      "checkedAt": "2026-10-09T17:50:55.291Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/d83d80bb57342dbe.jpg",
+      "remoteImage": "https://www.3blue1brown.com/share.jpg",
+      "sourceTitle": "3Blue1Brown"
+    },
+    {
+      "url": "https://www.3blue1brown.com/?topic=neural-networks",
+      "title": "Neural Networks, Visually",
+      "checkedAt": "2026-10-09T17:50:55.469Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/83305c9465b670e4.jpg",
+      "remoteImage": "https://www.3blue1brown.com/share.jpg",
+      "sourceTitle": "3Blue1Brown"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL_iWQOsE6TfURIIhCrlt-wj9ByIVpbfGc",
+      "title": "Deep Reinforcement Learning",
+      "checkedAt": "2026-10-09T17:50:46.573Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/006b63c320c27d05.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/JHrlF10v2Og/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAW9NNIcwIBh-7xjZBXILRo0__zIQ&days_since_epoch=20735",
+      "sourceTitle": "Deep Reinforcement Learning: CS 285 Fall 2020"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL_iWQOsE6TfVmKkQHucjPAoRtIJYt8a5A",
+      "title": "Deep Learning: CS 182",
+      "checkedAt": "2026-10-09T17:50:46.005Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/29bff224b9a8cd8d.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/rSY1pVGdZ4I/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLABULYv4M2lnjQQco-gtrW5SsDyNA&days_since_epoch=20735",
+      "sourceTitle": "Deep Learning: CS 182 Spring 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL_Z2_U9MIJdNgFM7-f2fZ9ZxjVRP_jhJv",
+      "title": "Deep Learning for Computer Vision (DL4CV)",
+      "checkedAt": "2026-10-09T17:50:45.951Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/ec4ce12dcc8070b0.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/uEt4iM_7Wr4/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBzdTDBOeVajRNmjbVFRdHa31-LpA&days_since_epoch=20735",
+      "sourceTitle": "Deep Learning for Computer Vision (DL4CV)@WIS, Spring 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij2XCvrRzLokX6EoHWaGA2cC",
+      "title": "Statistical Machine Learning (Tübingen)",
+      "checkedAt": "2026-10-09T17:50:54.565Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/823899f891c172d4.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/WB8eYZSZyaE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCUDJi-eM-JTb8AuU3YUZYpHsnzGA&days_since_epoch=20735",
+      "sourceTitle": "Statistical Machine Learning — Ulrike von Luxburg, 2020"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij2YE8rRJSb-olDNbntAQ_Bx",
+      "title": "Probabilistic Machine Learning",
+      "checkedAt": "2026-10-09T17:50:52.688Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/9d2e2a05cbfb8d78.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/TTo2kjrAuTo/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLA-fjsnH8jHbj5UTtRHv0C-dgWVyA&days_since_epoch=20735",
+      "sourceTitle": "Probabilistic Machine Learning -- Philipp Hennig, 2023"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij321zzKXK6XCQXAaaYjQbzr",
+      "title": "Self-Driving Cars (Tübingen)",
+      "checkedAt": "2026-10-09T17:50:53.228Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/b46630bfc79358a0.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/_q4WUxgwDeg/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAYxgQxzWZkcgw6yXTLoBWS0qjmAA&days_since_epoch=20735",
+      "sourceTitle": "Self-Driving Cars — Andreas Geiger"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij35ShKLDqccJSDntugY4FQT",
+      "title": "Introduction to Machine Learning (Tübingen)",
+      "checkedAt": "2026-10-09T17:50:47.927Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/34d54d66b066a6d5.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/lWGdFeMsjzg/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBz4vJ7LSc8LpHNLVcJmmunBzky2g&days_since_epoch=20735",
+      "sourceTitle": "Introduction to Machine Learning — Dmitry Kobak, 2020/21"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij3NTWIdtMbfvX7Z-4WEXRqD",
+      "title": "Deep Learning (Tübingen)",
+      "checkedAt": "2026-10-09T17:50:45.369Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/ad047ce81c678b18.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/BHBAnUAdeyE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBWKwNeOcp_QNjCU5FpwFWAi44Pdg&days_since_epoch=20735",
+      "sourceTitle": "Deep Learning — Andreas Geiger"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL1T8fO7ArWlcWg04OgNiJy91PywMKT2lv",
+      "title": "Full Stack Deep Learning",
+      "checkedAt": "2026-10-09T17:50:47.301Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/b8ad736579aa89c9.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/fGxWfEuUu0w/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCzBBqQXth9uE1XNPn4GVdhE8gunw&days_since_epoch=20735",
+      "sourceTitle": "Full Stack Deep Learning - Spring 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL2UML_KCiC0UlY7iCQDSiGDMovaupqc83",
+      "title": "Applied Machine Learning",
+      "checkedAt": "2026-10-09T17:50:42.151Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/4fe5bee790e88941.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/vcE9WGbi4QY/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBnYPcGg5r37eqgJbAKqWQ2z-QyQQ&days_since_epoch=20735",
+      "sourceTitle": "Applied Machine Learning (Cornell Tech CS 5787, Fall 2020)"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv",
+      "title": "CS231N: Convolutional Neural Networks for Visual Recognition",
+      "checkedAt": "2026-10-09T17:50:44.741Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/42bae7d6d7cd30ae.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/vT1JzLTH4G4/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBHlJAIhJEf5ihVc7wtL6_zC2ja2A&days_since_epoch=20735",
+      "sourceTitle": "Lecture Collection | Convolutional Neural Networks for Visual Recognition (Spring 2017)"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+      "title": "Deep Learning for Computer Vision",
+      "checkedAt": "2026-10-09T17:50:45.928Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/5e66bca4a7befedf.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/dJYGatp4SvA/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLC02_RnxAKg88UwxYTYHl9jV6QuSQ&days_since_epoch=20735",
+      "sourceTitle": "Deep Learning for Computer Vision"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH",
+      "title": "Neural networks class",
+      "checkedAt": "2026-10-09T17:50:50.039Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/2a1f72e73654b948.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/SGZ6BttHMPw/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDQTzIbpOJXaEo_SYL7nl_eeppyHw&days_since_epoch=20735",
+      "sourceTitle": "Neural networks class - Université de Sherbrooke"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8AkaHEJ7lOOrlex-pcxS-XV",
+      "title": "CMU Neural Networks for NLP",
+      "checkedAt": "2026-10-09T17:50:44.049Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/63f0d835f5638616.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/vnx6M7N-ggs/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBZkLkrNa9byn_JrWHIOt3WmNtOeQ&days_since_epoch=20735",
+      "sourceTitle": "CMU Neural Nets for NLP 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8AYSXn_GKVgwXVluCT9chJ6",
+      "title": "CMU Advanced NLP",
+      "checkedAt": "2026-10-09T17:50:43.252Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/a92c5899aed0cdb8.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/pGC-QiNbuwA/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCG-UFHBtXlh0hSXf9z5IkJNlOwPg&days_since_epoch=20735",
+      "sourceTitle": "CMU Advanced NLP 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8BhCpzfdKKdd1OnTfLcyZr7",
+      "title": "Multilingual NLP",
+      "checkedAt": "2026-10-09T17:50:49.836Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/3126bd9b28302966.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/Xz6AkwOLji0/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAMIri05dtrbaWKiB-BbSk7EYjElA&days_since_epoch=20735",
+      "sourceTitle": "CMU Multilingual NLP 2022"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8CHhppU6n1Q9-04m96D9gt5",
+      "title": "Multilingual NLP",
+      "checkedAt": "2026-10-09T17:50:49.816Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/5111d40ad2ab9f55.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/xeu7LKIT194/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCrd9U3K7R6AxXtxeBb2yScUBLjIg&days_since_epoch=20735",
+      "sourceTitle": "CMU Multilingual NLP 2020"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8D0UkqW2fEhgLrnlDW9QK7z",
+      "title": "CMU Advanced NLP",
+      "checkedAt": "2026-10-09T17:50:43.264Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/9d4b223798dc68f9.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/rVht4eK3EZw/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLA4YVQggfsb6onZusWZwRn_uR4idQ&days_since_epoch=20735",
+      "sourceTitle": "CMU Advanced NLP 2022"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8DZprnWryM4nR8IZl1ZXDjg",
+      "title": "CMU Advanced NLP",
+      "checkedAt": "2026-10-09T17:50:43.932Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/89ef9e9bee0ab391.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/6NeTO61qc4M/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDfgMQc_iBYL-8a-YbXyTw96tesyA&days_since_epoch=20735",
+      "sourceTitle": "CMU Advanced NLP Spring 2024"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PL9t0xVFP90GD8hox0KipBkJcLX_C3ja67",
+      "title": "Foundation Models",
+      "checkedAt": "2026-10-09T17:50:47.027Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/4bf3233b47265c35.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/ZshcPdavsdU/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDlmBvVhBJcpjaVLKOwsL6cM7Gwfg&days_since_epoch=20735",
+      "sourceTitle": "Foundation Models"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ",
+      "title": "Neural Networks: Zero to Hero (by Andrej Karpathy)",
+      "checkedAt": "2026-10-09T17:50:50.366Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/3dab6a4d593cbdff.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/VMj-3S1tku0/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAsbch9qh_yKE5PEvVrJKLFzLfYYQ&days_since_epoch=20735",
+      "sourceTitle": "Neural Networks: Zero to Hero"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLCAl7tjCwWyGjdzOOnlbGnVNZk0kB8VSa",
+      "title": "Parallel Computing and Scientific Machine Learning",
+      "checkedAt": "2026-10-09T17:50:50.671Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/9ad53fced27925e6.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/3IoqyXmAAkU/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCBw9OMDvya6sTs5NM_zvjDNXE5kQ&days_since_epoch=20735",
+      "sourceTitle": "Parallel Computing and Scientific Machine Learning"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLCpMvp7ftsnIbNwRnQJbDNRqO6qiN3EyH",
+      "title": "MIT: Deep Learning for Art, Aesthetics, and Creativity",
+      "checkedAt": "2026-10-09T17:50:49.457Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/0b5f089041a5332a.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/MABLFo7IV3I/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDhm2TmGcNM_TPYjRJrGglcgspPOQ&days_since_epoch=20735",
+      "sourceTitle": "MIT 6.S192: Deep Learning for Art, Aesthetics, and Creativity"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLD63A284B7615313A",
+      "title": "Caltech CS156: Learning from Data",
+      "checkedAt": "2026-10-09T17:50:43.160Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/3868ee83586199cd.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/FIbVs5GbBlQ/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCpzr4P_LqqEzHum4APOzT9d23NiQ&days_since_epoch=20735",
+      "sourceTitle": "Machine Learning Course - CS 156"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLehuLRPyt1Hyi78UOkMPWCGRxGcA9NVOE",
+      "title": "Deep Learning - UWaterloo",
+      "checkedAt": "2026-10-09T17:50:45.342Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/3ffa874a9dad569c.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/rHzX9CtjPeg/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBFtJ19F68CjPVPp1a8P7iTzmtX2g&days_since_epoch=20735",
+      "sourceTitle": "Fall 2015 STAT 946: Deep Learning"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLfYUBJiXbdtSvpQjSnJJ_PmDQB_VyT5iU",
+      "title": "Practical Deep Learning for Coders",
+      "checkedAt": "2026-10-09T17:50:52.130Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/984091765df9e39f.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/8SF_h3xF3cE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAJhoVIzo5HGOBY9zFMRqsXFDoh4A&days_since_epoch=20735",
+      "sourceTitle": "Practical Deep Learning for Coders"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLHyI3Fbmv0SdzMHAy0aN59oYnLy5vyyTA",
+      "title": "Graduate Summer School: Deep Learning, Feature Learning",
+      "checkedAt": "2026-10-09T17:50:47.341Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/ef0bab944d67025f.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/GJdWESd543Y/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDPbs5BUeE2ogbL96NptAwwSHngpg&days_since_epoch=20735",
+      "sourceTitle": "GSS2012: Deep Learning, Feature Learning"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLImtCgowF_ES_JdF_UcM60EXTcGZg67Ua",
+      "title": "Reinforcement Learning (Polytechnique Montreal, Fall 2021)",
+      "checkedAt": "2026-10-09T17:50:52.971Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/d3f2d4a9321c2e26.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/J9JZyyPCJcQ/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCg6ye2XLLOPdIyMf3emhnsSEbVGA&days_since_epoch=20735",
+      "sourceTitle": "Reinforcement Learning - Fall 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLkDaE6sCZn6GMoA0wbpJLi3t34Gd8l0aK",
+      "title": "Machine Learning Engineering for Production (MLOps)",
+      "checkedAt": "2026-10-09T17:50:48.307Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/6bebee4a91c180d7.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/NgWujOrCZFo/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBwxtdzwA35iLtwi5P2iNIr6MHo2A&days_since_epoch=20735",
+      "sourceTitle": "Machine Learning Engineering for Production (MLOps)"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLKHYJbyeQ1a0oGzgRXy-QwAN1tSV4XZxg",
+      "title": "Build fastest custom object Detection system yusing YOLOv3(video playlist)",
+      "checkedAt": "2026-10-09T17:50:43.147Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/e5b7f6f5922a1921.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/10joRJt39Ns/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLD61dzH5cXn-OMA52YvP6FvoGn1qA&days_since_epoch=20735",
+      "sourceTitle": "YOLOv3 Object Detection"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI",
+      "title": "NYU Deep Learning SP21",
+      "checkedAt": "2026-10-09T17:50:50.501Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/8348616382da602f.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/eJeJWWEo7cE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLC2rPBiWNFDWZ2RVJ9hNK3gagzSOg&days_since_epoch=20735",
+      "sourceTitle": "NYU Deep Learning SP21"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLn2-dEmQeTfSLXW8yXP4q_Ii58wFdxb3C",
+      "title": "AMMI Geometric Deep Learning Course",
+      "checkedAt": "2026-10-09T17:50:42.150Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/8337128e64266386.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/5c_-KX1sRDQ/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLA20nxCYb_Wk3CFbcsAFga0cKC1RA&days_since_epoch=20735",
+      "sourceTitle": "AMMI Geometric Deep Learning Course - Second Edition (2022)"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLo2EIpI_JMQvWfQndUesu0nPBAtZ9gP1o",
+      "title": "NLP Course (Hugging Face)",
+      "checkedAt": "2026-10-09T17:50:50.473Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/0a1e60a47245d21c.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/00GKzGyWFEs/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDOaID-6yiiQKKIlM0R2KAXkQa0Qg&days_since_epoch=20735",
+      "sourceTitle": "Hugging Face Course"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMC6zfYmnD7UG3LVvwaITY5",
+      "title": "Stanford CS330: Deep Multi-Task and Meta Learning",
+      "checkedAt": "2026-10-09T17:50:54.061Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/205f4e7ffb01fcf5.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/0rZtSwNOTQo/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLD4IV3oS5s12jPO6kf2IO4MOLhQBg&days_since_epoch=20735",
+      "sourceTitle": "Stanford CS330: Deep Multi-Task and Meta Learning"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU",
+      "title": "Stanford CS229: Machine Learning",
+      "checkedAt": "2026-10-09T17:50:53.594Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/a90b3fe019eb3fc6.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/jGwO_UgTS7I/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAaeuY11-1hDZQFD3WKZUHgyGgYJg&days_since_epoch=20735",
+      "sourceTitle": "Stanford CS229: Machine Learning led by Andrew Ng | Autumn 2018"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM",
+      "title": "Stanford CS25 - Transformers United",
+      "checkedAt": "2026-10-09T17:50:53.924Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/1d08c630d2c0845c.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/P127jhj-8-Y/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCqmhXht-eaNj0nSJQJ16-6T0ZgCQ&days_since_epoch=20735",
+      "sourceTitle": "Stanford CS25 - Transformers United"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ",
+      "title": "Stanford CS224N: Natural Language Processing with Deep Learning",
+      "checkedAt": "2026-10-09T17:50:53.342Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/eb374887a48a2d61.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/rmVRLeJRkl4/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDOEJBjO0rQjc4kPVkqs0oICnsOnw&days_since_epoch=20735",
+      "sourceTitle": "Stanford CS224N: Natural Language Processing with Deep Learning | Winter 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u",
+      "title": "Stanford CS234: Reinforcement Learning",
+      "checkedAt": "2026-10-09T17:50:53.898Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/8b278f043da908b2.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/FgzM3zpZ55o/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDY9ddU_myK9vpIWUwRpC2_FHXv-g&days_since_epoch=20735",
+      "sourceTitle": "Stanford CS234: Reinforcement Learning | Winter 2019"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp",
+      "title": "XCS224U: Natural Language Understanding (2023)",
+      "checkedAt": "2026-10-09T17:50:55.179Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/782f591e9266b47f.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/K_Dh0Sxujuc/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAvvNnX35-PwQyh8TaCdH0Vo7ryoQ&days_since_epoch=20735",
+      "sourceTitle": "Stanford XCS224U: Natural Language Understanding I Spring 2023"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn",
+      "title": "Machine Learning with Graphs (Stanford)",
+      "checkedAt": "2026-10-09T17:50:48.742Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/acf0c9b73702502f.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/JAB_plj2rbA/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAakvpdMgEXZ1LMXbjztxiQ0cOjOQ&days_since_epoch=20735",
+      "sourceTitle": "Stanford CS224W: Machine Learning with Graphs"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPt5D0zs3YhbWSZA8Q_DyiJ",
+      "title": "CS224U: Natural Language Understanding",
+      "checkedAt": "2026-10-09T17:50:44.635Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/f35b98a72bbf54f6.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/rha64cQRLs8/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCXB3KBx7l_XnFjnunZDNYHcRyjlg&days_since_epoch=20735",
+      "sourceTitle": "Stanford CS224U: Natural Language Understanding | Spring 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLp-0K3kfddPxRmjgjm0P1WT6H-gTqE8j9",
+      "title": "CMU Introduction to Deep Learning (11-785)",
+      "checkedAt": "2026-10-09T17:50:43.992Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/b279ec4bc942ed96.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/7W2wR-VoMn0/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAKZ9njgmJCtSwDTcNck_Ulvjg8xA&days_since_epoch=20735",
+      "sourceTitle": "11785 Fall 2022 Lectures"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLp-0K3kfddPz8WXg8RqH0sEN6X2L65HUZ",
+      "title": "CMU Introduction to Deep Learning (11-785)",
+      "checkedAt": "2026-10-09T17:50:44.027Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/e9075b5909916110.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/F_riBswg74w/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDYT_o4bkLI7KHSzdTdsHjEEQye4A&days_since_epoch=20735",
+      "sourceTitle": "11785 Fall 2022 Recitations"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLqYmG7hTraZDVH599EItlEWsUOsJbAodm",
+      "title": "Reinforcement Learning Lecture Series (DeepMind)",
+      "checkedAt": "2026-10-09T17:50:53.057Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/ef481c8b09a22a79.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/TCCjZe0y4Qc/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCBI9LjMrRggl6V-TL899B1VaOfNw&days_since_epoch=20735",
+      "sourceTitle": "DeepMind x UCL | Deep Learning Lecture Series 2021"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLRKtJ4IpxJpDxl0NTvNYQWKCYzHNuy2xG",
+      "title": "Making Friends with Machine Learning",
+      "checkedAt": "2026-10-09T17:50:48.845Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/c31ce55b7e5b8e79.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/lKXv19eRLZg/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAAwNXU3dfAlHXq9yb_tBMOPltkrw&days_since_epoch=20735",
+      "sourceTitle": "Making Friends with AI"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLSrTvUm384I9PV10koj_cqit9OfbJXEkq",
+      "title": "Stanford MLSys Seminars",
+      "checkedAt": "2026-10-09T17:50:54.460Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/d368d6cfadcfd069.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/OEiNnfdxBRE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAFZypsBQZe_3lmHW8xLZjUUmtyFA&days_since_epoch=20735",
+      "sourceTitle": "MLSys Seminars"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI",
+      "title": "Introduction to Deep Learning",
+      "checkedAt": "2026-10-09T17:50:47.757Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/d95520f61380ebd9.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/II4giR4vOOo/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCtLkhfUJMQo7v8PLuPm69_Ypu5eg&days_since_epoch=20735",
+      "sourceTitle": "MIT 6.S191: Introduction to Deep Learning"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j",
+      "title": "MIT 6.S897: Machine Learning for Healthcare (2019)",
+      "checkedAt": "2026-10-09T17:50:49.157Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/516b04e032d374b7.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/vof7x8r_ZUA/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLD_24V99LgBR8aOtokIlMDU8_bOBA&days_since_epoch=20735",
+      "sourceTitle": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLWnsVgP6CzadmQX6qevbar3_vDBioWHJL",
+      "title": "Advanced NLP",
+      "checkedAt": "2026-10-09T17:50:42.100Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/3fcfdc6fdcc04075.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/TEEAz-Sn15c/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAnYgglHllwPURzRQfzQBdgmO7oTg&days_since_epoch=20735",
+      "sourceTitle": "UMass CS685: Advanced Natural Language Processing (Fall 2020)"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLwRJQ4m4UJjNBPJdt8WamRAt4XKc639wF",
+      "title": "Advanced Robotics: UC Berkeley",
+      "checkedAt": "2026-10-09T17:50:42.148Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/98152d2ce2f84e47.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/xWPViQ6LI-Q/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCgt5SS-u0RuX1Bww921hkePo3Hig&days_since_epoch=20735",
+      "sourceTitle": "CS287 Advanced Robotics at UC Berkeley Fall 2019 -- Instructor: Pieter Abbeel"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLwRJQ4m4UJjNymuBM9RdmB3Z9N5-0IlY0",
+      "title": "Foundations of Deep RL",
+      "checkedAt": "2026-10-09T17:50:47.255Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/097a106ef2eba1fe.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/2GwBez0D20A/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCVvWsEvLiHpowqZfm2LdtZynjUBQ&days_since_epoch=20735",
+      "sourceTitle": "Foundations of Deep RL -- 6-lecture series by Pieter Abbeel"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLwRJQ4m4UJjPiJP3691u-qWwPGVKzSlNP",
+      "title": "Deep Unsupervised Learning",
+      "checkedAt": "2026-10-09T17:50:46.680Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/eeaf485d8e49bbc4.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/V9Roouqfu-M/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDJEZD_nC71tR-PbcPF55f_r4AsQg&days_since_epoch=20735",
+      "sourceTitle": "Deep Unsupervised Learning -- Berkeley Spring 2020"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLypiXJdtIca5ElZMWHl4HMeyle2AzUgVB",
+      "title": "MIT Deep Learning in Life Sciences",
+      "checkedAt": "2026-10-09T17:50:49.165Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/4c42715f269c18d7.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/PrLwIay2qH4/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB73EDIhMOrQ-ia265jLABF-NQHQQ&days_since_epoch=20735",
+      "sourceTitle": "MIT Deep Learning in Life Sciences 6.874 Spring 2020"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLzrCXlf6ypbxS5OYOY3EN_0u2fDuIT6Gt",
+      "title": "Machine Learning Lecture (Stefan Harmeling)",
+      "checkedAt": "2026-10-09T17:50:48.549Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/aad80b05a6cde838.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/HZ6PNyjq0Fs/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCDBC2XybsOEtvDEwVQVOTSZryyfQ&days_since_epoch=20735",
+      "sourceTitle": "Machine Learning Lecture WS 2021/22"
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLZSO_6-bSqHQHBCoGaObUljoXAyyqhpFW",
+      "title": "Deep Learning - UC Berkeley | STAT-157",
+      "checkedAt": "2026-10-09T17:50:44.784Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/d19790d6d308141f.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/Va8WWRfw7Og/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAS-ivLr9GG5kGNrSvJW0rZGocp-w&days_since_epoch=20735",
+      "sourceTitle": "Deep Learning UC Berkeley STAT-157 2019"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_7rMfsA24Ls&ab_channel=JeremyHoward",
+      "title": "Practical Deep Learning for Coders",
+      "checkedAt": "2026-10-09T17:50:52.108Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/bbe6978602832bf6.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/_7rMfsA24Ls/maxresdefault.jpg",
+      "sourceTitle": "Lesson 9: Deep Learning Foundations to Stable Diffusion"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1nqCZqDYPp0&list=PLTKMiZHVd_2KJtIXOW0zFhFfBaJJilH51",
+      "title": "Introduction to Deep Learning and Deep Generative Models",
+      "checkedAt": "2026-10-09T17:50:47.913Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/b3cd5b6e9b78632c.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/1nqCZqDYPp0/hqdefault.jpg",
+      "sourceTitle": "L1.0 Intro to Deep Learning, Course Introduction"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9gBC9R-msAk&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU&index=3",
+      "title": "Part 3: Recommendation Systems",
+      "checkedAt": "2026-10-09T17:50:51.225Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/485567a839024f5b.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/9gBC9R-msAk/hqdefault.jpg",
+      "sourceTitle": "Recommendation Systems - Learn Python for Data Science #3"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ayzOzZGHZy4&list=PLnSYPjg2dHQKdig0vVbN-ZnEU0yNJ1mo5",
+      "title": "MIT Introduction to Data-Centric AI",
+      "checkedAt": "2026-10-09T17:50:49.387Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/cd8a2e372583dca6.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/ayzOzZGHZy4/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&rs=AOn4CLBo9T39DwV8tnpsYGoMZYZREZJxDA",
+      "sourceTitle": "Lecture 1: Data-Centric AI vs. Model-Centric AI"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=azaLcvuql_g&list=PLjbUi5mgii6BWEUZf7He6nowWvGne_Y8r",
+      "title": "Statistical Machine Learning - CMU",
+      "checkedAt": "2026-10-09T17:50:54.525Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/fd98dedb6edc36df.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/azaLcvuql_g/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgYShCMA8=&rs=AOn4CLCdgtjEXMzFMUcHEnK7oy0Qof17dg",
+      "sourceTitle": "Lecture 1: Review Part 1"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dSofAXnnFrY&index=6&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU",
+      "title": "Part 6: Genetic Algorithms",
+      "checkedAt": "2026-10-09T17:50:52.011Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/2e7b847892e06d4e.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/dSofAXnnFrY/hqdefault.jpg",
+      "sourceTitle": "Genetic Algorithms - Learn Python for Data Science #6"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=IA3WxTTPXqQ",
+      "title": "Deep Learning for Computer Vision (neuralearn.ai)",
+      "checkedAt": "2026-10-09T17:50:45.994Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/fd589ee4869dc1ea.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/IA3WxTTPXqQ/maxresdefault.jpg",
+      "sourceTitle": "Deep Learning for Computer Vision with Python and TensorFlow – Complete Course"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=LHBE6Q9XlzI",
+      "title": "Data Science with Python",
+      "checkedAt": "2026-10-09T17:50:44.751Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/726c16bb114de7bd.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/LHBE6Q9XlzI/maxresdefault.jpg",
+      "sourceTitle": "Python for Data Science - Course for Beginners (Learn Python, Pandas, NumPy, Matplotlib)"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=lnA9DMvHtfI",
+      "title": "Large Language Models from Scratch",
+      "checkedAt": "2026-10-09T17:50:48.189Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/43622bb09666b718.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/lnA9DMvHtfI/maxresdefault.jpg",
+      "sourceTitle": "Large Language Models from scratch"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=MrBzgvUNr4w&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU&index=5",
+      "title": "Part 5: Deep Dream in TensorFlow",
+      "checkedAt": "2026-10-09T17:50:51.973Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/2508f44a900707a6.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/MrBzgvUNr4w/hqdefault.jpg",
+      "sourceTitle": "Deep Dream in TensorFlow - Learn Python for Data Science #5"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=o_OZdbCzHUA",
+      "title": "Part 2: Twitter Sentiment Analysis",
+      "checkedAt": "2026-10-09T17:50:51.142Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/0e5fe6b16031f0a7.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/o_OZdbCzHUA/hqdefault.jpg",
+      "sourceTitle": "Twitter Sentiment Analysis - Learn Python for Data Science #2"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=SSu00IRRraY&index=4&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU",
+      "title": "Part 4: Predicting Stock Prices",
+      "checkedAt": "2026-10-09T17:50:51.248Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/57c0f6c3190abe5a.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/SSu00IRRraY/hqdefault.jpg",
+      "sourceTitle": "Predicting Stock Prices - Learn Python for Data Science #4"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=T5pRlIbr6gg",
+      "title": "Part 1: Introduction",
+      "checkedAt": "2026-10-09T17:50:50.972Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/ada323a547cf203c.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/T5pRlIbr6gg/hqdefault.jpg",
+      "sourceTitle": "Introduction - Learn Python for Data Science #1"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=uwwWVAgJBcM",
+      "title": "Write Linear Regression From Scratch in Python",
+      "checkedAt": "2026-10-09T17:50:54.734Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/20d1ad922b2a7696.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/uwwWVAgJBcM/hqdefault.jpg",
+      "sourceTitle": "Linear Regression Machine Learning (tutorial)"
+    },
+    {
+      "url": "https://youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb",
+      "title": "Stanford CS230: Deep Learning (2018)",
+      "checkedAt": "2026-10-09T17:50:53.683Z",
+      "kind": "source-thumbnail",
+      "cover": "covers/d4eb2483015c3f00.jpg",
+      "remoteImage": "https://i.ytimg.com/vi/JUJNGv_sb4Y/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBZtlkypbkvWOZdhxm5qszH5J-tFA&days_since_epoch=20735",
+      "sourceTitle": "Stanford CS230: Deep Learning | Autumn 2018"
+    }
+  ]
+}

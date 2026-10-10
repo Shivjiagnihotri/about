@@ -143,6 +143,20 @@ svg { display:block; max-width:100%; }
 .resource-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
 .resource-card { position:relative; display:flex; flex-direction:column; border:1px solid #d2deda; background:#f8faf4; border-radius:8px; padding:25px; transition:transform .4s var(--ease),box-shadow .4s; }
 .resource-card:hover { transform:translateY(-4px); box-shadow:0 12px 25px #3753560b; }
+.resource-card { --cover-padding:25px; }
+.video-cover { position:relative; display:block; flex:none; aspect-ratio:16/9; margin:calc(-1 * var(--cover-padding)) calc(-1 * var(--cover-padding)) 22px; overflow:hidden; border-radius:7px 7px 0 0; background:#d9e4cf; isolation:isolate; }
+.video-cover img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+.video-cover::after { content:''; position:absolute; inset:0; background:linear-gradient(transparent 45%,#16271ac4); pointer-events:none; }
+.video-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:grid; place-items:center; width:49px; height:49px; border:1px solid #ffffffb3; border-radius:50%; background:#f8faede6; box-shadow:0 3px 20px #14201426; color:#3d5b40; z-index:1; transition:background .25s,scale .25s; }
+.video-play svg { width:25px; height:25px; fill:currentColor; margin-left:-2px; }
+.video-cover-label { position:absolute; left:17px; right:17px; bottom:13px; display:flex; justify-content:space-between; align-items:center; color:#fff; font-size:8px; letter-spacing:.14em; z-index:1; }
+.video-cover-label>span { font-size:17px; line-height:1; }
+.video-cover:hover img { transform:scale(1.035); }
+.video-cover:hover .video-play,.video-cover:focus-visible .video-play { background:#fff; scale:1.08; }
+.has-video-cover>.save-button { background:#fffff5f2; }
+.has-video-cover>.save-button[aria-pressed="true"] { background:#416249; }
+@media(prefers-reduced-motion:reduce) { .video-cover img,.video-play { transition:none; } }
+.motion-off .video-cover img,.motion-off .video-play { transition:none; }
 .resource-provider { display:flex; gap:12px; align-items:center; padding-right:20px; }
 .provider-icon { display:grid; place-items:center; flex:0 0 35px; height:35px; border:1px solid #cbdad3; color:#62816e; border-radius:9px; font:22px/1 var(--serif); }
 .resource-provider>span:last-child { font-size:9px; color:#708075; letter-spacing:.02em; }
@@ -267,7 +281,7 @@ html:has(.motion-off) { scroll-behavior:auto; }
  .path-card>p { font-size:11px; }
  .path-steps li { font-size:10px; }
  .resource-grid { grid-template-columns:1fr; }
- .resource-card { padding:23px; }
+ .resource-card { padding:23px; --cover-padding:23px; }
  .resource-card h3 { font-size:25px; }
  .garden-closing { padding-block:66px; }
  .garden-closing h2 { font-size:39px; }

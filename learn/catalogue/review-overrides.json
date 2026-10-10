@@ -1,6 +1,8 @@
 {
   "reviewedAt": "2026-10-09",
   "exclusions": [
+    { "url": "https://www.youtube.com/watch?v=vaMMLLf0wLM", "reason": "YouTube reports this video is unavailable, confirmed during the cover review on 2026-10-09." },
+    { "url": "https://www.youtube.com/playlist?list=PLkFD6_40KJIxopmdJF_CLNqG3QuDFHQUm", "reason": "YouTube playlist has zero visible videos; all 20 videos are unavailable, confirmed on 2026-10-09." },
     { "url": "https://aws.training/machinelearning", "reason": "Broad training portal with mixed access requirements rather than a directly open course." },
     { "url": "https://hackr.io/tutorials/learn-artificial-intelligence-ai", "reason": "Mixed free and paid course directory rather than a directly free learning resource." },
     { "url": "https://code.google.com/p/graphbook/", "reason": "Retired project-hosting destination; prefer a maintained book reader or direct author edition." },

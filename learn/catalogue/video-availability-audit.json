@@ -1,0 +1,738 @@
+{
+  "checkedAt": "2026-10-09",
+  "method": "Official YouTube page metadata: playlist visible video IDs and watch-page playability status. Region and login restrictions can vary.",
+  "items": [
+    {
+      "title": "Deep Learning for Computer Vision (DL4CV)",
+      "url": "https://www.youtube.com/playlist?list=PL_Z2_U9MIJdNgFM7-f2fZ9ZxjVRP_jhJv",
+      "status": 200,
+      "sourceTitle": "Deep Learning for Computer Vision (DL4CV)@WIS, Spring 2021 - YouTube",
+      "visibleVideos": 24,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Deep Learning: CS 182",
+      "url": "https://www.youtube.com/playlist?list=PL_iWQOsE6TfVmKkQHucjPAoRtIJYt8a5A",
+      "status": 200,
+      "sourceTitle": "Deep Learning: CS 182 Spring 2021 - YouTube",
+      "visibleVideos": 66,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Deep Reinforcement Learning",
+      "url": "https://www.youtube.com/playlist?list=PL_iWQOsE6TfURIIhCrlt-wj9ByIVpbfGc",
+      "status": 200,
+      "sourceTitle": "Deep Reinforcement Learning: CS 285 Fall 2020 - YouTube",
+      "visibleVideos": 100,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Statistical Machine Learning (Tübingen)",
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij2XCvrRzLokX6EoHWaGA2cC",
+      "status": 200,
+      "sourceTitle": "Statistical Machine Learning — Ulrike von Luxburg, 2020 - YouTube",
+      "visibleVideos": 58,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Probabilistic Machine Learning",
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij2YE8rRJSb-olDNbntAQ_Bx",
+      "status": 200,
+      "sourceTitle": "Probabilistic Machine Learning -- Philipp Hennig, 2023 - YouTube",
+      "visibleVideos": 24,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Self-Driving Cars (Tübingen)",
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij321zzKXK6XCQXAaaYjQbzr",
+      "status": 200,
+      "sourceTitle": "Self-Driving Cars — Andreas Geiger - YouTube",
+      "visibleVideos": 48,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Introduction to Machine Learning (Tübingen)",
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij35ShKLDqccJSDntugY4FQT",
+      "status": 200,
+      "sourceTitle": "Introduction to Machine Learning — Dmitry Kobak, 2020/21 - YouTube",
+      "visibleVideos": 11,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Deep Learning (Tübingen)",
+      "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij3NTWIdtMbfvX7Z-4WEXRqD",
+      "status": 200,
+      "sourceTitle": "Deep Learning — Andreas Geiger - YouTube",
+      "visibleVideos": 46,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Full Stack Deep Learning",
+      "url": "https://www.youtube.com/playlist?list=PL1T8fO7ArWlcWg04OgNiJy91PywMKT2lv",
+      "status": 200,
+      "sourceTitle": "Full Stack Deep Learning - Spring 2021 - YouTube",
+      "visibleVideos": 27,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Applied Machine Learning",
+      "url": "https://www.youtube.com/playlist?list=PL2UML_KCiC0UlY7iCQDSiGDMovaupqc83",
+      "status": 200,
+      "sourceTitle": "Applied Machine Learning (Cornell Tech CS 5787, Fall 2020) - YouTube",
+      "visibleVideos": 80,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "CS231N: Convolutional Neural Networks for Visual Recognition",
+      "url": "https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv",
+      "status": 200,
+      "sourceTitle": "Lecture Collection | Convolutional Neural Networks for Visual Recognition (Spring 2017) - YouTube",
+      "visibleVideos": 16,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Deep Learning for Computer Vision",
+      "url": "https://www.youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r",
+      "status": 200,
+      "sourceTitle": "Deep Learning for Computer Vision - YouTube",
+      "visibleVideos": 22,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Neural networks class",
+      "url": "https://www.youtube.com/playlist?list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH",
+      "status": 200,
+      "sourceTitle": "Neural networks class - Université de Sherbrooke - YouTube",
+      "visibleVideos": 92,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "CMU Advanced NLP",
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8AYSXn_GKVgwXVluCT9chJ6",
+      "status": 200,
+      "sourceTitle": "CMU Advanced NLP 2021 - YouTube",
+      "visibleVideos": 24,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "CMU Neural Networks for NLP",
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8AkaHEJ7lOOrlex-pcxS-XV",
+      "status": 200,
+      "sourceTitle": "CMU Neural Nets for NLP 2021 - YouTube",
+      "visibleVideos": 23,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Multilingual NLP",
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8BhCpzfdKKdd1OnTfLcyZr7",
+      "status": 200,
+      "sourceTitle": "CMU Multilingual NLP 2022 - YouTube",
+      "visibleVideos": 21,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Multilingual NLP",
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8CHhppU6n1Q9-04m96D9gt5",
+      "status": 200,
+      "sourceTitle": "CMU Multilingual NLP 2020 - YouTube",
+      "visibleVideos": 23,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "CMU Advanced NLP",
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8D0UkqW2fEhgLrnlDW9QK7z",
+      "status": 200,
+      "sourceTitle": "CMU Advanced NLP 2022 - YouTube",
+      "visibleVideos": 24,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "CMU Advanced NLP",
+      "url": "https://www.youtube.com/playlist?list=PL8PYTP1V4I8DZprnWryM4nR8IZl1ZXDjg",
+      "status": 200,
+      "sourceTitle": "CMU Advanced NLP Spring 2024 - YouTube",
+      "visibleVideos": 21,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Foundation Models",
+      "url": "https://www.youtube.com/playlist?list=PL9t0xVFP90GD8hox0KipBkJcLX_C3ja67",
+      "status": 200,
+      "sourceTitle": "Foundation Models - YouTube",
+      "visibleVideos": 15,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Neural Networks: Zero to Hero (by Andrej Karpathy)",
+      "url": "https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ",
+      "status": 200,
+      "sourceTitle": "Neural Networks: Zero to Hero - YouTube",
+      "visibleVideos": 10,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Parallel Computing and Scientific Machine Learning",
+      "url": "https://www.youtube.com/playlist?list=PLCAl7tjCwWyGjdzOOnlbGnVNZk0kB8VSa",
+      "status": 200,
+      "sourceTitle": "Parallel Computing and Scientific Machine Learning - YouTube",
+      "visibleVideos": 25,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "MIT: Deep Learning for Art, Aesthetics, and Creativity",
+      "url": "https://www.youtube.com/playlist?list=PLCpMvp7ftsnIbNwRnQJbDNRqO6qiN3EyH",
+      "status": 200,
+      "sourceTitle": "MIT 6.S192: Deep Learning for Art, Aesthetics, and Creativity - YouTube",
+      "visibleVideos": 22,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Caltech CS156: Learning from Data",
+      "url": "https://www.youtube.com/playlist?list=PLD63A284B7615313A",
+      "status": 200,
+      "sourceTitle": "Machine Learning Course - CS 156 - YouTube",
+      "visibleVideos": 18,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Practical Deep Learning for Coders",
+      "url": "https://www.youtube.com/playlist?list=PLfYUBJiXbdtSvpQjSnJJ_PmDQB_VyT5iU",
+      "status": 200,
+      "sourceTitle": "Practical Deep Learning for Coders - YouTube",
+      "visibleVideos": 8,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Deep Learning - UWaterloo",
+      "url": "https://www.youtube.com/playlist?list=PLehuLRPyt1Hyi78UOkMPWCGRxGcA9NVOE",
+      "status": 200,
+      "sourceTitle": "Fall 2015 STAT 946: Deep Learning - YouTube",
+      "visibleVideos": 16,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Graduate Summer School: Deep Learning, Feature Learning",
+      "url": "https://www.youtube.com/playlist?list=PLHyI3Fbmv0SdzMHAy0aN59oYnLy5vyyTA",
+      "status": 200,
+      "sourceTitle": "GSS2012: Deep Learning, Feature Learning - YouTube",
+      "visibleVideos": 66,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Reinforcement Learning (Polytechnique Montreal, Fall 2021)",
+      "url": "https://www.youtube.com/playlist?list=PLImtCgowF_ES_JdF_UcM60EXTcGZg67Ua",
+      "status": 200,
+      "sourceTitle": "Reinforcement Learning - Fall 2021 - YouTube",
+      "visibleVideos": 39,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Machine Learning Engineering for Production (MLOps)",
+      "url": "https://www.youtube.com/playlist?list=PLkDaE6sCZn6GMoA0wbpJLi3t34Gd8l0aK",
+      "status": 200,
+      "sourceTitle": "Machine Learning Engineering for Production (MLOps) - YouTube",
+      "visibleVideos": 40,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Build fastest custom object Detection system yusing YOLOv3(video playlist)",
+      "url": "https://www.youtube.com/playlist?list=PLKHYJbyeQ1a0oGzgRXy-QwAN1tSV4XZxg",
+      "status": 200,
+      "sourceTitle": "YOLOv3 Object Detection - YouTube",
+      "visibleVideos": 9,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Designing, Visualizing and Understanding Deep Neural Networks-UC Berkeley",
+      "url": "https://www.youtube.com/playlist?list=PLkFD6_40KJIxopmdJF_CLNqG3QuDFHQUm",
+      "status": 200,
+      "sourceTitle": "CS294-129 Fall 2016 - YouTube",
+      "visibleVideos": 0,
+      "hidden": "20 unavailable videos are hidden",
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": true
+    },
+    {
+      "title": "AMMI Geometric Deep Learning Course",
+      "url": "https://www.youtube.com/playlist?list=PLn2-dEmQeTfSLXW8yXP4q_Ii58wFdxb3C",
+      "status": 200,
+      "sourceTitle": "AMMI Geometric Deep Learning Course - Second Edition (2022) - YouTube",
+      "visibleVideos": 18,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "NYU Deep Learning SP21",
+      "url": "https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI",
+      "status": 200,
+      "sourceTitle": "NYU Deep Learning SP21 - YouTube",
+      "visibleVideos": 33,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Stanford CS330: Deep Multi-Task and Meta Learning",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMC6zfYmnD7UG3LVvwaITY5",
+      "status": 200,
+      "sourceTitle": "Stanford CS330: Deep Multi-Task and Meta Learning - YouTube",
+      "visibleVideos": 14,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "NLP Course (Hugging Face)",
+      "url": "https://www.youtube.com/playlist?list=PLo2EIpI_JMQvWfQndUesu0nPBAtZ9gP1o",
+      "status": 200,
+      "sourceTitle": "Hugging Face Course - YouTube",
+      "visibleVideos": 80,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Stanford CS229: Machine Learning",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU",
+      "status": 200,
+      "sourceTitle": "Stanford CS229: Machine Learning led by Andrew Ng | Autumn 2018 - YouTube",
+      "visibleVideos": 21,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Stanford CS25 - Transformers United",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM",
+      "status": 200,
+      "sourceTitle": "Stanford CS25 - Transformers United - YouTube",
+      "visibleVideos": 50,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Stanford CS224N: Natural Language Processing with Deep Learning",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ",
+      "status": 200,
+      "sourceTitle": "Stanford CS224N: Natural Language Processing with Deep Learning | Winter 2021 - YouTube",
+      "visibleVideos": 23,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Stanford CS234: Reinforcement Learning",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u",
+      "status": 200,
+      "sourceTitle": "Stanford CS234: Reinforcement Learning | Winter 2019 - YouTube",
+      "visibleVideos": 15,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "XCS224U: Natural Language Understanding (2023)",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp",
+      "status": 200,
+      "sourceTitle": "Stanford XCS224U: Natural Language Understanding I Spring 2023 - YouTube",
+      "visibleVideos": 50,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Machine Learning with Graphs (Stanford)",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn",
+      "status": 200,
+      "sourceTitle": "Stanford CS224W: Machine Learning with Graphs - YouTube",
+      "visibleVideos": 60,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "CS224U: Natural Language Understanding",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPt5D0zs3YhbWSZA8Q_DyiJ",
+      "status": 200,
+      "sourceTitle": "Stanford CS224U: Natural Language Understanding | Spring 2021 - YouTube",
+      "visibleVideos": 63,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "CMU Introduction to Deep Learning (11-785)",
+      "url": "https://www.youtube.com/playlist?list=PLp-0K3kfddPxRmjgjm0P1WT6H-gTqE8j9",
+      "status": 200,
+      "sourceTitle": "11785 Fall 2022 Lectures - YouTube",
+      "visibleVideos": 29,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "CMU Introduction to Deep Learning (11-785)",
+      "url": "https://www.youtube.com/playlist?list=PLp-0K3kfddPz8WXg8RqH0sEN6X2L65HUZ",
+      "status": 200,
+      "sourceTitle": "11785 Fall 2022 Recitations - YouTube",
+      "visibleVideos": 45,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Reinforcement Learning Lecture Series (DeepMind)",
+      "url": "https://www.youtube.com/playlist?list=PLqYmG7hTraZDVH599EItlEWsUOsJbAodm",
+      "status": 200,
+      "sourceTitle": "DeepMind x UCL | Deep Learning Lecture Series 2021 - YouTube",
+      "visibleVideos": 13,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Making Friends with Machine Learning",
+      "url": "https://www.youtube.com/playlist?list=PLRKtJ4IpxJpDxl0NTvNYQWKCYzHNuy2xG",
+      "status": 200,
+      "sourceTitle": "Making Friends with AI - YouTube",
+      "visibleVideos": 100,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Stanford MLSys Seminars",
+      "url": "https://www.youtube.com/playlist?list=PLSrTvUm384I9PV10koj_cqit9OfbJXEkq",
+      "status": 200,
+      "sourceTitle": "MLSys Seminars - YouTube",
+      "visibleVideos": 99,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Introduction to Deep Learning",
+      "url": "https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI",
+      "status": 200,
+      "sourceTitle": "MIT 6.S191: Introduction to Deep Learning - YouTube",
+      "visibleVideos": 90,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Advanced NLP",
+      "url": "https://www.youtube.com/playlist?list=PLWnsVgP6CzadmQX6qevbar3_vDBioWHJL",
+      "status": 200,
+      "sourceTitle": "UMass CS685: Advanced Natural Language Processing (Fall 2020) - YouTube",
+      "visibleVideos": 26,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Advanced Robotics: UC Berkeley",
+      "url": "https://www.youtube.com/playlist?list=PLwRJQ4m4UJjNBPJdt8WamRAt4XKc639wF",
+      "status": 200,
+      "sourceTitle": "CS287 Advanced Robotics at UC Berkeley Fall 2019 -- Instructor: Pieter Abbeel - YouTube",
+      "visibleVideos": 24,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "MIT 6.S897: Machine Learning for Healthcare (2019)",
+      "url": "https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j",
+      "status": 200,
+      "sourceTitle": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019 - YouTube",
+      "visibleVideos": 25,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Foundations of Deep RL",
+      "url": "https://www.youtube.com/playlist?list=PLwRJQ4m4UJjNymuBM9RdmB3Z9N5-0IlY0",
+      "status": 200,
+      "sourceTitle": "Foundations of Deep RL -- 6-lecture series by Pieter Abbeel - YouTube",
+      "visibleVideos": 6,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Deep Unsupervised Learning",
+      "url": "https://www.youtube.com/playlist?list=PLwRJQ4m4UJjPiJP3691u-qWwPGVKzSlNP",
+      "status": 200,
+      "sourceTitle": "Deep Unsupervised Learning -- Berkeley Spring 2020 - YouTube",
+      "visibleVideos": 12,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "MIT Deep Learning in Life Sciences",
+      "url": "https://www.youtube.com/playlist?list=PLypiXJdtIca5ElZMWHl4HMeyle2AzUgVB",
+      "status": 200,
+      "sourceTitle": "MIT Deep Learning in Life Sciences 6.874 Spring 2020 - YouTube",
+      "visibleVideos": 15,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Machine Learning Lecture (Stefan Harmeling)",
+      "url": "https://www.youtube.com/playlist?list=PLzrCXlf6ypbxS5OYOY3EN_0u2fDuIT6Gt",
+      "status": 200,
+      "sourceTitle": "Machine Learning Lecture WS 2021/22 - YouTube",
+      "visibleVideos": 28,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Deep Learning - UC Berkeley | STAT-157",
+      "url": "https://www.youtube.com/playlist?list=PLZSO_6-bSqHQHBCoGaObUljoXAyyqhpFW",
+      "status": 200,
+      "sourceTitle": "Deep Learning UC Berkeley STAT-157 2019 - YouTube",
+      "visibleVideos": 100,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    },
+    {
+      "title": "Practical Deep Learning for Coders",
+      "url": "https://www.youtube.com/watch?v=_7rMfsA24Ls&ab_channel=JeremyHoward",
+      "status": 200,
+      "sourceTitle": "Lesson 9: Deep Learning Foundations to Stable Diffusion - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"formats\":[{\"itag\":18,\"url\":\"https://rr9---sn-5jucgv5qc5oq-cagr.googlevideo.com/videoplayback?expire=1791590201\\u0026ei=2SrJaueVGZaQssUPqr6C-Qo\\u0026ip=106.51.76.189\\u0026id=o-AL3THFRwU7a3a4LLEbwW7-Krl05UGp4iUY8MMu-9kL0y\\u0026itag=18\\u0026source=youtube\\u0026requiressl=yes\\u0026xpc=EgVo2aDSNQ%3D%3D\\u0026cps=277\\u0026met=1791568601%2C\\u0026mh=CJ\\u0026mm=31%2C29\\u0026mn=sn-5jucgv5qc5oq-cagr%2Csn-ajh555-5c\\u0026ms=au%2Crdu\\u0026mv=m\\u0026mvi=9\\u0026pl=19\\u0026rms=au%2Cau\\u0026initcwndbps=2686125\\u0026bui=AWzQHwpbuBp6s0R8-N_laXi_wsMlJJaTgbwgWVc7GFEy1-ZuWgh37CoPsysh118HBd0l9OMb41KR83EM\\u0026spc=I-rgIaK8igs4EekjsvXfmss7ombNjHwLqIkFMTcLU0XzGMUleeH5p1d967izEgJteJkBSqGZQ3YSIg\\u0026vprv=1\\u0026svpuc=1\\u0026mime=video%2Fmp4\\u0026ns=OFYAktSWBmyku2_W0TvOzlMZ\\u0026rqh=1\\u0026cnr=14\\u0026ratebyp"
+    },
+    {
+      "title": "Introduction to Deep Learning and Deep Generative Models",
+      "url": "https://www.youtube.com/watch?v=1nqCZqDYPp0&list=PLTKMiZHVd_2KJtIXOW0zFhFfBaJJilH51",
+      "status": 200,
+      "sourceTitle": "L1.0 Intro to Deep Learning, Course Introduction - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.64001F\\\"\",\"bitrate\":1477920,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"738\"},\"indexRange\":{\"start\":\"739\",\"end\":\"1370\"},\"lastModified\":\"1759980456604091\",\"contentLength\":\"16253185\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":488758,\"approxDurationMs\":\"266032\",\"qualityOrdinal\":\"QUALITY_ORDINAL_720P\"},{\"itag\":247,\"mimeType\":\"video/webm; codecs=\\\"vp9\\\"\",\"bitrate\":1809744,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"219\"},\"indexRange\":{\"start\":\"220\",\"end\":\"1060\"},\"lastModified\":\"1759980455551283\",\"contentLength\":\"12853962\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":386538,\"colorInfo\":{\""
+    },
+    {
+      "title": "MIT Introduction to Data-Centric AI",
+      "url": "https://www.youtube.com/watch?v=ayzOzZGHZy4&list=PLnSYPjg2dHQKdig0vVbN-ZnEU0yNJ1mo5",
+      "status": 200,
+      "sourceTitle": "Lecture 1: Data-Centric AI vs. Model-Centric AI - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":2837464,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"741\"},\"indexRange\":{\"start\":\"742\",\"end\":\"6917\"},\"lastModified\":\"1677097289660475\",\"contentLength\":\"107112651\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":314109,\"approxDurationMs\":\"2728033\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.64001F\\\"\",\"bitrate\":1661580,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"739\"},\"indexRange\":{\"start\":\"740\",\"end\":\"6915\"},\"lastModified\":\"1677097855860428\",\"contentLength\":\"54355840\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":159399,\""
+    },
+    {
+      "title": "Part 3: Recommendation Systems",
+      "url": "https://www.youtube.com/watch?v=9gBC9R-msAk&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU&index=3",
+      "status": 200,
+      "sourceTitle": "Recommendation Systems - Learn Python for Data Science #3 - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":2412629,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"740\"},\"indexRange\":{\"start\":\"741\",\"end\":\"1552\"},\"lastModified\":\"1712644512285681\",\"contentLength\":\"27657780\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":531009,\"approxDurationMs\":\"416682\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.4D401F\\\"\",\"bitrate\":1023672,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"738\"},\"indexRange\":{\"start\":\"739\",\"end\":\"1550\"},\"lastModified\":\"1712644631679440\",\"contentLength\":\"10383412\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":199354,\"ap"
+    },
+    {
+      "title": "Statistical Machine Learning - CMU",
+      "url": "https://www.youtube.com/watch?v=azaLcvuql_g&list=PLjbUi5mgii6BWEUZf7He6nowWvGne_Y8r",
+      "status": 200,
+      "sourceTitle": "Lecture 1: Review Part 1 - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":4481460,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"739\"},\"indexRange\":{\"start\":\"740\",\"end\":\"11775\"},\"lastModified\":\"1733444932386147\",\"contentLength\":\"2176095432\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":3790705,\"approxDurationMs\":\"4592487\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.4D401F\\\"\",\"bitrate\":2016875,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"738\"},\"indexRange\":{\"start\":\"739\",\"end\":\"11774\"},\"lastModified\":\"1733449843101463\",\"contentLength\":\"762014943\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":132"
+    },
+    {
+      "title": "Part 6: Genetic Algorithms",
+      "url": "https://www.youtube.com/watch?v=dSofAXnnFrY&index=6&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU",
+      "status": 200,
+      "sourceTitle": "Genetic Algorithms - Learn Python for Data Science #6 - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":3449793,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"739\"},\"indexRange\":{\"start\":\"740\",\"end\":\"1791\"},\"lastModified\":\"1734774066500429\",\"contentLength\":\"82434658\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":1519067,\"approxDurationMs\":\"434133\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.4D401F\\\"\",\"bitrate\":1833879,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"738\"},\"indexRange\":{\"start\":\"739\",\"end\":\"1790\"},\"lastModified\":\"1734774741967304\",\"contentLength\":\"44941043\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":828152,\"a"
+    },
+    {
+      "title": "Data Science with Python",
+      "url": "https://www.youtube.com/watch?v=LHBE6Q9XlzI",
+      "status": 200,
+      "sourceTitle": "Python for Data Science - Course for Beginners (Learn Python, Pandas, NumPy, Matplotlib) - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"formats\":[{\"itag\":18,\"url\":\"https://rr1---sn-5jucgv5qc5oq-cage7.googlevideo.com/videoplayback?expire=1791590202\\u0026ei=2irJapqpF66P77AP79-U2QI\\u0026ip=106.51.76.189\\u0026id=o-AI25wX8VsSNGlF_FfoxLt6gcpDuLPV-_sLUc2Hkt40a0\\u0026itag=18\\u0026source=youtube\\u0026requiressl=yes\\u0026xpc=EgVo2aDSNQ%3D%3D\\u0026cps=297\\u0026met=1791568602%2C\\u0026mh=eQ\\u0026mm=31%2C29\\u0026mn=sn-5jucgv5qc5oq-cage7%2Csn-h557sns7\\u0026ms=au%2Crdu\\u0026mv=m\\u0026mvi=1\\u0026pl=19\\u0026rms=au%2Cau\\u0026initcwndbps=2686125\\u0026bui=AWzQHwqMNKOti4IS_eztBsN1Ahz9HdzBsJC2CtLBJcuV_MEvpS4DkCpIHhVQJVPe6M6IHN89SjbnBdin\\u0026spc=I-rgIdY_w91ae7gvo2wo2ilIz31MMRjSfS1YU1WmtCKfBU0rx2OQuCHqZ1Ff0-E9vQC1WOBZJ9hSDw\\u0026vprv=1\\u0026svpuc=1\\u0026mime=video%2Fmp4\\u0026ns=dF5N9IzW6rcw_l3H55AumKsZ\\u0026rqh=1\\u0026cnr=14\\u0026rateby"
+    },
+    {
+      "title": "Deep Learning for Computer Vision (neuralearn.ai)",
+      "url": "https://www.youtube.com/watch?v=IA3WxTTPXqQ",
+      "status": 200,
+      "sourceTitle": "Deep Learning for Computer Vision with Python and TensorFlow – Complete Course - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":4301322,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"741\"},\"indexRange\":{\"start\":\"742\",\"end\":\"256241\"},\"lastModified\":\"1759226767180940\",\"contentLength\":\"2761891039\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":164642,\"approxDurationMs\":\"134200363\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":248,\"mimeType\":\"video/webm; codecs=\\\"vp9\\\"\",\"bitrate\":2101058,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"224\"},\"indexRange\":{\"start\":\"225\",\"end\":\"403258\"},\"lastModified\":\"1715514343867258\",\"contentLength\":\"4574283421\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":272"
+    },
+    {
+      "title": "Large Language Models from Scratch",
+      "url": "https://www.youtube.com/watch?v=lnA9DMvHtfI",
+      "status": 200,
+      "sourceTitle": "Large Language Models from scratch - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":312131,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"741\"},\"indexRange\":{\"start\":\"742\",\"end\":\"1853\"},\"lastModified\":\"1739692533096470\",\"contentLength\":\"6741635\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":106875,\"approxDurationMs\":\"504633\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.4D401F\\\"\",\"bitrate\":116321,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"739\"},\"indexRange\":{\"start\":\"740\",\"end\":\"1851\"},\"lastModified\":\"1739692475408971\",\"contentLength\":\"2827674\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":44827,\"approxD"
+    },
+    {
+      "title": "Part 5: Deep Dream in TensorFlow",
+      "url": "https://www.youtube.com/watch?v=MrBzgvUNr4w&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU&index=5",
+      "status": 200,
+      "sourceTitle": "Deep Dream in TensorFlow - Learn Python for Data Science #5 - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":4544780,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"740\"},\"indexRange\":{\"start\":\"741\",\"end\":\"1792\"},\"lastModified\":\"1724290514573979\",\"contentLength\":\"104087305\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":1922948,\"approxDurationMs\":\"433032\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.64001F\\\"\",\"bitrate\":2304925,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"738\"},\"indexRange\":{\"start\":\"739\",\"end\":\"1790\"},\"lastModified\":\"1724290501996261\",\"contentLength\":\"58837548\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":1086987,"
+    },
+    {
+      "title": "Part 2: Twitter Sentiment Analysis",
+      "url": "https://www.youtube.com/watch?v=o_OZdbCzHUA",
+      "status": 200,
+      "sourceTitle": "Twitter Sentiment Analysis - Learn Python for Data Science #2 - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":3205765,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"739\"},\"indexRange\":{\"start\":\"740\",\"end\":\"1731\"},\"lastModified\":\"1743170149973682\",\"contentLength\":\"74719899\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":1447667,\"approxDurationMs\":\"412912\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.4D401F\\\"\",\"bitrate\":1844293,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"738\"},\"indexRange\":{\"start\":\"739\",\"end\":\"1730\"},\"lastModified\":\"1743170512191395\",\"contentLength\":\"41003715\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":794430,\"a"
+    },
+    {
+      "title": "Part 4: Predicting Stock Prices",
+      "url": "https://www.youtube.com/watch?v=SSu00IRRraY&index=4&list=PL2-dafEMk2A6QKz1mrk1uIGfHkC1zZ6UU",
+      "status": 200,
+      "sourceTitle": "Predicting Stock Prices - Learn Python for Data Science #4 - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":2382384,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"740\"},\"indexRange\":{\"start\":\"741\",\"end\":\"1852\"},\"lastModified\":\"1730921131363137\",\"contentLength\":\"50491896\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":880497,\"approxDurationMs\":\"458758\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.64001F\\\"\",\"bitrate\":1384580,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"738\"},\"indexRange\":{\"start\":\"739\",\"end\":\"1850\"},\"lastModified\":\"1730921129540200\",\"contentLength\":\"29092357\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":507323,\"ap"
+    },
+    {
+      "title": "Part 1: Introduction",
+      "url": "https://www.youtube.com/watch?v=T5pRlIbr6gg",
+      "status": 200,
+      "sourceTitle": "Introduction - Learn Python for Data Science #1 - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":137,\"mimeType\":\"video/mp4; codecs=\\\"avc1.640028\\\"\",\"bitrate\":3985587,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"740\"},\"indexRange\":{\"start\":\"741\",\"end\":\"1732\"},\"lastModified\":\"1741726881757764\",\"contentLength\":\"86207588\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":1663115,\"approxDurationMs\":\"414680\",\"qualityOrdinal\":\"QUALITY_ORDINAL_1080P\"},{\"itag\":248,\"mimeType\":\"video/webm; codecs=\\\"vp9\\\"\",\"bitrate\":1541947,\"width\":1920,\"height\":1080,\"initRange\":{\"start\":\"0\",\"end\":\"219\"},\"indexRange\":{\"start\":\"220\",\"end\":\"1630\"},\"lastModified\":\"1741726893810748\",\"contentLength\":\"41664297\",\"quality\":\"hd1080\",\"fps\":30,\"qualityLabel\":\"1080p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":803786,\"color"
+    },
+    {
+      "title": "Python for Data Science : Hands-on Projects",
+      "url": "https://www.youtube.com/watch?v=vaMMLLf0wLM",
+      "status": 200,
+      "sourceTitle": " - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"ERROR\",\"reason\":\"This video is unavailable\",\"errorScreen\":{\"playerInterstitialRenderer\":{\"content\":{\"interstitialViewModel\":{\"title\":{\"content\":\"Video unavailable\"},\"description\":{\"content\":\"This video is unavailable\"},\"loggingDirectives\":{\"trackingParams\":\"CAEQ4NYUIhMIo8bdkcGtlwMV_o5jBh1WgRMR\",\"visibility\":{\"types\":\"12\"}}}},\"stateEntityStoreKey\":\"\"}},\"contextParams\":\"Q0FBU0FnZ0E=\"},\"trackingParams\":\"CAAQu2kiEwijxt2Rwa2XAxX-jmMGHVaBExHKAQSSdPfa\",\"frameworkUpdates\":{\"entityBatchUpdate\":{\"mutations\":[{\"entityKey\":\"Eg0KC3ZhTU1MTGYwd0xNIPYBKAE%3D\",\"type\":\"ENTITY_MUTATION_TYPE_REPLACE\",\"payload\":{\"offlineabilityEntity\":{\"key\":\"Eg0KC3ZhTU1MTGYwd0xNIPYBKAE%3D\",\"addToOfflineButtonState\":\"ADD_TO_OFFLINE_BUTTON_STATE_UNKNOWN\"}}}],\"timestamp\":{\"seconds\":\"1791568603\",\"nanos\":752771189}}}};</script><div id=\"player\" class=\"skeleton flexy\"><div id=\"player-wrap\"><div id=player&#45;placeholder style=\"background-image: url('https://i.ytimg.com/vi/vaMMLLf0wLM/hqdefault.jpg'"
+    },
+    {
+      "title": "Write Linear Regression From Scratch in Python",
+      "url": "https://www.youtube.com/watch?v=uwwWVAgJBcM",
+      "status": 200,
+      "sourceTitle": "Linear Regression Machine Learning (tutorial) - YouTube",
+      "playability": "\"playabilityStatus\":{\"status\":\"OK\",\"playableInEmbed\":true,\"miniplayer\":{\"miniplayerRenderer\":{\"playbackMode\":\"PLAYBACK_MODE_ALLOW\"}},\"contextParams\":\"Q0FFU0FnZ0M=\"},\"streamingData\":{\"expiresInSeconds\":\"21540\",\"adaptiveFormats\":[{\"itag\":136,\"mimeType\":\"video/mp4; codecs=\\\"avc1.4D401F\\\"\",\"bitrate\":2319254,\"width\":1280,\"height\":720,\"initRange\":{\"start\":\"0\",\"end\":\"739\"},\"indexRange\":{\"start\":\"740\",\"end\":\"7347\"},\"lastModified\":\"1749274168423407\",\"contentLength\":\"297177216\",\"quality\":\"hd720\",\"fps\":30,\"qualityLabel\":\"720p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":813933,\"approxDurationMs\":\"2920899\",\"qualityOrdinal\":\"QUALITY_ORDINAL_720P\"},{\"itag\":134,\"mimeType\":\"video/mp4; codecs=\\\"avc1.4D401E\\\"\",\"bitrate\":582769,\"width\":640,\"height\":360,\"initRange\":{\"start\":\"0\",\"end\":\"740\"},\"indexRange\":{\"start\":\"741\",\"end\":\"7348\"},\"lastModified\":\"1749269632108680\",\"contentLength\":\"70144825\",\"quality\":\"medium\",\"fps\":30,\"qualityLabel\":\"360p\",\"projectionType\":\"RECTANGULAR\",\"averageBitrate\":192118,\"highR"
+    },
+    {
+      "title": "Stanford CS230: Deep Learning (2018)",
+      "url": "https://youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb",
+      "status": 200,
+      "sourceTitle": "Stanford CS230: Deep Learning | Autumn 2018 - YouTube",
+      "visibleVideos": 10,
+      "hidden": null,
+      "alerts": [],
+      "initialDataParsed": true,
+      "emptyMessage": false
+    }
+  ]
+}

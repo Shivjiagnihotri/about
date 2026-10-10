@@ -20,6 +20,10 @@ const uiText=value=>String(value).replace(/\s*\u2014\s*/g,': ').replace(/\s+/g,'
 const review=JSON.parse(await readFile(new URL('review-overrides.json',root),'utf8'));
 const excluded=new Set(review.exclusions.map(item=>canonical(item.url)));
 const overrides=new Map(review.overrides.map(item=>[canonical(item.url),item]));
+let coverData={covers:[]};
+try { coverData=JSON.parse(await readFile(new URL('video-covers.json',root),'utf8')); }
+catch(error) { if(error.code!=='ENOENT') throw error; }
+const videoCovers=new Map(coverData.covers.map(item=>[canonical(item.url),item]));
 for(const item of [...curatedBooks,...curatedResources,...lists.flat()]) {
   if(!item || !item.title || !item.url) throw new Error('Entry missing title or URL');
   const url=canonical(item.url);
@@ -32,6 +36,8 @@ for(const item of [...curatedBooks,...curatedResources,...lists.flat()]) {
   seen.add(url);
   const record={id:createHash('sha256').update(url).digest('hex').slice(0,16),title:uiText(item.title),url:item.url,provider:item.provider || new URL(url).hostname,type:item.type,category:item.category,level:item.level||'All levels',topics:[...new Set(item.topics||[])].map(uiText),access:item.access||'Free materials',sourceUrl:item.sourceUrl||item.url};
   if(/^(www\.)?(youtube\.com|youtu\.be)$/.test(new URL(url).hostname)) record.type='Video lectures';
+  const preview=videoCovers.get(url);
+  if(preview) { record.cover=preview.cover;record.coverKind=preview.kind; }
   for(const key of ['pdfUrl','date','authors']) if(item[key]) record[key]=item[key];
   if(item.format==='PDF' && !record.pdfUrl) record.pdfUrl=item.url;
   if(record.authors) record.authors=uiText(record.authors);

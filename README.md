@@ -41,12 +41,16 @@ node scripts/collect-tutorials.mjs
 node scripts/collect-open-books.mjs
 python scripts/collect-papers.py --target 3500 --as-of YYYY-MM-DD
 npm run catalogue:build
+node scripts/collect-video-covers.mjs
+npm run catalogue:build
 npm test
 ```
 
 Use the actual review date in place of `YYYY-MM-DD`. The tutorial collector caches page metadata for one day; add `--refresh` to check it again. Paper collection uses the official Hugging Face Papers API with rate limiting and keeps canonical arXiv links. The build combines sources and selected recommendations, removes duplicate URLs, assigns stable bookmark IDs, and writes `library.json` plus the public `manifest.json` counts. Commit these generated files with the source changes when publishing an update. Review exclusions and provider terms before adding new collectors.
 
 Book and course selections are in `learn/books.js` and `learn/resources.js`. Educational explanations and simulations are in `learn/concepts.js` and `learn/demos.js`. Simulations use small deterministic examples, with their simplifying assumptions shown alongside the controls. The learning site uses its own `garden.css`, `library.css`, and `demos.css`; it does not load the games or portfolio graphics engine.
+
+Video cards have local preview covers and accessible links to their lessons. The cover collector checks source-provided social images, records attribution in `learn/catalogue/video-covers.json`, and draws an original cover when the source has no usable preview. Run it after the first catalogue build, then rebuild to attach the images to the index. Images load lazily; no video player or third-party tracking iframe loads on this site. Review unavailable-video notices on source pages before publishing.
 
 ## Games
 

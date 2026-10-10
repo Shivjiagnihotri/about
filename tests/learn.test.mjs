@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import { concepts } from '../learn/concepts.js';
 import { demoNames } from '../learn/demos.js';
 import { books } from '../learn/books.js';
@@ -20,6 +20,22 @@ test('Concept graph has valid related ideas, actual demos or explanatory steps, 
     external(idea.reading.url);
   }
   for(const name of demoNames) assert.ok(concepts.some(x=>x.demo===name),`Demo ${name} is discoverable`);
+});
+
+test('Every video has a local cover and traceable preview provenance',async()=>{
+  const root=new URL('../learn/',import.meta.url);
+  const [{items},{covers}]=await Promise.all(['catalogue/library.json','catalogue/video-covers.json'].map(async path=>JSON.parse(await readFile(new URL(path,root),'utf8'))));
+  const previews=new Map(covers.map(item=>[item.url,item]));
+  for(const item of [...items.filter(x=>x.type==='Video lectures'),...resources.filter(x=>/video/i.test(x.format))]) {
+    const preview=previews.get(item.url);
+    assert.ok(preview,`Missing video cover: ${item.title}`);
+    if(item.type==='Video lectures') assert.equal(item.cover,preview.cover);
+    assert.match(preview.cover,/^covers\/[a-f0-9]{16}\.(jpg|png|webp|svg)$/);
+    assert.ok((await stat(new URL(preview.cover,root))).size>500);
+    assert.ok(['source-thumbnail','original-illustration'].includes(preview.kind));
+    if(preview.kind==='source-thumbnail') external(preview.remoteImage);
+    else assert.ok(preview.note,'Fallback artwork explains why no source preview was used');
+  }
 });
 test('Curated books and courses have distinct IDs, valid outbound links, and honest format labels',()=>{
   for(const collection of [books,resources]) {

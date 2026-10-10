@@ -1,6 +1,6 @@
 {
-  "builtAt": "2026-10-09T12:09:54.838Z",
-  "total": 5279,
+  "builtAt": "2026-10-09T17:54:56.237Z",
+  "total": 5277,
   "byType": {
     "Book": 205,
     "Collection": 1,
@@ -11,13 +11,13 @@
     "Interactive": 4,
     "Paper": 3500,
     "Tutorial": 549,
-    "Video lectures": 72
+    "Video lectures": 70
   },
   "byCategory": {
-    "deep-learning": 1200,
+    "deep-learning": 1199,
     "foundations": 326,
     "llms": 2650,
-    "machine-learning": 417,
+    "machine-learning": 416,
     "systems": 686
   },
   "byProvider": {
@@ -62,7 +62,7 @@
     "Trevor Hastie, Stanford": 1,
     "UC Berkeley": 2,
     "Wikibooks": 4,
-    "YouTube course creator": 72,
+    "YouTube course creator": 70,
     "acuity.press": 1,
     "aisafety.dance": 1,
     "algorithmsbook.com": 1,
