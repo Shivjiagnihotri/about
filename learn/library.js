@@ -5,13 +5,13 @@ export function initLibrary({ isSaved, onReady, onTotal, onToggleSaved }) {
   const $=id=>document.getElementById(id);
   const esc=value=>String(value || '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const params=new URL(location.href).searchParams;
-  const state={q:params.get('library') || params.get('q') || '',topic:params.get('topic') || 'all',type:params.get('kind') || 'all',provider:params.get('source') || 'all',level:params.get('level') || 'all',sort:params.get('sort') || 'relevance',page:Math.max(1,Number(params.get('page')) || 1),savedOnly:false};
+  const state={q:params.get('library') || params.get('q') || '',topic:params.get('topic') || 'all',subject:params.get('subject') || 'all',type:params.get('kind') || 'all',provider:params.get('source') || 'all',level:params.get('level') || 'all',sort:params.get('sort') || 'relevance',page:Math.max(1,Number(params.get('page')) || 1),savedOnly:false};
   const size=24;
   let records=[], loading=null, ready=false, debounce;
-  const selectors=[['libraryTopic','topic'],['libraryType','type'],['libraryProvider','provider'],['libraryLevel','level'],['librarySort','sort']];
+  const selectors=[['libraryTopic','topic'],['librarySubject','subject'],['libraryType','type'],['libraryProvider','provider'],['libraryLevel','level'],['librarySort','sort']];
   function syncURL() {
     const url=new URL(location.href);
-    for(const [key,value,defaultValue] of [['library',state.q,''],['topic',state.topic,'all'],['kind',state.type,'all'],['source',state.provider,'all'],['level',state.level,'all'],['sort',state.sort,'relevance'],['page',String(state.page),'1']]) {
+    for(const [key,value,defaultValue] of [['library',state.q,''],['topic',state.topic,'all'],['subject',state.subject,'all'],['kind',state.type,'all'],['source',state.provider,'all'],['level',state.level,'all'],['sort',state.sort,'relevance'],['page',String(state.page),'1']]) {
       value===defaultValue?url.searchParams.delete(key):url.searchParams.set(key,value);
     }
     history.replaceState(null,'',url);
@@ -21,9 +21,10 @@ export function initLibrary({ isSaved, onReady, onTotal, onToggleSaved }) {
   }
   function render() {
     $('librarySaved').setAttribute('aria-pressed',String(state.savedOnly));
+    document.querySelectorAll('[data-library-subject]').forEach(button=>button.setAttribute('aria-pressed',String(state.subject===button.dataset.librarySubject)));
     if(!ready) return;
     const words=state.q.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
-    let found=records.filter(item=>(state.topic==='all'||item.category===state.topic)&&(state.type==='all'||item.type===state.type)&&(state.provider==='all'||item.provider===state.provider)&&(state.level==='all'||item.level===state.level)&&(!state.savedOnly||isSaved(`library:${item.id}`))&&words.every(word=>item.searchText.includes(word)));
+    let found=records.filter(item=>(state.topic==='all'||item.category===state.topic)&&(state.subject==='all'||item.topics.includes(state.subject))&&(state.type==='all'||item.type===state.type)&&(state.provider==='all'||item.provider===state.provider)&&(state.level==='all'||item.level===state.level)&&(!state.savedOnly||isSaved(`library:${item.id}`))&&words.every(word=>item.searchText.includes(word)));
     if(state.sort==='title') found.sort((a,b)=>a.title.localeCompare(b.title));
     if(state.sort==='newest') found.sort((a,b)=>(b.date||'').localeCompare(a.date||'')||a.title.localeCompare(b.title));
     const pages=Math.max(1,Math.ceil(found.length/size));
@@ -44,13 +45,29 @@ export function initLibrary({ isSaved, onReady, onTotal, onToggleSaved }) {
     if(loading) return loading;
     loading=(async()=>{
       try {
-        const response=await fetch('catalogue/library.json');
-        if(!response.ok) throw new Error(`Catalogue response ${response.status}`);
-        const data=await response.json();
+        let data;
+        if('DecompressionStream' in window) {
+          try {
+            const response=await fetch('catalogue/library.json.gz');
+            if(!response.ok || !response.body) throw new Error('Compressed catalogue unavailable');
+            data=await new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).json();
+          } catch { /* Older hosts can serve the ordinary JSON below. */ }
+        }
+        if(!data) {
+          const response=await fetch('catalogue/library.json');
+          if(!response.ok) throw new Error(`Catalogue response ${response.status}`);
+          data=await response.json();
+        }
         if(!Array.isArray(data.items)) throw new Error('Catalogue is not a collection');
         records=data.items.map(item=>({...item,searchText:[item.title,item.description,item.authors,item.provider,item.category,...(item.topics||[])].filter(Boolean).join(' ').toLocaleLowerCase()}));
         fillOptions('libraryType',[...new Set(records.map(x=>x.type))].sort(),'All formats');
         fillOptions('libraryProvider',[...new Set(records.map(x=>x.provider))].sort(),'Every provider');
+        fillOptions('librarySubject',[...new Set(records.flatMap(x=>x.topics))].sort(),'Every subject');
+        for(const option of $('libraryLevel').options) {
+          if(option.value==='all') continue;
+          const label=option.value==='All levels'?'Not level-specific':option.value;
+          option.textContent=`${label} (${records.filter(x=>x.level===option.value).length.toLocaleString()})`;
+        }
         selectors.forEach(([id,key])=>{ if(![...$(id).options].some(x=>x.value===state[key])) state[key]=key==='sort'?'relevance':'all'; $(id).value=state[key]; });
         ready=true;
         onReady(records.map(x=>`library:${x.id}`));
@@ -66,13 +83,19 @@ export function initLibrary({ isSaved, onReady, onTotal, onToggleSaved }) {
     return loading;
   }
   function reset() {
-    Object.assign(state,{q:'',topic:'all',type:'all',provider:'all',level:'all',sort:'relevance',page:1});
+    Object.assign(state,{q:'',topic:'all',subject:'all',type:'all',provider:'all',level:'all',sort:'relevance',page:1});
     $('librarySearch').value='';
     selectors.forEach(([id,key])=>$(id).value=state[key]);
     if(state.savedOnly) onToggleSaved();
     syncURL();render();
   }
   selectors.forEach(([id,key])=>$(id).addEventListener('change',()=>{state[key]=$(id).value;state.page=1;syncURL();render();}));
+  document.querySelectorAll('[data-library-subject]').forEach(button=>button.addEventListener('click',()=>{
+    Object.assign(state,{q:'',topic:'all',subject:button.dataset.librarySubject,type:'all',provider:'all',level:'all',page:1});
+    $('librarySearch').value='';
+    if(state.savedOnly) onToggleSaved();
+    load().then(()=>{selectors.forEach(([id,key])=>$(id).value=state[key]);syncURL();render();});
+  }));
   $('librarySearch').value=state.q;
   $('librarySearch').addEventListener('input',()=>{clearTimeout(debounce);debounce=setTimeout(()=>{state.q=$('librarySearch').value;state.page=1;syncURL();load().then(render);},140);});
   $('resetLibrary').addEventListener('click',reset);
@@ -91,7 +114,7 @@ export function initLibrary({ isSaved, onReady, onTotal, onToggleSaved }) {
     const observer=new IntersectionObserver(([entry])=>{if(entry.isIntersecting){load();observer.disconnect();}},{rootMargin:'1200px'});
     observer.observe($('library'));
   } else load();
-  if(state.q || location.hash==='#library') load();
+  if(state.q || state.level!=='all' || state.subject!=='all' || state.topic!=='all' || state.type!=='all' || state.provider!=='all' || location.hash==='#library') load();
   return {
     setSearch(q) { if(state.q===q) return; state.q=q;state.page=1;$('librarySearch').value=q;if(q)load().then(render);else render(); },
     setSavedOnly(value) { const changed=state.savedOnly!==value;state.savedOnly=value;if(changed)state.page=1;if(value)load().then(render);else render(); },

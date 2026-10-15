@@ -7,8 +7,14 @@
 .library-overview>p>span { font-size:11px; color:#77846a; }
 .library-overview>div { display:flex; gap:22px; align-items:center; }
 .library-overview .quiet-link { background:none; border:0; font-size:10px; cursor:pointer; padding:7px; }
-.library-controls { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; padding:23px; background:#f7f8ef; border:1px solid #d3ddc6; border-radius:9px; }
+.library-controls { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; padding:23px; background:#f7f8ef; border:1px solid #d3ddc6; border-radius:9px; }
 .library-search { grid-column:1/-1; }
+.llm-learning-path { padding:0 0 25px; }
+.llm-learning-path>p { font-size:16px; color:#405a35; margin-bottom:12px; }
+.llm-learning-path>div { display:flex; flex-wrap:wrap; gap:8px; }
+.llm-learning-path button { border:1px solid #b6c6a9; border-radius:20px; padding:10px 15px; font-size:12px; color:#405a35; background:#f6f8ee; cursor:pointer; }
+.llm-learning-path button:hover,.llm-learning-path button[aria-pressed="true"] { background:#405a35; color:#fff; }
+.llm-learning-path>span { display:block; margin-top:12px; font-size:11px; line-height:1.6; color:#607451; }
 .library-search input { border:0; border-bottom:1px solid #d9e1ce; padding:8px 0 16px; width:100%; background:none; outline-offset:5px; font-size:18px; }
 .library-search input::placeholder { color:#94a084; }
 .library-controls label { min-width:0; font-size:9px; color:#839074; }

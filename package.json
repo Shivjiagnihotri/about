@@ -5,7 +5,10 @@
   "scripts": {
     "start": "node scripts/serve.mjs",
     "test": "node --test tests/*.test.mjs",
-    "catalogue:build": "node scripts/build-catalogue.mjs"
+    "catalogue:build": "node scripts/build-catalogue.mjs",
+    "catalogue:expand-ai": "python scripts/expand-ai-library.py",
+    "catalogue:world": "python scripts/collect-world-resources.py",
+    "catalogue:llm": "python scripts/collect-llm-learning.py"
   },
   "engines": {
     "node": ">=20"

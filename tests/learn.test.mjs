@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
+import { gunzipSync } from 'node:zlib';
+import { createHash } from 'node:crypto';
 import { concepts } from '../learn/concepts.js';
 import { demoNames } from '../learn/demos.js';
 import { books } from '../learn/books.js';
@@ -29,7 +31,10 @@ test('Every video has a local cover and traceable preview provenance',async()=>{
   for(const item of [...items.filter(x=>x.type==='Video lectures'),...resources.filter(x=>/video/i.test(x.format))]) {
     const preview=previews.get(item.url);
     assert.ok(preview,`Missing video cover: ${item.title}`);
-    if(item.type==='Video lectures') assert.equal(item.cover,preview.cover);
+    if(item.type==='Video lectures') {
+      assert.equal(item.cover,preview.cover);
+      assert.equal(preview.kind,'source-thumbnail','Every video uses a thumbnail supplied by its original provider');
+    }
     assert.match(preview.cover,/^covers\/[a-f0-9]{16}\.(jpg|png|webp|svg)$/);
     assert.ok((await stat(new URL(preview.cover,root))).size>500);
     assert.ok(['source-thumbnail','original-illustration'].includes(preview.kind));
@@ -48,12 +53,14 @@ test('Curated books and courses have distinct IDs, valid outbound links, and hon
 test('Built open library is deduplicated, traceable, and agrees with its public counts',async()=>{
   const root=new URL('../learn/catalogue/',import.meta.url);
   const [{items},manifest]=await Promise.all(['library.json','manifest.json'].map(async path=>JSON.parse(await readFile(new URL(path,root),'utf8'))));
-  assert.ok(items.length>=5000,'The published catalogue retains the requested minimum of 5,000 resources');
+  assert.ok(items.length>=50000,'The published catalogue reaches the requested 50,000-resource milestone');
   const canonical=url=>{const parsed=new URL(url);parsed.hash='';return parsed.href.replace(/\/$/,'');};
   assert.equal(new Set(items.map(x=>x.id)).size,items.length);
   assert.equal(new Set(items.map(x=>canonical(x.url))).size,items.length);
   assert.equal(manifest.total,items.length);
   assert.equal(Object.values(manifest.byType).reduce((a,b)=>a+b,0),items.length);
+  assert.equal(Object.values(manifest.byLevel).reduce((a,b)=>a+b,0),items.length);
+  for(const level of ['Beginner','Intermediate','Advanced']) assert.ok(manifest.byLevel[level]>0);
   for(const item of items) {
     assert.ok(item.title.trim()&&item.provider&&item.type&&item.access,item.id);
     assert.ok(categories.has(item.category),item.title);
@@ -61,5 +68,58 @@ test('Built open library is deduplicated, traceable, and agrees with its public 
     if(item.pdfUrl) external(item.pdfUrl);
     if(item.type==='Paper') assert.ok(item.date&&item.authors,`Paper metadata: ${item.title}`);
     assert.ok(Array.isArray(item.topics));
+  }
+});
+
+test('Worldwide additions are new English resources with evidence across six continents',async()=>{
+  const root=new URL('../learn/catalogue/',import.meta.url);
+  const [{items},world,learning]=await Promise.all(['library.json','world-expansion.json','llm-learning.json'].map(async path=>JSON.parse(await readFile(new URL(path,root),'utf8'))));
+  assert.ok(world.items.length>=10000);
+  const key=title=>title.normalize('NFKD').toLowerCase().replace(/[^\p{L}\p{N}_]+/gu,'');
+  assert.equal(new Set(world.items.map(x=>key(x.title))).size,world.items.length);
+  const worldUrls=new Set(world.items.map(x=>x.url));
+  const teachingUrls=new Set(learning.items.map(x=>x.url));
+  const baseline=items.filter(x=>!worldUrls.has(x.url)&&!teachingUrls.has(x.url));
+  assert.equal(baseline.length,world.baselineTotal,'All resources from the 15,277 baseline survive');
+  const digest=createHash('sha256').update(baseline.map(x=>x.id).sort().join('\n')).digest('hex');
+  assert.equal(digest,world.baselineIdsSha256,'The existing collection has not been replaced to inflate the total');
+  const existingTitles=new Set(baseline.map(x=>key(x.title)));
+  for(const item of world.items) {
+    assert.ok(!existingTitles.has(key(item.title)),`Repeated title: ${item.title}`);
+    assert.equal(item.language,'en');
+    assert.ok(item.languageEvidence.confidence>=0.95);
+    assert.ok(item.languageEvidence.textSha256);
+    assert.equal(new URL(item.url).hostname,'proceedings.mlr.press');
+    assert.ok(item.metadataUrl&&item.venue&&item.venueLocation&&item.date&&item.authors&&item.pdfUrl);
+    assert.ok(item.date<=world.collectedAt);
+  }
+  for(const region of ['Africa','Asia','Europe','North America','South America','Oceania']) assert.ok(world.byRegion[region]>0,region);
+  for(const type of ['Guide','Article','Book','Video lectures']) assert.ok(learning.items.some(x=>x.type===type&&x.language==='en'),type);
+  for(const topic of ['Loading open models','LLM training','Fine-tuning','Local inference','Quantization','Deployment']) {
+    assert.ok(learning.items.some(x=>x.topics.includes(topic)&&x.type!=='Video lectures'),`Missing practical topic: ${topic}`);
+  }
+});
+
+test('Compressed delivery contains exactly the published catalogue',async()=>{
+  const root=new URL('../learn/catalogue/',import.meta.url);
+  const [json,gzip]=await Promise.all(['library.json','library.json.gz'].map(path=>readFile(new URL(path,root))));
+  assert.deepEqual(gunzipSync(gzip),json);
+  assert.ok(gzip.length<json.length/3,'Compressed catalogue should materially reduce the network transfer');
+});
+
+test('AI expansion contains 10,000 unique, sourced additions with research metadata',async()=>{
+  const root=new URL('../learn/catalogue/',import.meta.url);
+  const expansion=JSON.parse(await readFile(new URL('ai-expansion.json',root),'utf8'));
+  assert.ok(expansion.items.length>=10000);
+  const key=title=>title.toLowerCase().replace(/[^\p{L}\p{N}_]+/gu,'');
+  assert.equal(new Set(expansion.items.map(x=>key(x.title))).size,expansion.items.length);
+  for(const item of expansion.items) {
+    assert.ok(item.metadataCheckedAt&&item.verification&&item.sourceUrl);
+    assert.ok(['Beginner','Intermediate','Advanced'].includes(item.level));
+    if(item.type==='Paper') {
+      assert.ok(item.pdfUrl&&item.authors&&item.date);
+      assert.equal(new URL(item.url).hostname,'aclanthology.org');
+      assert.equal(item.level,'Advanced');
+    }
   }
 });

@@ -16,6 +16,7 @@ const mime = {
   ".hdr": "application/octet-stream",
   ".txt": "text/plain",
   ".json": "application/json; charset=utf-8",
+  ".gz": "application/gzip",
   ".md": "text/plain; charset=utf-8",
 };
 http

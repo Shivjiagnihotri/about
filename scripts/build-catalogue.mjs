@@ -1,11 +1,12 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { gzipSync } from 'node:zlib';
 import { books } from '../learn/books.js';
 import { resources } from '../learn/resources.js';
 
 const root=new URL('../learn/catalogue/',import.meta.url);
 await mkdir(root,{recursive:true});
-const inputs=['tutorials.json','collections.json','papers.json'];
+const inputs=['tutorials.json','collections.json','llm-learning.json','papers.json','ai-expansion.json','world-expansion.json'];
 const lists=await Promise.all(inputs.map(async file=>{
   const data=JSON.parse(await readFile(new URL(file,root),'utf8'));
   return Array.isArray(data)?data:data.items || data.resources;
@@ -14,7 +15,7 @@ const curatedBooks=books.map(book=>({...book,type:'Book',provider:book.source,ac
 const curatedResources=resources.map(item=>({...item,sourceUrl:item.url}));
 const seen=new Set(),items=[];
 const allowedCategories=new Set(['foundations','machine-learning','deep-learning','llms','systems']);
-const allowedTypes=new Set(['Book','Guide','Course','Tutorial','Course lesson','Collection','Paper','Interactive','Documentation']);
+const allowedTypes=new Set(['Book','Guide','Article','Video lectures','Course','Tutorial','Course lesson','Collection','Paper','Interactive','Documentation']);
 function canonical(url) {const parsed=new URL(url);parsed.hash='';['utm_source','utm_medium','utm_campaign','ref'].forEach(key=>parsed.searchParams.delete(key));return parsed.href.replace(/\/$/,'');}
 const uiText=value=>String(value).replace(/\s*\u2014\s*/g,': ').replace(/\s+/g,' ').trim();
 const review=JSON.parse(await readFile(new URL('review-overrides.json',root),'utf8'));
@@ -38,14 +39,17 @@ for(const item of [...curatedBooks,...curatedResources,...lists.flat()]) {
   if(/^(www\.)?(youtube\.com|youtu\.be)$/.test(new URL(url).hostname)) record.type='Video lectures';
   const preview=videoCovers.get(url);
   if(preview) { record.cover=preview.cover;record.coverKind=preview.kind; }
-  for(const key of ['pdfUrl','date','authors']) if(item[key]) record[key]=item[key];
+  for(const key of ['pdfUrl','date','authors','verification','metadataCheckedAt','metadataUrl','language','region','country','venue','venueLocation']) if(item[key]) record[key]=item[key];
   if(item.format==='PDF' && !record.pdfUrl) record.pdfUrl=item.url;
   if(record.authors) record.authors=uiText(record.authors);
   if(item.description) { const text=uiText(item.description); record.description=text.length>320?text.slice(0,317).trimEnd()+'…':text; }
   items.push(record);
 }
 const countBy=key=>Object.fromEntries([...new Set(items.map(x=>x[key]))].sort().map(value=>[value,items.filter(x=>x[key]===value).length]));
-const manifest={builtAt:new Date().toISOString(),total:items.length,byType:countBy('type'),byCategory:countBy('category'),byProvider:countBy('provider'),inputs};
-await writeFile(new URL('library.json',root),JSON.stringify({builtAt:manifest.builtAt,items}));
+const countOptional=key=>Object.fromEntries([...new Set(items.map(x=>x[key]||'Not recorded'))].sort().map(value=>[value,items.filter(x=>(x[key]||'Not recorded')===value).length]));
+const manifest={builtAt:new Date().toISOString(),total:items.length,byType:countBy('type'),byCategory:countBy('category'),byLevel:countBy('level'),byProvider:countBy('provider'),byLanguage:countOptional('language'),byRegion:countOptional('region'),inputs};
+const library=JSON.stringify({builtAt:manifest.builtAt,items});
+await writeFile(new URL('library.json',root),library);
+await writeFile(new URL('library.json.gz',root),gzipSync(library,{level:9}));
 await writeFile(new URL('manifest.json',root),JSON.stringify(manifest,null,2)+'\n');
 console.log(JSON.stringify({total:manifest.total,byType:manifest.byType,byCategory:manifest.byCategory,providerCount:Object.keys(manifest.byProvider).length},null,2));

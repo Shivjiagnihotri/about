@@ -2,6 +2,12 @@
 
 An editorial portfolio and two original, first-person 3D browser games. Built with **HTML, CSS, and vanilla JavaScript**. No framework, build step, backend, or production npm dependencies.
 
+## AI learning library
+
+The Learning Garden at `/learn/` indexes 50,348 resources. Filter by Beginner, Intermediate, Advanced, subject, format, and provider. Practical LLM shortcuts cover loading open models, training, fine-tuning, local inference, quantization and deployment. All 106 video entries have source thumbnails. Most catalogue entries are advanced research articles; international additions cover venues across six continents.
+
+For the newest imports, install `scripts/requirements-resources.txt`, run `npm run catalogue:llm` and `npm run catalogue:world`, then `npm run catalogue:build` and `npm test`. Python 3 and network access are required for collection. See [worldwide and LLM sources](learn/catalogue/WORLD_AND_LLM_SOURCES.md) for provenance, English-language checks, geographic definitions and limitations. The browser loads the 5.8 MB compressed catalogue with an ordinary JSON fallback and renders 24 cards at a time.
+
 ## Preview and check
 
 With Node.js 20 or newer:
